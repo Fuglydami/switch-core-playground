@@ -64,7 +64,9 @@ export function Avatar({
       aria-label={alt ?? initials}
     >
       {src ? (
-        <img src={src} alt={alt ?? initials ?? ''} className={styles.image} />
+        <span className={styles.imageWrapper}>
+          <img src={src} alt={alt ?? initials ?? ''} className={styles.image} />
+        </span>
       ) : initials ? (
         <span className={styles.initials} aria-hidden="true">
           {initials.slice(0, 2).toUpperCase()}
