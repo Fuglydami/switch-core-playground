@@ -1,0 +1,126 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--switch-spacing-2, 8px);
+  padding: var(--switch-spacing-1, 4px) var(--switch-spacing-3, 12px);
+  border: 1px solid var(--switch-color-border-default, #e5e7eb);
+  border-radius: var(--switch-border-radius-full, 9999px);
+  background: var(--switch-color-surface-primary, #fff);
+  font-family: var(--switch-typography-font-family-sans, system-ui, sans-serif);
+  font-size: var(--switch-typography-font-size-body-small, 14px);
+  font-weight: var(--switch-typography-font-weight-medium, 500);
+  color: var(--switch-color-text-primary, #111827);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.small {
+  padding: 2px 8px;
+  font-size: 12px;
+  gap: 4px;
+}
+
+.medium {
+  padding: 4px 12px;
+  font-size: 14px;
+}
+
+.chip.selectable {
+  cursor: pointer;
+  transition: background-color 100ms ease, border-color 100ms ease;
+}
+
+.chip.selectable:hover:not(.disabled) {
+  background: var(--switch-color-surface-grey);
+}
+
+.chip.selectable:focus-visible {
+  outline: 2px solid var(--switch-color-semantic-interactive);
+  outline-offset: 2px;
+}
+
+.chip.selected {
+  background: color-mix(in srgb, var(--switch-color-semantic-interactive) 10%, var(--switch-color-surface-primary));
+  border-color: var(--switch-color-semantic-interactive);
+  color: var(--switch-color-semantic-interactive);
+}
+
+.chip.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Checkbox dot */
+.checkbox {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--switch-color-border-default);
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 100ms ease, border-color 100ms ease;
+}
+
+.checkboxChecked {
+  background: var(--switch-color-semantic-interactive);
+  border-color: var(--switch-color-semantic-interactive);
+  color: #fff;
+}
+
+/* Leading icon */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.label {
+  line-height: 1.4;
+}
+
+/* Badge count */
+.count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 var(--switch-spacing-1);
+  background: var(--switch-color-neutral-200);
+  border-radius: var(--switch-border-radius-full);
+  font-size: 11px;
+  font-weight: var(--switch-typography-font-weight-semibold);
+  color: var(--switch-color-text-secondary);
+  line-height: 1;
+}
+
+.selected .count {
+  background: color-mix(in srgb, var(--switch-color-semantic-interactive) 20%, transparent);
+  color: var(--switch-color-semantic-interactive);
+}
+
+/* Close button */
+.closeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: transparent;
+  color: var(--switch-color-text-secondary);
+  cursor: pointer;
+  padding: 0;
+  border-radius: 50%;
+  transition: background-color 100ms ease;
+  flex-shrink: 0;
+}
+
+.closeButton:hover:not(:disabled) {
+  background: var(--switch-color-neutral-200);
+  color: var(--switch-color-text-primary);
+}

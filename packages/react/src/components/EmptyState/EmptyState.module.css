@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--switch-spacing-12, 48px) var(--switch-spacing-6);
+  gap: var(--switch-spacing-4);
+}
+
+.illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--switch-spacing-2);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-subtitle);
+  font-weight: var(--switch-typography-font-weight-semibold);
+  color: var(--switch-color-text-primary);
+}
+
+.description {
+  margin: 0;
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-medium);
+  color: var(--switch-color-text-secondary);
+  line-height: var(--switch-typography-line-height-normal);
+  max-width: 360px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--switch-spacing-3);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--switch-spacing-2);
+}

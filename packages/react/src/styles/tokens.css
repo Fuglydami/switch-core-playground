@@ -1,0 +1,250 @@
+/* ============================================================
+   Switch Core Design Tokens — Light Mode (default)
+   Source of truth: @switch/tokens (Style Dictionary)
+   ============================================================ */
+
+:root {
+  /* ── Primitive Color Ramps ───────────────────────────────── */
+
+  /* Primary Blue (brand) */
+  --switch-color-primaryblue-base: #00425f;
+  --switch-color-primaryblue-100: #ebf8fe;
+  --switch-color-primaryblue-200: #aeddf1;
+  --switch-color-primaryblue-300: #7bc6e4;
+  --switch-color-primaryblue-400: #479fc8;
+  --switch-color-primaryblue-500: #307399;
+  --switch-color-primaryblue-600: #18425d;
+  --switch-color-primaryblue-700: #072f40;
+  --switch-color-primaryblue-800: #647f8b;
+
+  /* Active Blue (interactive / CTA) */
+  --switch-color-activeblue-100: #ebf8fe;
+  --switch-color-activeblue-200: #a8d6ef;
+  --switch-color-activeblue-300: #6eb4e0;
+  --switch-color-activeblue-400: #0275d8;
+  --switch-color-activeblue-500: #1a4983;
+  --switch-color-activeblue-600: #10345e;
+
+  /* Primary Red */
+  --switch-color-primaryred-base: #ee312a;
+  --switch-color-primaryred-100: #fbe9e9;
+  --switch-color-primaryred-200: #f4b7b5;
+  --switch-color-primaryred-300: #ef8781;
+  --switch-color-primaryred-400: #dc4437;
+  --switch-color-primaryred-500: #a4251a;
+  --switch-color-primaryred-600: #590c07;
+
+  /* Active Yellow */
+  --switch-color-activeyellow-100: #fef6cf;
+  --switch-color-activeyellow-200: #fded94;
+  --switch-color-activeyellow-300: #f7ca5c;
+  --switch-color-activeyellow-400: #ec9b40;
+  --switch-color-activeyellow-500: #af5f26;
+  --switch-color-activeyellow-600: #6b2b0d;
+
+  /* Active Green */
+  --switch-color-activegreen-100: #f1fef1;
+  --switch-color-activegreen-200: #bef2b9;
+  --switch-color-activegreen-300: #74c965;
+  --switch-color-activegreen-400: #519e47;
+  --switch-color-activegreen-500: #36743d;
+  --switch-color-activegreen-600: #163c29;
+
+  /* Neutral */
+  --switch-color-neutral-100: #f9fbfc;
+  --switch-color-neutral-200: #f3f5f6;
+  --switch-color-neutral-300: #e1e6ed;
+  --switch-color-neutral-400: #c8d2df;
+  --switch-color-neutral-500: #aab7c6;
+  --switch-color-neutral-600: #848f9f;
+  --switch-color-neutral-700: #5f738c;
+  --switch-color-neutral-800: #4e5a6c;
+  --switch-color-neutral-900: #353f50;
+  --switch-color-neutral-1000: #1f2126;
+
+  /* Pop Blue (accent) */
+  --switch-color-popblue: #00b8de;
+
+  /* ── Semantic Tokens — Light Mode ────────────────────────── */
+
+  /* Surface */
+  --switch-color-surface-primary:   #ffffff;
+  --switch-color-surface-secondary: var(--switch-color-neutral-100);
+  --switch-color-surface-grey:      var(--switch-color-neutral-200);
+
+  /* Text */
+  --switch-color-text-primary:      var(--switch-color-neutral-900);
+  --switch-color-text-secondary:    var(--switch-color-neutral-700);
+  --switch-color-text-disabled:     var(--switch-color-neutral-500);
+  --switch-color-text-placeholder:  var(--switch-color-neutral-600);
+
+  /* Action — Primary Button */
+  --switch-color-action-primary-fill:  var(--switch-color-activeblue-400);
+  --switch-color-action-primary-label: #ffffff;
+  --switch-color-action-primary-hover: var(--switch-color-activeblue-500);
+
+  /* Action — Secondary Button */
+  --switch-color-action-secondary-fill:  rgba(2, 117, 216, 0.1);
+  --switch-color-action-secondary-label: var(--switch-color-activeblue-400);
+
+  /* Input */
+  --switch-color-input-fill:          var(--switch-color-neutral-200);
+  --switch-color-input-stroke:        var(--switch-color-neutral-400);
+  --switch-color-input-stroke-focus:  var(--switch-color-activeblue-400);
+  --switch-color-input-stroke-error:  var(--switch-color-primaryred-400);
+
+  /* Border */
+  --switch-color-border-default: var(--switch-color-neutral-300);
+  --switch-color-border-strong:  var(--switch-color-neutral-400);
+
+  /* Status */
+  --switch-color-status-error:   var(--switch-color-primaryred-400);
+  --switch-color-status-warning: var(--switch-color-activeyellow-400);
+  --switch-color-status-success: var(--switch-color-activegreen-400);
+  --switch-color-status-info:    var(--switch-color-activeblue-400);
+
+  /* ── Backward-compatible aliases (used by existing components) ── */
+  --switch-color-semantic-primary:     var(--switch-color-primaryblue-base);
+  --switch-color-semantic-interactive: var(--switch-color-activeblue-400);
+  --switch-color-semantic-danger:      var(--switch-color-status-error);
+  --switch-color-semantic-warning:     var(--switch-color-status-warning);
+  --switch-color-semantic-success:     var(--switch-color-status-success);
+  --switch-color-semantic-surface:     var(--switch-color-surface-grey);
+  --switch-color-semantic-background:  var(--switch-color-surface-primary);
+  --switch-color-semantic-text:        var(--switch-color-text-primary);
+  --switch-color-semantic-text-muted:  var(--switch-color-text-secondary);
+
+  /* ── Spacing ─────────────────────────────────────────────── */
+  --switch-spacing-0:   0px;
+  --switch-spacing-1:   4px;
+  --switch-spacing-2:   8px;
+  --switch-spacing-3:   12px;
+  --switch-spacing-4:   16px;
+  --switch-spacing-5:   20px;
+  --switch-spacing-6:   24px;
+  --switch-spacing-7:   28px;
+  --switch-spacing-8:   32px;
+  --switch-spacing-10:  40px;
+  --switch-spacing-12:  48px;
+  --switch-spacing-14:  56px;
+  --switch-spacing-16:  64px;
+  --switch-spacing-18:  72px;
+  --switch-spacing-20:  80px;
+  --switch-spacing-22:  88px;
+  --switch-spacing-24:  96px;
+  --switch-spacing-26:  104px;
+  --switch-spacing-30:  120px;
+  --switch-spacing-32:  128px;
+  --switch-spacing-48:  192px;
+  --switch-spacing-64:  256px;
+
+  /* ── Typography ──────────────────────────────────────────── */
+  --switch-typography-font-family-sans: 'Averta', system-ui, sans-serif;
+  --switch-typography-font-family-mono: 'JetBrains Mono', monospace;
+
+  /* Font Sizes — Body */
+  --switch-typography-font-size-body-small:    12px;
+  --switch-typography-font-size-body-medium:   14px;
+  --switch-typography-font-size-body-subtitle: 20px;
+
+  /* Font Sizes — Header */
+  --switch-typography-font-size-h1: 72px;
+  --switch-typography-font-size-h2: 56px;
+  --switch-typography-font-size-h3: 40px;
+  --switch-typography-font-size-h4: 32px;
+  --switch-typography-font-size-h5: 28px;
+  --switch-typography-font-size-h6: 20px;
+  --switch-typography-font-size-h7: 16px;
+  --switch-typography-font-size-h8: 14px;
+  --switch-typography-font-size-h9: 12px;
+
+  /* Font Sizes — Display */
+  --switch-typography-font-size-d1: 48px;
+  --switch-typography-font-size-d2: 64px;
+  --switch-typography-font-size-d3: 96px;
+
+  /* Backward-compat font-size aliases */
+  --switch-typography-font-size-xs:  12px;
+  --switch-typography-font-size-sm:  14px;
+  --switch-typography-font-size-md:  16px;
+  --switch-typography-font-size-lg:  18px;
+  --switch-typography-font-size-xl:  20px;
+  --switch-typography-font-size-2xl: 24px;
+  --switch-typography-font-size-3xl: 30px;
+  --switch-typography-font-size-4xl: 36px;
+
+  /* Font Weights */
+  --switch-typography-font-weight-thin:      100;
+  --switch-typography-font-weight-light:     300;
+  --switch-typography-font-weight-regular:   400;
+  --switch-typography-font-weight-semibold:  600;
+  --switch-typography-font-weight-bold:      700;
+  --switch-typography-font-weight-extra-bold:800;
+  --switch-typography-font-weight-black:     900;
+
+  /* Line Heights */
+  --switch-typography-line-height-tight:   1.2;
+  --switch-typography-line-height-snug:    1.375;
+  --switch-typography-line-height-normal:  1.5;
+  --switch-typography-line-height-relaxed: 1.625;
+
+  /* ── Border Radius ───────────────────────────────────────── */
+  --switch-border-radius-none: 0px;
+  --switch-border-radius-sm:   4px;
+  --switch-border-radius-md:   8px;
+  --switch-border-radius-rg:   12px;
+  --switch-border-radius-lg:   16px;
+  --switch-border-radius-full: 9999px;
+
+  /* ── Shadows (Light Mode) ────────────────────────────────── */
+  --switch-shadow-none:   none;
+  --switch-shadow-base:   0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --switch-shadow-xsmall: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --switch-shadow-small:  0 2px 6px 0 rgba(0, 0, 0, 0.08), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  --switch-shadow-medium: 0 4px 12px -1px rgba(0, 0, 0, 0.1), 0 2px 6px -1px rgba(0, 0, 0, 0.06);
+  --switch-shadow-large:  0 10px 24px -3px rgba(0, 0, 0, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.06);
+  --switch-shadow-xlarge: 0 20px 40px -6px rgba(0, 0, 0, 0.14), 0 10px 16px -4px rgba(0, 0, 0, 0.08);
+
+  /* Backward-compat aliases */
+  --switch-shadow-sm: var(--switch-shadow-xsmall);
+  --switch-shadow-md: var(--switch-shadow-small);
+  --switch-shadow-lg: var(--switch-shadow-medium);
+  --switch-shadow-xl: var(--switch-shadow-large);
+}
+
+/* ── Dark Mode Semantic Overrides ────────────────────────────── */
+[data-theme="dark"] {
+  /* Surface */
+  --switch-color-surface-primary:   var(--switch-color-neutral-1000);
+  --switch-color-surface-secondary: var(--switch-color-neutral-900);
+  --switch-color-surface-grey:      var(--switch-color-neutral-800);
+
+  /* Text */
+  --switch-color-text-primary:     var(--switch-color-neutral-100);
+  --switch-color-text-secondary:   var(--switch-color-neutral-400);
+  --switch-color-text-disabled:    var(--switch-color-neutral-700);
+  --switch-color-text-placeholder: var(--switch-color-neutral-600);
+
+  /* Input */
+  --switch-color-input-fill:   var(--switch-color-neutral-900);
+  --switch-color-input-stroke: var(--switch-color-neutral-700);
+
+  /* Border */
+  --switch-color-border-default: var(--switch-color-neutral-800);
+  --switch-color-border-strong:  var(--switch-color-neutral-700);
+
+  /* Backward-compat aliases — dark overrides */
+  --switch-color-semantic-primary:    var(--switch-color-neutral-100);
+  --switch-color-semantic-surface:    var(--switch-color-surface-grey);
+  --switch-color-semantic-background: var(--switch-color-surface-primary);
+  --switch-color-semantic-text:       var(--switch-color-text-primary);
+  --switch-color-semantic-text-muted: var(--switch-color-text-secondary);
+
+  /* Shadows — dark mode (stronger, uses white glow instead of black drop) */
+  --switch-shadow-base:   0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --switch-shadow-xsmall: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --switch-shadow-small:  0 2px 6px 0 rgba(0, 0, 0, 0.45), 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  --switch-shadow-medium: 0 4px 12px -1px rgba(0, 0, 0, 0.5), 0 2px 6px -1px rgba(0, 0, 0, 0.35);
+  --switch-shadow-large:  0 10px 24px -3px rgba(0, 0, 0, 0.55), 0 4px 10px -2px rgba(0, 0, 0, 0.4);
+  --switch-shadow-xlarge: 0 20px 40px -6px rgba(0, 0, 0, 0.6), 0 10px 16px -4px rgba(0, 0, 0, 0.45);
+}

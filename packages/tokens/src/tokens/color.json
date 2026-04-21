@@ -1,0 +1,116 @@
+{
+  "color": {
+    "base": {
+      "primaryBlue": { "$value": "#00425F", "$type": "color", "$description": "Brand primary blue" },
+      "popBlue":     { "$value": "#00B8DE", "$type": "color", "$description": "Accent / pop blue" },
+      "primaryRed":  { "$value": "#EE312A", "$type": "color", "$description": "Brand primary red" },
+      "primaryGrey": { "$value": "#EAECEF", "$type": "color", "$description": "Brand primary grey" },
+      "white":       { "$value": "#FFFFFF", "$type": "color" },
+      "black":       { "$value": "#000000", "$type": "color" }
+    },
+    "primitive": {
+      "primaryblue": {
+        "100":  { "$value": "#EBF8FE", "$type": "color" },
+        "200":  { "$value": "#AEDDF1", "$type": "color" },
+        "300":  { "$value": "#7BC6E4", "$type": "color" },
+        "400":  { "$value": "#479FC8", "$type": "color" },
+        "500":  { "$value": "#307399", "$type": "color" },
+        "600":  { "$value": "#18425D", "$type": "color" },
+        "700":  { "$value": "#072F40", "$type": "color" },
+        "800":  { "$value": "#647F8B", "$type": "color" },
+        "base": { "$value": "#00425F", "$type": "color" }
+      },
+      "activeblue": {
+        "100": { "$value": "#EBF8FE", "$type": "color" },
+        "200": { "$value": "#A8D6EF", "$type": "color" },
+        "300": { "$value": "#6EB4E0", "$type": "color" },
+        "400": { "$value": "#0275D8", "$type": "color", "$description": "Primary interactive / button fill" },
+        "500": { "$value": "#1A4983", "$type": "color" },
+        "600": { "$value": "#10345E", "$type": "color" }
+      },
+      "primaryred": {
+        "100":  { "$value": "#FBE9E9", "$type": "color" },
+        "200":  { "$value": "#F4B7B5", "$type": "color" },
+        "300":  { "$value": "#EF8781", "$type": "color" },
+        "400":  { "$value": "#DC4437", "$type": "color" },
+        "500":  { "$value": "#A4251A", "$type": "color" },
+        "600":  { "$value": "#590C07", "$type": "color" },
+        "base": { "$value": "#EE312A", "$type": "color" }
+      },
+      "activeyellow": {
+        "100": { "$value": "#FEF6CF", "$type": "color" },
+        "200": { "$value": "#FDED94", "$type": "color" },
+        "300": { "$value": "#F7CA5C", "$type": "color" },
+        "400": { "$value": "#EC9B40", "$type": "color" },
+        "500": { "$value": "#AF5F26", "$type": "color" },
+        "600": { "$value": "#6B2B0D", "$type": "color" }
+      },
+      "activegreen": {
+        "100": { "$value": "#F1FEF1", "$type": "color" },
+        "200": { "$value": "#BEF2B9", "$type": "color" },
+        "300": { "$value": "#74C965", "$type": "color" },
+        "400": { "$value": "#519E47", "$type": "color" },
+        "500": { "$value": "#36743D", "$type": "color" },
+        "600": { "$value": "#163C29", "$type": "color" }
+      },
+      "neutral": {
+        "100":  { "$value": "#F9FBFC", "$type": "color" },
+        "200":  { "$value": "#F3F5F6", "$type": "color" },
+        "300":  { "$value": "#E1E6ED", "$type": "color" },
+        "400":  { "$value": "#C8D2DF", "$type": "color" },
+        "500":  { "$value": "#AAB7C6", "$type": "color" },
+        "600":  { "$value": "#848F9F", "$type": "color" },
+        "700":  { "$value": "#5F738C", "$type": "color" },
+        "800":  { "$value": "#4E5A6C", "$type": "color" },
+        "900":  { "$value": "#353F50", "$type": "color" },
+        "1000": { "$value": "#1F2126", "$type": "color" }
+      }
+    },
+    "semantic": {
+      "primary":     { "$value": "{color.primitive.primaryblue.base}", "$type": "color", "$description": "Brand primary (pryBlue)" },
+      "interactive": { "$value": "{color.primitive.activeblue.400}",  "$type": "color", "$description": "Interactive / CTA (activeBlue400)" },
+      "danger":      { "$value": "{color.primitive.primaryred.400}",  "$type": "color", "$description": "Error / destructive" },
+      "warning":     { "$value": "{color.primitive.activeyellow.400}","$type": "color", "$description": "Warning" },
+      "success":     { "$value": "{color.primitive.activegreen.400}", "$type": "color", "$description": "Success" },
+      "surface":     { "$value": "{color.primitive.neutral.200}",     "$type": "color", "$description": "Muted surface / input fill" },
+      "background":  { "$value": "{color.base.white}",               "$type": "color", "$description": "Page background" },
+      "border":        { "$value": "{color.primitive.neutral.300}", "$type": "color" },
+      "borderStrong":  { "$value": "{color.primitive.neutral.400}", "$type": "color" }
+    },
+    "status": {
+      "info":    { "$value": "{color.primitive.activeblue.400}", "$type": "color" },
+      "success": { "$value": "{color.primitive.activegreen.400}", "$type": "color" },
+      "warning": { "$value": "{color.primitive.activeyellow.400}", "$type": "color" },
+      "error":   { "$value": "{color.primitive.primaryred.400}", "$type": "color" }
+    },
+    "text": {
+      "primary":     { "$value": "{color.primitive.neutral.900}", "$type": "color" },
+      "secondary":   { "$value": "{color.primitive.neutral.700}", "$type": "color" },
+      "tertiary":    { "$value": "{color.primitive.neutral.600}", "$type": "color" },
+      "disabled":    { "$value": "{color.primitive.neutral.500}", "$type": "color" },
+      "placeholder": { "$value": "{color.primitive.neutral.600}", "$type": "color" },
+      "inverse":     { "$value": "{color.base.white}", "$type": "color" }
+    },
+    "surface": {
+      "primary":   { "$value": "{color.base.white}", "$type": "color" },
+      "secondary": { "$value": "{color.primitive.neutral.100}", "$type": "color" },
+      "grey":      { "$value": "{color.primitive.neutral.200}", "$type": "color" },
+      "elevated":  { "$value": "{color.base.white}", "$type": "color" }
+    },
+    "input": {
+      "fill":         { "$value": "{color.base.white}", "$type": "color" },
+      "fillDisabled": { "$value": "{color.primitive.neutral.200}", "$type": "color" },
+      "stroke":       { "$value": "{color.primitive.neutral.300}", "$type": "color" },
+      "strokeHover":  { "$value": "{color.primitive.neutral.400}", "$type": "color" },
+      "strokeFocus":  { "$value": "{color.primitive.activeblue.400}", "$type": "color" },
+      "strokeError":  { "$value": "{color.primitive.primaryred.400}", "$type": "color" },
+      "strokeSuccess": { "$value": "{color.primitive.activegreen.400}", "$type": "color" },
+      "strokeWarning": { "$value": "{color.primitive.activeyellow.400}", "$type": "color" }
+    },
+    "border": {
+      "default": { "$value": "{color.primitive.neutral.300}", "$type": "color" },
+      "strong":  { "$value": "{color.primitive.neutral.400}", "$type": "color" },
+      "subtle":  { "$value": "{color.primitive.neutral.200}", "$type": "color" }
+    }
+  }
+}

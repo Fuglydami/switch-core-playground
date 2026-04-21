@@ -1,0 +1,160 @@
+.container {
+  position: fixed;
+  bottom: var(--switch-spacing-6);
+  right: var(--switch-spacing-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--switch-spacing-3);
+  z-index: 9999;
+  max-width: 400px;
+  width: calc(100% - var(--switch-spacing-8));
+}
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--switch-spacing-3);
+  padding: var(--switch-spacing-4);
+  border-radius: 2px;
+  box-shadow: var(--switch-shadow-small);
+  background-color: var(--switch-color-surface-primary);
+  border-left: 4px solid transparent;
+  font-family: var(--switch-typography-font-family-sans);
+  animation: slideIn 200ms ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+/* Type: Info (blue) */
+.toast.info {
+  border-left-color: var(--switch-color-status-info);
+  background: color-mix(in srgb, var(--switch-color-status-info) 8%, var(--switch-color-surface-primary));
+}
+
+.toast.info .icon {
+  color: var(--switch-color-status-info);
+}
+
+/* Type: Success (green) */
+.toast.success {
+  border-left-color: var(--switch-color-status-success);
+  background: color-mix(in srgb, var(--switch-color-status-success) 8%, var(--switch-color-surface-primary));
+}
+
+.toast.success .icon {
+  color: var(--switch-color-status-success);
+}
+
+/* Type: Warning (yellow/orange) */
+.toast.warning {
+  border-left-color: var(--switch-color-status-warning);
+  background: color-mix(in srgb, var(--switch-color-status-warning) 8%, var(--switch-color-surface-primary));
+}
+
+.toast.warning .icon {
+  color: var(--switch-color-status-warning);
+}
+
+/* Type: Error (red) */
+.toast.error {
+  border-left-color: var(--switch-color-status-error);
+  background: color-mix(in srgb, var(--switch-color-status-error) 8%, var(--switch-color-surface-primary));
+}
+
+.toast.error .icon {
+  color: var(--switch-color-status-error);
+}
+
+/* Type: Informatory (neutral) */
+.toast.informatory {
+  border-left-color: var(--switch-color-neutral-500);
+  background: color-mix(in srgb, var(--switch-color-neutral-500) 8%, var(--switch-color-surface-primary));
+}
+
+.toast.informatory .icon {
+  color: var(--switch-color-neutral-600);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: var(--switch-typography-font-size-body-medium);
+  font-weight: var(--switch-typography-font-weight-semibold);
+  color: var(--switch-color-text-primary);
+  margin: 0;
+  line-height: var(--switch-typography-line-height-snug);
+}
+
+.description {
+  font-size: var(--switch-typography-font-size-body-small);
+  font-weight: var(--switch-typography-font-weight-regular);
+  color: var(--switch-color-text-secondary);
+  margin: var(--switch-spacing-1) 0 0;
+  line-height: var(--switch-typography-line-height-normal);
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  margin-top: var(--switch-spacing-2);
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--switch-color-semantic-interactive);
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-small);
+  font-weight: var(--switch-typography-font-weight-semibold);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.action:hover {
+  color: var(--switch-color-activeblue-500);
+  text-decoration: underline;
+}
+
+.action:focus-visible {
+  outline: 2px solid var(--switch-color-semantic-interactive);
+  outline-offset: 2px;
+  border-radius: var(--switch-border-radius-sm);
+}
+
+.dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: var(--switch-border-radius-sm);
+  cursor: pointer;
+  color: var(--switch-color-text-disabled);
+  flex-shrink: 0;
+  transition: color 150ms ease, background-color 150ms ease;
+}
+
+.dismiss:hover {
+  color: var(--switch-color-text-secondary);
+  background-color: var(--switch-color-surface-grey);
+}
+
+.dismiss:focus-visible {
+  outline: 2px solid var(--switch-color-semantic-interactive);
+  outline-offset: 2px;
+}

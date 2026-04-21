@@ -1,0 +1,177 @@
+/* ── Shared wrapper ──────────────────────────────────────────── */
+.wrapper,
+.toggleWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--switch-spacing-2);
+  cursor: pointer;
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-medium);
+  color: var(--switch-color-text-primary);
+  user-select: none;
+}
+
+.wrapper.disabled,
+.toggleWrapper.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.hiddenInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.label {
+  line-height: 1.4;
+}
+
+/* ── Checkbox control ────────────────────────────────────────── */
+.control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1.5px solid var(--switch-color-neutral-300);
+  background: var(--switch-color-surface-primary);
+  border-radius: var(--switch-border-radius-sm);
+  color: transparent;
+  transition: background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+}
+
+/* Square variant */
+.square {
+  border-radius: var(--switch-border-radius-sm);
+}
+
+/* Circle variant */
+.circle {
+  border-radius: 50%;
+}
+
+/* Sizes */
+.size16 { width: 16px; height: 16px; }
+.size20 { width: 20px; height: 20px; }
+.size24 { width: 24px; height: 24px; }
+
+/* Size-specific checkmark scaling */
+.size16 svg { width: 8px; height: 6px; }
+.size20 svg { width: 10px; height: 8px; }
+.size24 svg { width: 12px; height: 10px; }
+
+/* Hover state — slightly darker border */
+.wrapper:not(.disabled):hover .control {
+  border-color: var(--switch-color-neutral-400);
+}
+
+/* Checked state */
+.hiddenInput:checked + .control {
+  background: var(--switch-color-activeblue-400);
+  border-color: var(--switch-color-activeblue-400);
+  color: #fff;
+}
+
+/* Checked hover — slightly darker background */
+.wrapper:not(.disabled):hover .hiddenInput:checked + .control {
+  background: var(--switch-color-activeblue-500);
+  border-color: var(--switch-color-activeblue-500);
+}
+
+/* Indeterminate state */
+.hiddenInput:indeterminate + .control {
+  background: var(--switch-color-activeblue-400);
+  border-color: var(--switch-color-activeblue-400);
+  color: #fff;
+}
+
+/* Indeterminate hover */
+.wrapper:not(.disabled):hover .hiddenInput:indeterminate + .control {
+  background: var(--switch-color-activeblue-500);
+  border-color: var(--switch-color-activeblue-500);
+}
+
+/* Focus state — blue focus ring using box-shadow */
+.hiddenInput:focus-visible + .control {
+  box-shadow: 0 0 0 3px rgba(2, 117, 216, 0.3);
+  border-color: var(--switch-color-activeblue-400);
+}
+
+/* Disabled state */
+.wrapper.disabled .control {
+  background: var(--switch-color-neutral-200);
+  border-color: var(--switch-color-neutral-400);
+}
+
+/* Disabled + checked/indeterminate */
+.wrapper.disabled .hiddenInput:checked + .control,
+.wrapper.disabled .hiddenInput:indeterminate + .control {
+  background: var(--switch-color-activeblue-400);
+  border-color: var(--switch-color-activeblue-400);
+}
+
+/* ── Radio ───────────────────────────────────────────────────── */
+.radio {
+  border-radius: 50%;
+}
+
+.radioDot {
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background: transparent;
+  transition: background-color 120ms ease;
+}
+
+.hiddenInput:checked + .radio {
+  background: var(--switch-color-semantic-interactive);
+  border-color: var(--switch-color-semantic-interactive);
+}
+
+.hiddenInput:checked + .radio .radioDot {
+  background: #fff;
+}
+
+/* ── Toggle ──────────────────────────────────────────────────── */
+.track {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--switch-border-radius-full);
+  background: var(--switch-color-neutral-400, #9ca3af);
+  flex-shrink: 0;
+  transition: background-color 150ms ease;
+}
+
+.trackSmall  { width: 32px; height: 18px; }
+.trackMedium { width: 40px; height: 22px; }
+.trackLarge  { width: 48px; height: 28px; }
+
+.thumb {
+  position: absolute;
+  left: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 150ms ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.trackSmall  .thumb { width: 12px; height: 12px; }
+.trackMedium .thumb { width: 16px; height: 16px; }
+.trackLarge  .thumb { width: 22px; height: 22px; }
+
+/* Checked state */
+.hiddenInput:checked + .track {
+  background: var(--switch-color-semantic-interactive);
+}
+
+.hiddenInput:checked + .trackSmall  .thumb { transform: translateX(14px); }
+.hiddenInput:checked + .trackMedium .thumb { transform: translateX(18px); }
+.hiddenInput:checked + .trackLarge  .thumb { transform: translateX(20px); }
+
+.hiddenInput:focus-visible + .track {
+  outline: 2px solid var(--switch-color-semantic-interactive);
+  outline-offset: 2px;
+}

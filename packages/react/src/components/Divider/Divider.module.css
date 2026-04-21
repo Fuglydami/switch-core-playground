@@ -1,0 +1,35 @@
+.horizontal {
+  border: none;
+  border-top: 1px solid var(--switch-color-border-default);
+  margin: 0;
+  width: 100%;
+}
+
+.vertical {
+  display: inline-block;
+  width: 1px;
+  align-self: stretch;
+  background: var(--switch-color-border-default);
+  flex-shrink: 0;
+}
+
+.labelled {
+  display: flex;
+  align-items: center;
+  gap: var(--switch-spacing-3);
+  width: 100%;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background: var(--switch-color-border-default);
+}
+
+.label {
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-small);
+  color: var(--switch-color-text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}

@@ -1,0 +1,186 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--switch-spacing-1);
+}
+
+.label {
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-medium);
+  font-weight: var(--switch-typography-font-weight-semibold);
+  color: var(--switch-color-text-primary);
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--switch-color-input-stroke);
+  border-radius: var(--switch-border-radius-md);
+  background-color: var(--switch-color-input-fill);
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+  overflow: hidden;
+}
+
+.inputWrapper:focus-within {
+  border-color: var(--switch-color-input-stroke-focus);
+  box-shadow: 0 0 0 3px rgba(2, 117, 216, 0.2);
+}
+
+.inputWrapper.error {
+  border-color: var(--switch-color-input-stroke-error);
+}
+
+.inputWrapper.error:focus-within {
+  box-shadow: 0 0 0 3px rgba(220, 68, 55, 0.2);
+}
+
+.inputWrapper.disabled {
+  background-color: var(--switch-color-neutral-300);
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.small .input {
+  padding: var(--switch-spacing-2) var(--switch-spacing-3);
+  font-size: var(--switch-typography-font-size-body-small);
+  min-height: 32px;
+}
+
+.large .input {
+  padding: var(--switch-spacing-3) var(--switch-spacing-4);
+  font-size: var(--switch-typography-font-size-body-medium);
+  min-height: 48px;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--switch-typography-font-family-sans);
+  color: var(--switch-color-text-primary);
+  width: 100%;
+}
+
+.input::placeholder {
+  color: var(--switch-color-text-placeholder);
+}
+
+.input:disabled {
+  cursor: not-allowed;
+  color: var(--switch-color-text-disabled);
+}
+
+.addon {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--switch-spacing-3);
+  color: var(--switch-color-text-secondary);
+  flex-shrink: 0;
+}
+
+.helperText {
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-small);
+  color: var(--switch-color-text-secondary);
+  margin: 0;
+}
+
+.errorText {
+  color: var(--switch-color-status-error);
+}
+
+/* ── Select addon (pre-select / post-select) ──────────────── */
+.selectAddon {
+  border-right: 1px solid var(--switch-color-input-stroke);
+  background: var(--switch-color-surface-grey);
+  padding: 0 var(--switch-spacing-3);
+  height: 100%;
+  align-self: stretch;
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--switch-typography-font-size-body-medium);
+  color: var(--switch-color-text-primary);
+}
+
+/* Post-select: separator on the left */
+.inputWrapper > .selectAddon:last-child {
+  border-right: none;
+  border-left: 1px solid var(--switch-color-input-stroke);
+}
+
+/* ── Textarea (message type) ──────────────────────────────── */
+.textareaWrapper {
+  align-items: flex-start;
+}
+
+.textarea {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--switch-typography-font-family-sans);
+  color: var(--switch-color-text-primary);
+  width: 100%;
+  resize: vertical;
+  min-height: 96px;
+  padding: var(--switch-spacing-3) var(--switch-spacing-4);
+  font-size: var(--switch-typography-font-size-body-medium);
+  line-height: var(--switch-typography-line-height-normal);
+}
+
+.textarea::placeholder {
+  color: var(--switch-color-text-placeholder);
+}
+
+.textarea:disabled {
+  cursor: not-allowed;
+  color: var(--switch-color-text-disabled);
+}
+
+/* ── PIN input ────────────────────────────────────────────── */
+.pinRow {
+  display: flex;
+  gap: var(--switch-spacing-2);
+}
+
+.pinCell {
+  width: 44px;
+  text-align: center;
+  border: 1px solid var(--switch-color-input-stroke);
+  border-radius: var(--switch-border-radius-md);
+  background-color: var(--switch-color-input-fill);
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-subtitle);
+  font-weight: var(--switch-typography-font-weight-bold);
+  color: var(--switch-color-text-primary);
+  outline: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+  padding: var(--switch-spacing-2) 0;
+  min-height: 52px;
+}
+
+.pinCell:focus {
+  border-color: var(--switch-color-input-stroke-focus);
+  box-shadow: 0 0 0 3px rgba(2, 117, 216, 0.2);
+}
+
+.pinCell.small {
+  width: 36px;
+  min-height: 40px;
+  font-size: var(--switch-typography-font-size-body-medium);
+}
+
+.pinCellError {
+  border-color: var(--switch-color-input-stroke-error);
+}
+
+.pinCellError:focus {
+  box-shadow: 0 0 0 3px rgba(220, 68, 55, 0.2);
+}
+
+.pinCell:disabled {
+  background-color: var(--switch-color-neutral-300);
+  cursor: not-allowed;
+  color: var(--switch-color-text-disabled);
+}

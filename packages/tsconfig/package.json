@@ -1,0 +1,11 @@
+{
+  "name": "@switch/tsconfig",
+  "version": "0.1.0",
+  "private": true,
+  "exports": {
+    "./base": "./base.json",
+    "./react-library": "./react-library.json",
+    "./react-native-library": "./react-native-library.json",
+    "./nextjs": "./nextjs.json"
+  }
+}

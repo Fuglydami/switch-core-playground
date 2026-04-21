@@ -1,0 +1,236 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--switch-spacing-3);
+}
+
+/* ── Drop zone ───────────────────────────────────────── */
+.dropZone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--switch-spacing-1);
+  padding: var(--switch-spacing-6) var(--switch-spacing-4);
+  border: 1px dashed var(--switch-color-neutral-400);
+  border-radius: var(--switch-border-radius-lg);
+  background: var(--switch-color-neutral-100);
+  cursor: pointer;
+  transition: border-color 150ms ease, background-color 150ms ease;
+  text-align: center;
+}
+
+.dropZone:hover:not(.disabledZone) {
+  border-color: var(--switch-color-activeblue-400);
+  background: var(--switch-color-activeblue-100);
+}
+
+.dropZone:focus-visible {
+  outline: 2px solid var(--switch-color-activeblue-400);
+  outline-offset: 2px;
+}
+
+.dragging {
+  border-color: var(--switch-color-activeblue-400);
+  background: var(--switch-color-activeblue-100);
+}
+
+.disabledZone {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.hiddenInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.uploadIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--switch-border-radius-full);
+  background: var(--switch-color-surface-primary);
+  border: 6px solid var(--switch-color-neutral-100);
+  box-shadow: 0 0 0 6px var(--switch-color-neutral-200);
+  color: var(--switch-color-text-secondary);
+  margin-bottom: var(--switch-spacing-3);
+}
+
+.uploadIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.dropText {
+  margin: 0;
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-medium);
+  color: var(--switch-color-text-secondary);
+}
+
+.dropText strong {
+  color: var(--switch-color-activeblue-400);
+  font-weight: var(--switch-typography-font-weight-semibold);
+}
+
+.dropHint {
+  margin: 0;
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-small);
+  color: var(--switch-color-text-secondary);
+}
+
+/* ── File list ───────────────────────────────────────── */
+.fileList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--switch-spacing-2);
+}
+
+.fileRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--switch-spacing-3);
+  padding: var(--switch-spacing-3) var(--switch-spacing-4);
+  border: 1px solid var(--switch-color-neutral-200);
+  border-radius: var(--switch-border-radius-md);
+  background: var(--switch-color-surface-primary);
+}
+
+.fileRow.failed {
+  border-color: var(--switch-color-primaryred-300);
+  background: var(--switch-color-primaryred-100);
+}
+
+.fileRow.completed {
+  border-color: var(--switch-color-activegreen-300);
+  background: var(--switch-color-surface-primary);
+}
+
+.fileIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--switch-border-radius-full);
+  background: var(--switch-color-neutral-100);
+  border: 4px solid var(--switch-color-surface-primary);
+  box-shadow: 0 0 0 4px var(--switch-color-neutral-200);
+  color: var(--switch-color-text-secondary);
+}
+
+.fileIconSuccess {
+  background: var(--switch-color-activegreen-100);
+  box-shadow: 0 0 0 4px var(--switch-color-activegreen-200);
+  color: var(--switch-color-activegreen-500);
+}
+
+.fileIconError {
+  background: var(--switch-color-primaryred-100);
+  box-shadow: 0 0 0 4px var(--switch-color-primaryred-200);
+  color: var(--switch-color-primaryred-500);
+}
+
+.fileMeta {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--switch-spacing-1);
+}
+
+.fileNameRow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--switch-spacing-2);
+}
+
+.fileName {
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-medium);
+  font-weight: var(--switch-typography-font-weight-semibold);
+  color: var(--switch-color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fileSize {
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-small);
+  color: var(--switch-color-text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.fileError {
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-small);
+  color: var(--switch-color-status-error);
+}
+
+/* Progress bar */
+.progressTrack {
+  height: 8px;
+  background: var(--switch-color-neutral-200);
+  border-radius: var(--switch-border-radius-full);
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background: var(--switch-color-activeblue-400);
+  border-radius: var(--switch-border-radius-full);
+  transition: width 200ms ease;
+}
+
+/* Actions */
+.fileActions {
+  display: flex;
+  align-items: center;
+  gap: var(--switch-spacing-2);
+  flex-shrink: 0;
+}
+
+.removeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: var(--switch-color-text-secondary);
+  border-radius: var(--switch-border-radius-sm);
+  cursor: pointer;
+  transition: background-color 100ms ease, color 100ms ease;
+}
+
+.removeBtn:hover {
+  background: var(--switch-color-neutral-200);
+  color: var(--switch-color-text-primary);
+}
+
+.retryBtn {
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-small);
+  font-weight: var(--switch-typography-font-weight-semibold);
+  color: var(--switch-color-activeblue-400);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.retryBtn:hover {
+  color: var(--switch-color-activeblue-500);
+}

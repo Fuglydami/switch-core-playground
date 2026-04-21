@@ -1,0 +1,9 @@
+{
+  "extends": "@switch/tsconfig/react-library",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "strict": true,
+    "noEmit": true
+  },
+  "include": ["src", "scripts"]
+}

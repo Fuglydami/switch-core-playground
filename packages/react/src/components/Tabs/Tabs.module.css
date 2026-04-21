@@ -1,0 +1,154 @@
+/* Tab container */
+.tablist {
+  display: flex;
+  gap: var(--switch-spacing-6); /* 24px spacing between tabs */
+}
+
+/* Underline variant (default) - has bottom border on container */
+.underline {
+  border-bottom: 1px solid var(--switch-color-semantic-border);
+}
+
+/* Icon+Label variant - same underline behavior as underline */
+.iconLabel {
+  border-bottom: 1px solid var(--switch-color-semantic-border);
+}
+
+/* Pill variant - no border, pill-shaped container background */
+.pillVariant {
+  border-bottom: none;
+  gap: var(--switch-spacing-1);
+  padding: var(--switch-spacing-1);
+  background-color: var(--switch-color-semantic-surface);
+  border-radius: var(--switch-border-radius-full);
+  display: inline-flex;
+}
+
+/* Base tab button styles */
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--switch-spacing-2);
+  padding: var(--switch-spacing-3) var(--switch-spacing-1);
+  border: none;
+  background: transparent;
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-medium); /* 14px */
+  font-weight: var(--switch-typography-font-weight-semibold);
+  color: var(--switch-color-neutral-700); /* #5F738C - inactive text */
+  cursor: pointer;
+  transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* Underline variant tab styles */
+.underline .tab {
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  padding-bottom: calc(var(--switch-spacing-3) - 1px);
+}
+
+.underline .tab:hover:not(.disabled) {
+  color: var(--switch-color-activeblue-400); /* activeBlue #0275D8 */
+  border-bottom-color: var(--switch-color-activeblue-200); /* lighter underline on hover */
+}
+
+.underline .tab.active {
+  color: var(--switch-color-activeblue-400); /* activeBlue #0275D8 */
+  border-bottom-color: var(--switch-color-activeblue-400); /* 2px blue underline */
+}
+
+.underline .tab:focus-visible {
+  outline: 2px solid var(--switch-color-activeblue-400);
+  outline-offset: 2px;
+  border-radius: var(--switch-border-radius-sm);
+}
+
+/* Icon+Label variant tab styles - same as underline but shows icon */
+.iconLabel .tab {
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  padding-bottom: calc(var(--switch-spacing-3) - 1px);
+}
+
+.iconLabel .tab:hover:not(.disabled) {
+  color: var(--switch-color-activeblue-400);
+  border-bottom-color: var(--switch-color-activeblue-200);
+}
+
+.iconLabel .tab.active {
+  color: var(--switch-color-activeblue-400);
+  border-bottom-color: var(--switch-color-activeblue-400);
+}
+
+.iconLabel .tab:focus-visible {
+  outline: 2px solid var(--switch-color-activeblue-400);
+  outline-offset: 2px;
+  border-radius: var(--switch-border-radius-sm);
+}
+
+/* Pill variant tab styles */
+.pillVariant .tab {
+  padding: var(--switch-spacing-2) var(--switch-spacing-4);
+  border-radius: var(--switch-border-radius-full);
+}
+
+.pillVariant .tab:hover:not(.disabled):not(.active) {
+  color: var(--switch-color-activeblue-400);
+  background-color: var(--switch-color-activeblue-100);
+}
+
+.pillVariant .tab.active {
+  background-color: var(--switch-color-activeblue-400); /* activeBlue filled background */
+  color: #ffffff; /* white text */
+}
+
+.pillVariant .tab:focus-visible {
+  outline: 2px solid var(--switch-color-activeblue-400);
+  outline-offset: 2px;
+}
+
+/* Disabled state */
+.tab.disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Tab icon */
+.tabIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
+
+/* Tab label */
+.tabLabel {
+  display: inline;
+}
+
+/* Badge (notification pill within tab) */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--switch-spacing-2);
+  height: 20px;
+  min-width: 20px;
+  border-radius: var(--switch-border-radius-full);
+  background-color: var(--switch-color-activeblue-400);
+  color: #ffffff;
+  font-size: var(--switch-typography-font-size-body-small); /* 12px */
+  font-weight: var(--switch-typography-font-weight-semibold);
+  line-height: 1;
+}
+
+/* Badge in active pill tab needs different styling */
+.pillVariant .tab.active .badge {
+  background-color: #ffffff;
+  color: var(--switch-color-activeblue-400);
+}

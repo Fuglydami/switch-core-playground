@@ -1,0 +1,37 @@
+{
+  "name": "@switch/icons",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "default": "./dist/react/index.js"
+    },
+    "./react-native": {
+      "types": "./dist/react-native/index.d.ts",
+      "default": "./dist/react-native/index.js"
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs --watch"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.73",
+    "react-native-svg": ">=13"
+  },
+  "peerDependenciesMeta": {
+    "react-native": { "optional": true },
+    "react-native-svg": { "optional": true }
+  },
+  "devDependencies": {
+    "@switch/tsconfig": "workspace:*",
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "@svgr/plugin-svgo": "^8.1.0",
+    "@types/node": "^22.0.0",
+    "svgo": "^3.3.0",
+    "typescript": "^5.0.0"
+  }
+}

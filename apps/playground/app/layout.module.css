@@ -1,0 +1,22 @@
+.shell {
+  display: flex;
+  padding-top: 56px;
+  min-height: 100vh;
+  background: var(--pg-bg);
+  transition: background-color 0.2s ease;
+}
+
+.contentArea {
+  flex: 1;
+  margin-left: 256px;
+  display: flex;
+  justify-content: center;
+  padding: 48px 40px;
+  gap: 48px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  max-width: 760px;
+}

@@ -1,0 +1,258 @@
+/* ── Ring Loader ─────────────────────────────────────────────── */
+.ring {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.small  { width: 48px; height: 48px; }
+.medium { width: 72px; height: 72px; }
+.large  { width: 120px; height: 120px; }
+
+.ringSvg {
+  display: block;
+  transform: rotate(-90deg);
+}
+
+.ringTrack {
+  fill: none;
+  stroke: var(--switch-color-neutral-200);
+}
+
+.ringFill {
+  fill: none;
+  stroke: var(--switch-color-activeblue-400);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 300ms ease;
+}
+
+.ringFillComplete {
+  fill: none;
+  stroke: var(--switch-color-activeblue-400);
+}
+
+/* Indeterminate spinning animation */
+.indeterminate .ringSvg {
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(270deg); }
+}
+
+/* Ring content (percentage or complete icon) */
+.ringContent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.ringPercent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--switch-typography-font-family-sans);
+  font-weight: var(--switch-typography-font-weight-semibold);
+  color: var(--switch-color-text-primary);
+}
+
+/* Complete state */
+.complete .ringContent {
+  color: var(--switch-color-activeblue-400);
+}
+
+.checkIcon {
+  width: 32%;
+  height: 32%;
+}
+
+.completeText {
+  font-family: var(--switch-typography-font-family-sans);
+  font-weight: var(--switch-typography-font-weight-semibold);
+  color: var(--switch-color-activeblue-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Progress Bar ────────────────────────────────────────────── */
+.progressWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--switch-spacing-1);
+  width: 100%;
+}
+
+.progressLabels {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-small);
+  color: var(--switch-color-text-secondary);
+}
+
+.progressLabel {}
+
+.track {
+  width: 100%;
+  background: var(--switch-color-neutral-200);
+  border-radius: var(--switch-border-radius-full);
+  overflow: hidden;
+}
+
+.trackThin   { height: 2px; }
+.trackMedium { height: 4px; }
+.trackThick  { height: 8px; }
+
+.fill {
+  height: 100%;
+  background: var(--switch-color-semantic-interactive);
+  border-radius: var(--switch-border-radius-full);
+  transition: width 300ms ease;
+}
+
+/* ── Step Progress ───────────────────────────────────────────── */
+.stepList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Horizontal */
+.horizontal {
+  display: flex;
+  align-items: flex-start;
+}
+
+.horizontal .step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  gap: var(--switch-spacing-2);
+}
+
+.horizontal .stepText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+}
+
+.horizontal .connector {
+  position: absolute;
+  top: 14px;
+  left: calc(50% + 14px);
+  right: calc(-50% + 14px);
+  height: 2px;
+  background: var(--switch-color-neutral-200);
+}
+
+.horizontal .connectorDone {
+  background: var(--switch-color-semantic-interactive);
+}
+
+/* Vertical */
+.vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.vertical .step {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--switch-spacing-3);
+  padding-bottom: var(--switch-spacing-5);
+  position: relative;
+}
+
+.vertical .step:last-child {
+  padding-bottom: 0;
+}
+
+.vertical .step::before {
+  content: '';
+  position: absolute;
+  left: 13px;
+  top: 28px;
+  bottom: 0;
+  width: 2px;
+  background: var(--switch-color-neutral-200);
+}
+
+.vertical .step:last-child::before { display: none; }
+
+.vertical .step.completed::before,
+.vertical .step.active::before {
+  background: var(--switch-color-semantic-interactive);
+}
+
+.vertical .stepText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 2px;
+}
+
+/* Step indicator */
+.stepIndicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--switch-color-neutral-300);
+  background: var(--switch-color-surface-primary);
+  flex-shrink: 0;
+  color: var(--switch-color-text-secondary);
+  transition: background-color 150ms ease, border-color 150ms ease;
+  position: relative;
+  z-index: 1;
+}
+
+.completed .stepIndicator {
+  background: var(--switch-color-semantic-interactive);
+  border-color: var(--switch-color-semantic-interactive);
+  color: #fff;
+}
+
+.active .stepIndicator {
+  border-color: var(--switch-color-semantic-interactive);
+  color: var(--switch-color-semantic-interactive);
+}
+
+.stepNumber {
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: 11px;
+  font-weight: var(--switch-typography-font-weight-semibold);
+}
+
+/* Step text */
+.stepLabel {
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-medium);
+  font-weight: var(--switch-typography-font-weight-semibold);
+  color: var(--switch-color-text-primary);
+}
+
+.pending .stepLabel {
+  color: var(--switch-color-text-secondary);
+}
+
+.stepDescription {
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-small);
+  color: var(--switch-color-text-secondary);
+}

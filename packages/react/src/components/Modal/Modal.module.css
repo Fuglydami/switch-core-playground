@@ -1,0 +1,133 @@
+/* Modal Component Styles
+   Figma Specs:
+   - Clean white background with shadow-medium elevation
+   - Border-radius: 12px or 16px
+   - Sizes: Small (400px), Medium (500px), Large (600px) max-width
+   - Padding: 24px internal padding
+   - Button spacing: 12px gap between buttons
+*/
+
+.dialog {
+  padding: 0;
+  border: none;
+  border-radius: var(--switch-border-radius-rg); /* 12px */
+  box-shadow: var(--switch-shadow-medium);
+  width: calc(100% - var(--switch-spacing-8));
+  background: var(--switch-color-surface-primary);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease-out, visibility 200ms ease-out, transform 200ms ease-out;
+}
+
+.dialog[open] {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Size variants */
+.dialog.small {
+  max-width: 400px;
+}
+
+.dialog.medium {
+  max-width: 500px;
+}
+
+.dialog.large {
+  max-width: 600px;
+  border-radius: var(--switch-border-radius-lg); /* 16px for larger modals */
+}
+
+/* Dark semi-transparent backdrop overlay */
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.dialog[open]::backdrop {
+  opacity: 1;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header with title and close button */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--switch-spacing-6); /* 24px */
+  padding-bottom: var(--switch-spacing-4); /* 16px bottom for visual balance */
+  gap: var(--switch-spacing-4);
+}
+
+/* Title - H3/H4 size, semibold */
+.title {
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-lg); /* 18px - between H4 and subtitle */
+  font-weight: var(--switch-typography-font-weight-semibold);
+  color: var(--switch-color-text-primary);
+  margin: 0;
+  line-height: var(--switch-typography-line-height-snug);
+}
+
+/* Close button in top-right */
+.closeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  border-radius: var(--switch-border-radius-md);
+  cursor: pointer;
+  color: var(--switch-color-text-secondary);
+  flex-shrink: 0;
+  padding: 0;
+  margin: calc(-1 * var(--switch-spacing-1)); /* Slight negative margin for optical alignment */
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.closeButton:hover {
+  background-color: var(--switch-color-surface-grey);
+  color: var(--switch-color-text-primary);
+}
+
+.closeButton:focus-visible {
+  outline: 2px solid var(--switch-color-semantic-interactive);
+  outline-offset: 2px;
+}
+
+.closeButton:active {
+  background-color: var(--switch-color-neutral-300);
+}
+
+/* Body content area with proper padding */
+.content {
+  padding: 0 var(--switch-spacing-6) var(--switch-spacing-6); /* 24px horizontal and bottom */
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-medium);
+  color: var(--switch-color-text-primary);
+  line-height: var(--switch-typography-line-height-relaxed);
+}
+
+/* Footer with action buttons aligned right */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--switch-spacing-3); /* 12px gap between buttons */
+  padding: var(--switch-spacing-6); /* 24px padding */
+  padding-top: var(--switch-spacing-4); /* 16px top for visual balance */
+  border-top: 1px solid var(--switch-color-border-default);
+}

@@ -1,0 +1,385 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--switch-spacing-2);
+  border: 1px solid transparent;
+  font-family: var(--switch-typography-font-family-sans);
+  font-weight: var(--switch-typography-font-weight-semibold);
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
+  white-space: nowrap;
+  text-decoration: none;
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 0 0 0 3px rgba(2, 117, 216, 0.35);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* === Shapes === */
+.rectangular {
+  border-radius: var(--switch-border-radius-md);
+}
+
+.pill {
+  border-radius: var(--switch-border-radius-full);
+}
+
+/* Square (icon-only) */
+.square {
+  border-radius: var(--switch-border-radius-md);
+  aspect-ratio: 1;
+  padding: 0;
+}
+
+.square.small  { width: 32px; min-height: 32px; }
+.square.medium { width: 40px; min-height: 40px; }
+.square.large  { width: 48px; min-height: 48px; }
+
+/* Circle (icon-only) */
+.circle {
+  border-radius: 50%;
+  aspect-ratio: 1;
+  padding: 0;
+}
+
+.circle.small  { width: 32px; min-height: 32px; }
+.circle.medium { width: 40px; min-height: 40px; }
+.circle.large  { width: 48px; min-height: 48px; }
+
+/* === Sizes === */
+.small {
+  padding: var(--switch-spacing-2) var(--switch-spacing-3);
+  font-size: var(--switch-typography-font-size-sm);
+  min-height: 32px;
+}
+
+.medium {
+  padding: var(--switch-spacing-2) var(--switch-spacing-4);
+  font-size: var(--switch-typography-font-size-sm);
+  min-height: 40px;
+}
+
+.large {
+  padding: var(--switch-spacing-3) var(--switch-spacing-6);
+  font-size: var(--switch-typography-font-size-md);
+  min-height: 48px;
+}
+
+/* === popBlue color scheme (#00B8DE) === */
+
+/* Primary — popBlue */
+.popBlue.primary {
+  background-color: var(--switch-color-popblue);
+  color: #ffffff;
+  border-color: var(--switch-color-popblue);
+}
+
+.popBlue.primary:hover:not(:disabled) {
+  background-color: #009dbf;
+  border-color: #009dbf;
+}
+
+.popBlue.primary:active:not(:disabled) {
+  background-color: #0082a1;
+  border-color: #0082a1;
+}
+
+/* Secondary — popBlue */
+.popBlue.secondary {
+  background-color: rgba(0, 184, 222, 0.1);
+  color: var(--switch-color-popblue);
+  border-color: transparent;
+}
+
+.popBlue.secondary:hover:not(:disabled) {
+  background-color: rgba(0, 184, 222, 0.18);
+}
+
+/* Tertiary — popBlue */
+.popBlue.tertiary {
+  background-color: transparent;
+  color: var(--switch-color-popblue);
+  border-color: transparent;
+}
+
+.popBlue.tertiary:hover:not(:disabled) {
+  background-color: rgba(0, 184, 222, 0.08);
+}
+
+/* Outline — popBlue */
+.popBlue.outline {
+  background-color: transparent;
+  color: var(--switch-color-popblue);
+  border-color: var(--switch-color-popblue);
+}
+
+.popBlue.outline:hover:not(:disabled) {
+  background-color: rgba(0, 184, 222, 0.08);
+}
+
+.popBlue.outline:active:not(:disabled) {
+  background-color: rgba(0, 184, 222, 0.15);
+}
+
+/* Link — popBlue */
+.popBlue.link {
+  background-color: transparent;
+  color: var(--switch-color-popblue);
+  border-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  min-height: auto;
+}
+
+.popBlue.link:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+/* === activeBlue color scheme (#0275D8) === */
+
+/* Primary — activeBlue */
+.activeBlue.primary {
+  background-color: var(--switch-color-activeblue-400);
+  color: #ffffff;
+  border-color: var(--switch-color-activeblue-400);
+}
+
+.activeBlue.primary:hover:not(:disabled) {
+  background-color: var(--switch-color-activeblue-500);
+  border-color: var(--switch-color-activeblue-500);
+}
+
+.activeBlue.primary:active:not(:disabled) {
+  background-color: var(--switch-color-activeblue-600);
+  border-color: var(--switch-color-activeblue-600);
+}
+
+/* Secondary — activeBlue */
+.activeBlue.secondary {
+  background-color: rgba(2, 117, 216, 0.1);
+  color: var(--switch-color-activeblue-400);
+  border-color: transparent;
+}
+
+.activeBlue.secondary:hover:not(:disabled) {
+  background-color: rgba(2, 117, 216, 0.18);
+}
+
+/* Tertiary — activeBlue */
+.activeBlue.tertiary {
+  background-color: transparent;
+  color: var(--switch-color-activeblue-400);
+  border-color: transparent;
+}
+
+.activeBlue.tertiary:hover:not(:disabled) {
+  background-color: rgba(2, 117, 216, 0.08);
+}
+
+/* Outline — activeBlue */
+.activeBlue.outline {
+  background-color: transparent;
+  color: var(--switch-color-activeblue-400);
+  border-color: var(--switch-color-activeblue-400);
+}
+
+.activeBlue.outline:hover:not(:disabled) {
+  background-color: rgba(2, 117, 216, 0.08);
+}
+
+.activeBlue.outline:active:not(:disabled) {
+  background-color: rgba(2, 117, 216, 0.15);
+}
+
+/* Link — activeBlue */
+.activeBlue.link {
+  background-color: transparent;
+  color: var(--switch-color-activeblue-400);
+  border-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  min-height: auto;
+}
+
+.activeBlue.link:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+/* === primaryBlue color scheme (#00425F brand navy) === */
+
+/* Primary — primaryBlue */
+.primaryBlue.primary {
+  background-color: var(--switch-color-primaryblue-base);
+  color: #ffffff;
+  border-color: var(--switch-color-primaryblue-base);
+}
+
+.primaryBlue.primary:hover:not(:disabled) {
+  background-color: var(--switch-color-primaryblue-600);
+  border-color: var(--switch-color-primaryblue-600);
+}
+
+.primaryBlue.primary:active:not(:disabled) {
+  background-color: var(--switch-color-primaryblue-700);
+  border-color: var(--switch-color-primaryblue-700);
+}
+
+/* Secondary — primaryBlue */
+.primaryBlue.secondary {
+  background-color: rgba(0, 66, 95, 0.1);
+  color: var(--switch-color-primaryblue-base);
+  border-color: transparent;
+}
+
+.primaryBlue.secondary:hover:not(:disabled) {
+  background-color: rgba(0, 66, 95, 0.16);
+}
+
+/* Tertiary — primaryBlue */
+.primaryBlue.tertiary {
+  background-color: transparent;
+  color: var(--switch-color-primaryblue-base);
+  border-color: transparent;
+}
+
+.primaryBlue.tertiary:hover:not(:disabled) {
+  background-color: rgba(0, 66, 95, 0.06);
+}
+
+/* Outline — primaryBlue */
+.primaryBlue.outline {
+  background-color: transparent;
+  color: var(--switch-color-primaryblue-base);
+  border-color: var(--switch-color-primaryblue-base);
+}
+
+.primaryBlue.outline:hover:not(:disabled) {
+  background-color: rgba(0, 66, 95, 0.06);
+}
+
+.primaryBlue.outline:active:not(:disabled) {
+  background-color: rgba(0, 66, 95, 0.12);
+}
+
+/* Link — primaryBlue */
+.primaryBlue.link {
+  background-color: transparent;
+  color: var(--switch-color-primaryblue-base);
+  border-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  min-height: auto;
+}
+
+.primaryBlue.link:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+/* === monochrome color scheme === */
+
+/* Primary — monochrome */
+.monochrome.primary {
+  background-color: var(--switch-color-neutral-900);
+  color: #ffffff;
+  border-color: var(--switch-color-neutral-900);
+}
+
+.monochrome.primary:hover:not(:disabled) {
+  background-color: var(--switch-color-neutral-800);
+  border-color: var(--switch-color-neutral-800);
+}
+
+.monochrome.primary:active:not(:disabled) {
+  background-color: var(--switch-color-neutral-1000);
+  border-color: var(--switch-color-neutral-1000);
+}
+
+/* Secondary — monochrome */
+.monochrome.secondary {
+  background-color: var(--switch-color-neutral-200);
+  color: var(--switch-color-neutral-900);
+  border-color: transparent;
+}
+
+.monochrome.secondary:hover:not(:disabled) {
+  background-color: var(--switch-color-neutral-300);
+}
+
+/* Tertiary — monochrome */
+.monochrome.tertiary {
+  background-color: transparent;
+  color: var(--switch-color-neutral-900);
+  border-color: transparent;
+}
+
+.monochrome.tertiary:hover:not(:disabled) {
+  background-color: var(--switch-color-neutral-100);
+}
+
+/* Outline — monochrome */
+.monochrome.outline {
+  background-color: transparent;
+  color: var(--switch-color-neutral-900);
+  border-color: var(--switch-color-neutral-400);
+}
+
+.monochrome.outline:hover:not(:disabled) {
+  background-color: var(--switch-color-neutral-100);
+  border-color: var(--switch-color-neutral-500);
+}
+
+.monochrome.outline:active:not(:disabled) {
+  background-color: var(--switch-color-neutral-200);
+}
+
+/* Link — monochrome */
+.monochrome.link {
+  background-color: transparent;
+  color: var(--switch-color-neutral-900);
+  border-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  min-height: auto;
+}
+
+.monochrome.link:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+/* Icons */
+.iconLeft,
+.iconRight {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+}
+
+/* Loading spinner */
+.spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+}

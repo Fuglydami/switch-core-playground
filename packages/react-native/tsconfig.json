@@ -1,0 +1,10 @@
+{
+  "extends": "@switch/tsconfig/react-native-library",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "strict": true,
+    "noEmit": true
+  },
+  "include": ["src"],
+  "exclude": ["src/**/*.test.tsx", "src/**/*.test.ts", "node_modules"]
+}

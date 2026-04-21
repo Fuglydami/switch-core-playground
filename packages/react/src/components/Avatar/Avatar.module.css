@@ -1,0 +1,196 @@
+.avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--switch-border-radius-full);
+  overflow: visible;
+  background: var(--switch-color-activeblue-400);
+  color: #ffffff;
+  font-family: var(--switch-typography-font-family-sans);
+  font-weight: var(--switch-typography-font-weight-semibold);
+  flex-shrink: 0;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+/* Size variants: small (32px), medium (40px), large (56px) */
+.small {
+  width: 32px;
+  height: 32px;
+  font-size: var(--switch-typography-font-size-body-small);
+}
+
+.medium {
+  width: 40px;
+  height: 40px;
+  font-size: var(--switch-typography-font-size-body-medium);
+}
+
+.large {
+  width: 56px;
+  height: 56px;
+  font-size: var(--switch-typography-font-size-header-h7);
+}
+
+/* Optional 2px white border for contrast */
+.bordered {
+  border: 2px solid #ffffff;
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--switch-border-radius-full);
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.initials {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--switch-border-radius-full);
+  overflow: hidden;
+}
+
+.placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--switch-color-text-secondary);
+  background: var(--switch-color-neutral-200);
+  border-radius: var(--switch-border-radius-full);
+  overflow: hidden;
+}
+
+/* Status indicator - positioned bottom-right */
+.indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: var(--switch-border-radius-full);
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+}
+
+/* Status indicator sizes based on avatar size */
+.small .indicator {
+  width: 8px;
+  height: 8px;
+  border-width: 1.5px;
+}
+
+.medium .indicator {
+  width: 10px;
+  height: 10px;
+}
+
+.large .indicator {
+  width: 14px;
+  height: 14px;
+}
+
+/* Status colors */
+.online {
+  background: var(--switch-color-activegreen-400);
+}
+
+.offline {
+  background: var(--switch-color-neutral-500);
+}
+
+.busy {
+  background: var(--switch-color-primaryred-400);
+}
+
+/* Edit overlay with camera icon */
+.editOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 150ms ease;
+  border-radius: var(--switch-border-radius-full);
+}
+
+.avatar:hover .editOverlay,
+.editOverlay:focus-visible {
+  opacity: 1;
+}
+
+.editOverlay:focus-visible {
+  outline: 2px solid var(--switch-color-semantic-interactive);
+  outline-offset: 2px;
+}
+
+/* Scale camera icon based on avatar size */
+.small .editOverlay svg {
+  width: 12px;
+  height: 12px;
+}
+
+.medium .editOverlay svg {
+  width: 16px;
+  height: 16px;
+}
+
+.large .editOverlay svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ── AvatarGroup ─────────────────────────────────────────────── */
+.group {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Overlapping avatars with -8px margin */
+.groupItem {
+  margin-left: -8px;
+}
+
+.groupItem:first-child {
+  margin-left: 0;
+}
+
+/* Overflow indicator (+N) */
+.overflow {
+  background: var(--switch-color-neutral-200);
+  color: var(--switch-color-semantic-text-secondary);
+  font-family: var(--switch-typography-font-family-sans);
+  font-weight: var(--switch-typography-font-weight-semibold);
+  border: 2px solid #ffffff;
+  margin-left: -8px;
+  overflow: visible;
+}
+
+.overflow.small {
+  font-size: 10px;
+}
+
+.overflow.medium {
+  font-size: var(--switch-typography-font-size-body-small);
+}
+
+.overflow.large {
+  font-size: var(--switch-typography-font-size-body-medium);
+}

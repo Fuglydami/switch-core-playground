@@ -1,0 +1,10 @@
+{
+  "extends": "@switch/tsconfig/react-library",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@switch/tokens/*": ["../../packages/tokens/dist/*"]
+    }
+  },
+  "include": ["src", ".storybook"]
+}

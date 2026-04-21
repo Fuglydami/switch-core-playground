@@ -1,0 +1,135 @@
+.wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--switch-color-border-default);
+  border-radius: var(--switch-border-radius-md);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-medium);
+}
+
+/* ── Head ────────────────────────────────────────────── */
+.thead {
+  background: var(--switch-color-surface-grey);
+}
+
+.th {
+  padding: var(--switch-spacing-3) var(--switch-spacing-4);
+  text-align: left;
+  font-weight: var(--switch-typography-font-weight-semibold);
+  font-size: var(--switch-typography-font-size-body-small);
+  color: var(--switch-color-text-secondary);
+  white-space: nowrap;
+  border-bottom: 1px solid var(--switch-color-border-default);
+  user-select: none;
+}
+
+.th.sortable {
+  cursor: pointer;
+}
+
+.th.sortable:hover {
+  color: var(--switch-color-text-primary);
+}
+
+.thInner {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--switch-spacing-1);
+}
+
+.sortIcon {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.35;
+  transition: opacity 150ms ease;
+}
+
+.sortIcon.sorted {
+  opacity: 1;
+  color: var(--switch-color-semantic-interactive);
+}
+
+.th.sortable:hover .sortIcon {
+  opacity: 0.7;
+}
+
+.sortIconDefault {
+  /* neutral double-arrow */
+}
+
+/* ── Body ────────────────────────────────────────────── */
+.tbody {
+  background: var(--switch-color-surface-primary);
+}
+
+.tr {
+  border-bottom: 1px solid var(--switch-color-border-default);
+  transition: background-color 100ms ease;
+}
+
+.tr:last-child {
+  border-bottom: none;
+}
+
+.tr.clickable {
+  cursor: pointer;
+}
+
+.tr.clickable:hover {
+  background: var(--switch-color-surface-grey);
+}
+
+.tr.clickable:focus-visible {
+  outline: 2px solid var(--switch-color-semantic-interactive);
+  outline-offset: -2px;
+}
+
+.td {
+  padding: var(--switch-spacing-3) var(--switch-spacing-4);
+  color: var(--switch-color-text-primary);
+  vertical-align: middle;
+}
+
+/* Alignment */
+.left  { text-align: left; }
+.center { text-align: center; }
+.right { text-align: right; }
+
+/* Striped */
+.striped .tr:nth-child(even) {
+  background: var(--switch-color-surface-grey);
+}
+
+.striped .tr.clickable:hover {
+  background: color-mix(in srgb, var(--switch-color-semantic-interactive) 8%, transparent);
+}
+
+/* Bordered */
+.bordered .td,
+.bordered .th {
+  border-right: 1px solid var(--switch-color-border-default);
+}
+
+.bordered .td:last-child,
+.bordered .th:last-child {
+  border-right: none;
+}
+
+/* Dense */
+.dense .th,
+.dense .td {
+  padding: var(--switch-spacing-2) var(--switch-spacing-3);
+}
+
+/* Empty state */
+.empty {
+  text-align: center;
+  padding: var(--switch-spacing-10) var(--switch-spacing-4);
+  color: var(--switch-color-text-secondary);
+  font-size: var(--switch-typography-font-size-body-medium);
+}

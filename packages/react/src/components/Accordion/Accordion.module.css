@@ -1,0 +1,128 @@
+/* ============================================================
+   Accordion Component
+   Figma Specs:
+   - Border: 1px solid neutral-300 (#E1E6ED) or borderless variant
+   - Border-radius: 8px
+   - Background: White or surface color (#F9FBFC)
+   - Header padding: 16px
+   - Content padding: 16px (when expanded)
+   - Label: neutral-900 (#353F50), font-weight medium
+   - Transition: Smooth height animation on expand/collapse
+   ============================================================ */
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--switch-color-border-default);
+  border-radius: var(--switch-border-radius-md);
+  overflow: hidden;
+  background: var(--switch-color-surface-primary);
+}
+
+/* Borderless variant */
+.borderless {
+  border: none;
+  border-radius: 0;
+}
+
+.borderless .item {
+  border-bottom: none;
+}
+
+.item {
+  border-bottom: 1px solid var(--switch-color-border-default);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item.disabled {
+  opacity: 0.5;
+}
+
+.trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--switch-spacing-3);
+  padding: var(--switch-spacing-4);
+  background: var(--switch-color-surface-primary);
+  border: none;
+  cursor: pointer;
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-medium);
+  font-weight: 500;
+  color: var(--switch-color-text-primary);
+  text-align: left;
+  transition: background-color 150ms ease;
+}
+
+.trigger:hover:not(:disabled) {
+  background: var(--switch-color-surface-secondary);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--switch-color-semantic-interactive);
+  outline-offset: -2px;
+}
+
+.trigger.open {
+  background: var(--switch-color-surface-secondary);
+}
+
+.trigger:disabled {
+  cursor: not-allowed;
+}
+
+.leadingIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--switch-color-text-secondary);
+  width: 20px;
+  height: 20px;
+}
+
+.label {
+  flex: 1;
+}
+
+.chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--switch-color-text-secondary);
+  transition: transform 200ms ease;
+  transform: rotate(-90deg);
+}
+
+.chevronOpen {
+  transform: rotate(0deg);
+}
+
+/* Panel with smooth height animation */
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 200ms ease;
+  background: var(--switch-color-surface-primary);
+}
+
+.panel[data-expanded="true"] {
+  grid-template-rows: 1fr;
+}
+
+.panelContent {
+  overflow: hidden;
+}
+
+.panelInner {
+  padding: var(--switch-spacing-4);
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-medium);
+  color: var(--switch-color-text-secondary);
+  line-height: var(--switch-typography-line-height-normal);
+}

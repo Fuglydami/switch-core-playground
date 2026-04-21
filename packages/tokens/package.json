@@ -1,0 +1,24 @@
+{
+  "name": "@switch/tokens",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    "./css": "./dist/css/variables.css",
+    "./js": "./dist/js/tokens.js",
+    "./tailwind": "./dist/tailwind/theme.js",
+    "./rn": {
+      "types": "./dist/rn/tokens.d.ts",
+      "default": "./dist/rn/tokens.js"
+    }
+  },
+  "scripts": {
+    "build": "tsx sd.config.ts",
+    "dev": "tsx watch sd.config.ts"
+  },
+  "devDependencies": {
+    "@switch/tsconfig": "workspace:*",
+    "style-dictionary": "^5.4.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.0.0"
+  }
+}
