@@ -1,0 +1,63 @@
+.breadcrumb {
+  font-family: var(--switch-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  color: var(--switch-color-text-tertiary, #9ca3af);
+}
+
+.ellipsis {
+  color: var(--switch-color-text-tertiary, #9ca3af);
+  padding: 0 4px;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.link,
+.btn {
+  color: var(--switch-color-text-secondary, #6b7280);
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  margin: -4px -8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.link:hover,
+.btn:hover {
+  color: var(--switch-color-semantic-interactive, #0275d8);
+  background-color: var(--switch-color-surface-hover, #f3f4f6);
+}
+
+.link:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--switch-color-semantic-interactive, #0275d8);
+  outline-offset: 2px;
+}
+
+.current {
+  color: var(--switch-color-text-primary, #111827);
+  font-weight: 500;
+}

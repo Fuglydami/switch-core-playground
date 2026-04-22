@@ -1,0 +1,121 @@
+.page {
+  padding: 24px 32px;
+  max-width: 1400px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--switch-color-text-primary);
+  margin: 16px 0 24px;
+}
+
+.partnerCard {
+  margin-bottom: 24px;
+}
+
+.cardLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--switch-color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 12px;
+}
+
+.partnerInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.partnerName {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--switch-color-text-primary);
+  margin: 0 0 4px;
+}
+
+.partnerEmail {
+  font-size: 14px;
+  color: var(--switch-color-text-secondary);
+  margin: 0;
+}
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.searchInput {
+  width: 320px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-top: 1px solid var(--switch-color-neutral-200);
+  margin-top: 8px;
+}
+
+.resultCount {
+  font-size: 14px;
+  color: var(--switch-color-text-secondary);
+}
+
+.paginationControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--switch-color-text-secondary);
+}
+
+.pageBtn {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--switch-color-neutral-300);
+  border-radius: 4px;
+  background: white;
+  color: var(--switch-color-text-secondary);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pageBtn:hover:not(:disabled) {
+  background: var(--switch-color-neutral-100);
+}
+
+.pageBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.statusChip {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.statusChip[data-status="successful"] {
+  background: var(--switch-color-activegreen-100);
+  color: var(--switch-color-activegreen-700);
+}
+
+.statusChip[data-status="pending"] {
+  background: var(--switch-color-activeyellow-100);
+  color: var(--switch-color-activeyellow-700);
+}
+
+.statusChip[data-status="failed"] {
+  background: var(--switch-color-primaryred-100);
+  color: var(--switch-color-primaryred-700);
+}

@@ -1,9 +1,10 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { Avatar, AvatarGroup } from '@switch/react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
-
-export const metadata: Metadata = { title: 'Avatar' };
+import { ComponentPreview, PreviewItem } from '@/components/ComponentPreview';
 
 const WEB_CODE = `import { Avatar, AvatarGroup } from '@switch/react';
 
@@ -65,14 +66,87 @@ export default function AvatarPage() {
           Circular user identity element. Supports photo, initials, or a placeholder icon. Includes optional online/offline indicator, editable overlay, and AvatarGroup with overflow count.
         </p>
       </div>
+
+      <section style={{ marginBottom: 40 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Preview</h2>
+
+        <ComponentPreview title="Sizes">
+          <PreviewItem label="Small (32px)">
+            <Avatar initials="SM" size="small" />
+          </PreviewItem>
+          <PreviewItem label="Medium (40px)">
+            <Avatar initials="MD" size="medium" />
+          </PreviewItem>
+          <PreviewItem label="Large (56px)">
+            <Avatar initials="LG" size="large" />
+          </PreviewItem>
+        </ComponentPreview>
+
+        <ComponentPreview title="With Image">
+          <Avatar
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+            alt="John Doe"
+            size="small"
+          />
+          <Avatar
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+            alt="Jane Smith"
+            size="medium"
+          />
+          <Avatar
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+            alt="Bob Wilson"
+            size="large"
+          />
+        </ComponentPreview>
+
+        <ComponentPreview title="Status Indicators">
+          <PreviewItem label="Online">
+            <Avatar initials="OA" size="medium" status="online" />
+          </PreviewItem>
+          <PreviewItem label="Offline">
+            <Avatar initials="JD" size="medium" status="offline" />
+          </PreviewItem>
+          <PreviewItem label="Busy">
+            <Avatar initials="MK" size="medium" status="busy" />
+          </PreviewItem>
+        </ComponentPreview>
+
+        <ComponentPreview title="Placeholder & Editable">
+          <PreviewItem label="Placeholder">
+            <Avatar size="large" />
+          </PreviewItem>
+          <PreviewItem label="Editable (hover me)">
+            <Avatar initials="ED" size="large" editable onEdit={() => alert('Edit clicked!')} />
+          </PreviewItem>
+        </ComponentPreview>
+
+        <ComponentPreview title="Avatar Group">
+          <AvatarGroup
+            avatars={[
+              { initials: 'AA' },
+              { initials: 'BB' },
+              { initials: 'CC' },
+              { initials: 'DD' },
+              { initials: 'EE' },
+              { initials: 'FF' },
+            ]}
+            size="small"
+            max={4}
+          />
+        </ComponentPreview>
+      </section>
+
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Code</h2>
         <CodeTabs web={WEB_CODE} reactNative={RN_CODE} />
       </section>
+
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Avatar Props</h2>
         <PropsTable props={AVATAR_PROPS} />
       </section>
+
       <section>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>AvatarGroup Props</h2>
         <PropsTable props={GROUP_PROPS} />

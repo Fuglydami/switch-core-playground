@@ -68,12 +68,34 @@ function CloseIcon() {
   );
 }
 
-function UploadCloudIcon() {
+
+
+function UploadIcon() {
   return (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <path d="M21.333 21.333L16 16l-5.333 5.333" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M16 16v12" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
-      <path d="M27.213 24.547A6.667 6.667 0 0024 12h-1.68A10.667 10.667 0 104.8 22.387" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      {/* Upload arrow */}
+      <path
+        d="M12 16V4"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      {/* Arrow head */}
+      <path
+        d="M7 9l5-5 5 5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Tray */}
+      <path
+        d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
@@ -223,7 +245,7 @@ export function Upload({
         />
 
         <span className={styles.uploadIcon}>
-          <UploadCloudIcon />
+          <UploadIcon />
         </span>
         <p className={styles.dropText}>
           <strong>Click to upload</strong> or drag and drop

@@ -1,0 +1,128 @@
+{/* GettingStarted.mdx */}
+import { Meta, Source } from '@storybook/blocks';
+
+<Meta title="Documentation/Getting Started" />
+
+# Getting Started with Switch Design System
+
+The Switch Design System provides a comprehensive set of React components for building modern web applications.
+
+---
+
+## Installation
+
+<Source dark code={`
+npm install @switch/react
+# or
+yarn add @switch/react
+# or
+pnpm add @switch/react
+`} language="bash" />
+
+---
+
+## Setup
+
+Import the CSS styles in your app's entry point:
+
+<Source dark code={`
+// _app.tsx, layout.tsx, or main.tsx
+import '@switch/react/styles';
+`} language="tsx" />
+
+---
+
+## Usage
+
+Import and use components directly:
+
+<Source dark code={`
+import { Button, Card, Input } from '@switch/react';
+
+function MyComponent() {
+  return (
+    <Card padding="large">
+      <Input label="Email" placeholder="you@example.com" fullWidth />
+      <Button variant="primary">Submit</Button>
+    </Card>
+  );
+}
+`} language="tsx" />
+
+---
+
+## CLI Tools
+
+The Switch CLI helps scaffold pages and components quickly:
+
+<Source dark code={`
+# Install CLI
+npm install -g @switch/cli
+
+# Create a new page from template
+npx @switch/cli create-page dashboard --template dashboard
+
+# Add a new component
+npx @switch/cli add-component user-profile
+
+# List all available components
+npx @switch/cli list
+`} language="bash" />
+
+### Available Templates
+
+| Template | Description |
+|----------|-------------|
+| `blank` | Empty page with PageHeader |
+| `dashboard` | Dashboard with stats grid and data table |
+| `form` | Form page with validation |
+| `table` | Data table with search, pagination |
+| `settings` | Settings page with tabs |
+| `auth` | Login/Register page |
+
+---
+
+## Using with LLMs
+
+The design system is optimized for AI-assisted development. Share `AI_CONTEXT.md` with your LLM for best results:
+
+<Source dark code={`
+# In your prompt to Claude/GPT:
+"Use the @switch/react design system. Here's the component reference:
+[paste content from AI_CONTEXT.md]"
+`} language="text" />
+
+Or point the LLM to the file directly if it has file access.
+
+---
+
+## Component Categories
+
+### Core
+Button, Input, Select, Checkbox, Radio, Switch, Slider, DatePicker
+
+### Layout
+Card, Divider, Modal, Accordion, Tabs
+
+### Data Display
+Table, DataTable, Avatar, Chip, ListItem, EmptyState, Loader
+
+### Feedback
+Alert, Toast, HelperText, Tooltip
+
+### Navigation
+Breadcrumb, SideNav, BottomNav, AppBar, Menu
+
+### Composite
+SearchInput, ConfirmModal, FormField, PageHeader, Form
+
+### File
+Upload
+
+---
+
+## Next Steps
+
+- Browse the **Components** section for detailed API documentation
+- Check **Snippets** for copy-paste code patterns
+- Use the CLI to scaffold new pages quickly

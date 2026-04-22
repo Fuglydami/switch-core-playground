@@ -1,9 +1,11 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { useState } from 'react';
+import { Tabs } from '@switch/react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
-
-export const metadata: Metadata = { title: 'Tabs' };
+import { ComponentPreview } from '@/components/ComponentPreview';
 
 const WEB_CODE = `import { Tabs } from '@switch/react';
 
@@ -76,17 +78,112 @@ const PROPS = [
   { name: 'variant',  type: "'underline' | 'icon-label' | 'pill'", default: "'underline'", description: 'Visual style. underline shows blue underline on active. icon-label shows icon to the left of label. pill renders capsule buttons.' },
 ];
 
+const HomeIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path d="M2 6l6-4 6 4v8a1 1 0 01-1 1H3a1 1 0 01-1-1V6z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M6 15V9h4v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const SearchIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <circle cx="7" cy="7" r="4.5" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M10.5 10.5L14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+  </svg>
+);
+
+const UserIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <circle cx="8" cy="5" r="2.5" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M3 14c0-2.5 2.5-4 5-4s5 1.5 5 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+  </svg>
+);
+
 export default function TabsPage() {
+  const [activeUnderline, setActiveUnderline] = useState('overview');
+  const [activeIconLabel, setActiveIconLabel] = useState('home');
+  const [activePill, setActivePill] = useState('overview');
+  const [activeBadge, setActiveBadge] = useState('activity');
+
+  const basicItems = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'activity', label: 'Activity' },
+    { id: 'settings', label: 'Settings' },
+  ];
+
+  const badgeItems = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'activity', label: 'Activity', badge: 3 },
+    { id: 'settings', label: 'Settings', badge: 12 },
+  ];
+
+  const iconItems = [
+    { id: 'home', label: 'Home', icon: <HomeIcon /> },
+    { id: 'search', label: 'Search', icon: <SearchIcon /> },
+    { id: 'profile', label: 'Profile', icon: <UserIcon /> },
+  ];
+
   return (
     <article>
       <div style={{ marginBottom: 32 }}>
         <PlatformBadge platforms={['web', 'ios', 'android']} />
         <h1 style={{ fontSize: 28, fontWeight: 700, margin: '12px 0 8px' }}>Tabs</h1>
-        <p style={{ color: '#6b7280', fontSize: 16, margin: 0 }}>
+        <p style={{ color: 'var(--switch-color-text-secondary)', fontSize: 16, margin: 0 }}>
           Horizontal navigation between related views. Supports default underline, icon-leading,
           and pill variants.
         </p>
       </div>
+
+      <section style={{ marginBottom: 40 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Preview</h2>
+
+        <ComponentPreview title="Underline Variant (Default)">
+          <div style={{ width: '100%' }}>
+            <Tabs
+              items={basicItems}
+              activeId={activeUnderline}
+              onChange={setActiveUnderline}
+              variant="underline"
+            />
+            <div style={{ padding: '16px 0', color: '#374151' }}>
+              Active tab: <strong>{activeUnderline}</strong>
+            </div>
+          </div>
+        </ComponentPreview>
+
+        <ComponentPreview title="With Badges">
+          <div style={{ width: '100%' }}>
+            <Tabs
+              items={badgeItems}
+              activeId={activeBadge}
+              onChange={setActiveBadge}
+              variant="underline"
+            />
+          </div>
+        </ComponentPreview>
+
+        <ComponentPreview title="Icon-Label Variant">
+          <div style={{ width: '100%' }}>
+            <Tabs
+              items={iconItems}
+              activeId={activeIconLabel}
+              onChange={setActiveIconLabel}
+              variant="icon-label"
+            />
+          </div>
+        </ComponentPreview>
+
+        <ComponentPreview title="Pill Variant">
+          <div style={{ width: '100%' }}>
+            <Tabs
+              items={basicItems}
+              activeId={activePill}
+              onChange={setActivePill}
+              variant="pill"
+            />
+          </div>
+        </ComponentPreview>
+      </section>
 
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Code</h2>
@@ -100,7 +197,7 @@ export default function TabsPage() {
 
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Platform Notes</h2>
-        <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 12, padding: 20, display: 'flex', flexDirection: 'column', gap: 12 }}>
+        <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 8, padding: 20, display: 'flex', flexDirection: 'column', gap: 12 }}>
           <Note platform="Web" color="#00425F" bg="rgba(0,66,95,0.06)">
             Keyboard navigation: <kbd>ArrowLeft</kbd> / <kbd>ArrowRight</kbd> move focus between tabs,{' '}
             <kbd>Home</kbd> / <kbd>End</kbd> jump to first / last. Uses <code>role="tablist"</code> and{' '}
@@ -128,7 +225,7 @@ export default function TabsPage() {
 
 function Note({ platform, color, bg, children }: { platform: string; color: string; bg: string; children: React.ReactNode }) {
   return (
-    <div style={{ background: bg, borderRadius: 8, padding: '10px 14px' }}>
+    <div style={{ background: bg, borderRadius: 4, padding: '10px 14px' }}>
       <span style={{ fontSize: 12, fontWeight: 700, color, marginRight: 8 }}>{platform}</span>
       <span style={{ fontSize: 14, color: '#374151' }}>{children}</span>
     </div>

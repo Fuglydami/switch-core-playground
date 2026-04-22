@@ -1,0 +1,101 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  background: var(--switch-color-surface-primary);
+  border: 1px solid var(--switch-color-neutral-200);
+  border-radius: var(--switch-border-radius-lg);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--switch-spacing-4);
+  padding: var(--switch-spacing-4);
+  border-bottom: 1px solid var(--switch-color-neutral-200);
+}
+
+.search {
+  width: 320px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--switch-spacing-2);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--switch-spacing-10);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--switch-spacing-3) var(--switch-spacing-4);
+  border-top: 1px solid var(--switch-color-neutral-200);
+  background: var(--switch-color-neutral-50);
+}
+
+.resultCount {
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-small);
+  color: var(--switch-color-text-secondary);
+}
+
+.paginationControls {
+  display: flex;
+  align-items: center;
+  gap: var(--switch-spacing-3);
+}
+
+.rowsLabel {
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-small);
+  color: var(--switch-color-text-secondary);
+}
+
+.rowsSelect {
+  width: 80px;
+}
+
+.pageInfo {
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-small);
+  color: var(--switch-color-text-secondary);
+  margin-left: var(--switch-spacing-2);
+}
+
+.pageButtons {
+  display: flex;
+  gap: var(--switch-spacing-1);
+}
+
+.pageBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--switch-color-neutral-300);
+  border-radius: var(--switch-border-radius-sm);
+  background: var(--switch-color-surface-primary);
+  color: var(--switch-color-text-secondary);
+  cursor: pointer;
+  transition: background-color 100ms ease, color 100ms ease;
+}
+
+.pageBtn:hover:not(:disabled) {
+  background: var(--switch-color-neutral-100);
+  color: var(--switch-color-text-primary);
+}
+
+.pageBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

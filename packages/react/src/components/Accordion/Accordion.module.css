@@ -95,7 +95,7 @@
   justify-content: center;
   flex-shrink: 0;
   color: var(--switch-color-text-secondary);
-  transition: transform 200ms ease;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transform: rotate(-90deg);
 }
 
@@ -107,12 +107,22 @@
 .panel {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 200ms ease;
+  transition: grid-template-rows 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background: var(--switch-color-surface-primary);
 }
 
 .panel[data-expanded="true"] {
   grid-template-rows: 1fr;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .chevron {
+    transition: none;
+  }
+  .panel {
+    transition: none;
+  }
 }
 
 .panelContent {

@@ -13,7 +13,7 @@
   gap: var(--switch-spacing-1);
   padding: var(--switch-spacing-6) var(--switch-spacing-4);
   border: 1px dashed var(--switch-color-neutral-400);
-  border-radius: var(--switch-border-radius-lg);
+  border-radius: var(--switch-border-radius-md);
   background: var(--switch-color-neutral-100);
   cursor: pointer;
   transition: border-color 150ms ease, background-color 150ms ease;
@@ -52,13 +52,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--switch-border-radius-full);
-  background: var(--switch-color-surface-primary);
-  border: 6px solid var(--switch-color-neutral-100);
-  box-shadow: 0 0 0 6px var(--switch-color-neutral-200);
-  color: var(--switch-color-text-secondary);
+  border: 2px solid var(--switch-color-activeblue-400);
+  border-radius: 100%;
+  padding: 5px;
+  color: var(--switch-color-activeblue-400);
   margin-bottom: var(--switch-spacing-3);
 }
 

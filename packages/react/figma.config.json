@@ -1,0 +1,206 @@
+{
+  "figmaFileUrl": "https://www.figma.com/design/wwcGjfpa7YixGCNO0eJk8b/Switch-Core",
+  "codeConnect": {
+    "parser": "react",
+    "include": ["src/components/**/*.tsx"],
+    "exclude": ["**/*.stories.tsx", "**/*.test.tsx"]
+  },
+  "components": [
+    {
+      "figmaName": "Button",
+      "codeComponent": "Button",
+      "importPath": "@switch/react",
+      "props": {
+        "variant": ["primary", "secondary", "tertiary", "outline", "link"],
+        "colorScheme": ["popBlue", "activeBlue", "primaryBlue", "monochrome"],
+        "size": ["small", "medium", "large"],
+        "shape": ["rectangular", "pill", "square", "circle"]
+      }
+    },
+    {
+      "figmaName": "Input",
+      "codeComponent": "Input",
+      "importPath": "@switch/react",
+      "props": {
+        "size": ["small", "medium", "large"],
+        "state": ["default", "error", "success", "warning"]
+      }
+    },
+    {
+      "figmaName": "Select",
+      "codeComponent": "Select",
+      "importPath": "@switch/react"
+    },
+    {
+      "figmaName": "Card",
+      "codeComponent": "Card",
+      "importPath": "@switch/react",
+      "props": {
+        "variant": ["elevated", "outlined", "filled"],
+        "padding": ["none", "small", "medium", "large"]
+      }
+    },
+    {
+      "figmaName": "Modal",
+      "codeComponent": "Modal",
+      "importPath": "@switch/react",
+      "props": {
+        "size": ["small", "medium", "large"]
+      }
+    },
+    {
+      "figmaName": "Alert",
+      "codeComponent": "Alert",
+      "importPath": "@switch/react",
+      "props": {
+        "variant": ["info", "success", "warning", "error"]
+      }
+    },
+    {
+      "figmaName": "Avatar",
+      "codeComponent": "Avatar",
+      "importPath": "@switch/react",
+      "props": {
+        "size": ["xsmall", "small", "medium", "large", "xlarge"],
+        "shape": ["circle", "square"]
+      }
+    },
+    {
+      "figmaName": "Chip",
+      "codeComponent": "Chip",
+      "importPath": "@switch/react",
+      "props": {
+        "variant": ["filled", "outlined"],
+        "colorScheme": ["neutral", "blue", "green", "red", "yellow"],
+        "size": ["small", "medium"]
+      }
+    },
+    {
+      "figmaName": "Tabs",
+      "codeComponent": "Tabs",
+      "importPath": "@switch/react",
+      "props": {
+        "variant": ["underline", "pills", "enclosed"]
+      }
+    },
+    {
+      "figmaName": "Table",
+      "codeComponent": "Table",
+      "importPath": "@switch/react"
+    },
+    {
+      "figmaName": "Accordion",
+      "codeComponent": "Accordion",
+      "importPath": "@switch/react"
+    },
+    {
+      "figmaName": "Menu",
+      "codeComponent": "Menu",
+      "importPath": "@switch/react"
+    },
+    {
+      "figmaName": "Tooltip",
+      "codeComponent": "Tooltip",
+      "importPath": "@switch/react",
+      "props": {
+        "placement": ["top", "bottom", "left", "right"]
+      }
+    },
+    {
+      "figmaName": "Loader",
+      "codeComponent": "Loader",
+      "importPath": "@switch/react",
+      "props": {
+        "size": ["small", "medium", "large"],
+        "variant": ["spinner", "dots", "pulse"]
+      }
+    },
+    {
+      "figmaName": "Empty State",
+      "codeComponent": "EmptyState",
+      "importPath": "@switch/react"
+    },
+    {
+      "figmaName": "Divider",
+      "codeComponent": "Divider",
+      "importPath": "@switch/react",
+      "props": {
+        "orientation": ["horizontal", "vertical"]
+      }
+    },
+    {
+      "figmaName": "Slider",
+      "codeComponent": "Slider",
+      "importPath": "@switch/react"
+    },
+    {
+      "figmaName": "Date Picker",
+      "codeComponent": "DatePicker",
+      "importPath": "@switch/react"
+    },
+    {
+      "figmaName": "Upload",
+      "codeComponent": "Upload",
+      "importPath": "@switch/react"
+    },
+    {
+      "figmaName": "Checkbox",
+      "codeComponent": "Checkbox",
+      "importPath": "@switch/react"
+    },
+    {
+      "figmaName": "Radio",
+      "codeComponent": "Radio",
+      "importPath": "@switch/react"
+    },
+    {
+      "figmaName": "Switch",
+      "codeComponent": "Switch",
+      "importPath": "@switch/react"
+    },
+    {
+      "figmaName": "Side Nav",
+      "codeComponent": "SideNav",
+      "importPath": "@switch/react"
+    },
+    {
+      "figmaName": "Bottom Nav",
+      "codeComponent": "BottomNav",
+      "importPath": "@switch/react",
+      "props": {
+        "variant": ["outline", "fill", "outline-fill"]
+      }
+    },
+    {
+      "figmaName": "App Bar",
+      "codeComponent": "AppBar",
+      "importPath": "@switch/react",
+      "props": {
+        "variant": ["light", "dark", "transparent"]
+      }
+    },
+    {
+      "figmaName": "Breadcrumb",
+      "codeComponent": "Breadcrumb",
+      "importPath": "@switch/react"
+    },
+    {
+      "figmaName": "Header",
+      "codeComponent": "Header",
+      "importPath": "@switch/react"
+    },
+    {
+      "figmaName": "List Item",
+      "codeComponent": "ListItem",
+      "importPath": "@switch/react"
+    },
+    {
+      "figmaName": "Toast",
+      "codeComponent": "Toast",
+      "importPath": "@switch/react",
+      "props": {
+        "variant": ["success", "error", "warning", "info"]
+      }
+    }
+  ]
+}

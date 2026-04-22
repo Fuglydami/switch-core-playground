@@ -114,14 +114,25 @@ export function Menu({ items, trigger, placement = 'bottom-start', className }: 
 
   return (
     <div ref={ref} className={[styles.root, className].filter(Boolean).join(' ')}>
-      <div
+      <button
+        type="button"
         className={styles.trigger}
         onClick={() => setOpen((o) => !o)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setOpen((o) => !o);
+          }
+          if (e.key === 'ArrowDown' && !open) {
+            e.preventDefault();
+            setOpen(true);
+          }
+        }}
         aria-haspopup="menu"
         aria-expanded={open}
       >
         {trigger}
-      </div>
+      </button>
 
       {open && (
         <ul

@@ -383,3 +383,8 @@
   display: inline-flex;
   align-items: center;
 }
+
+/* Full width */
+.fullWidth {
+  width: 100%;
+}

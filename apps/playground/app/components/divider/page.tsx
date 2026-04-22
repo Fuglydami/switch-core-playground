@@ -1,9 +1,10 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { Divider } from '@switch/react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
-
-export const metadata: Metadata = { title: 'Divider' };
+import { ComponentPreview } from '@/components/ComponentPreview';
 
 const WEB_CODE = `import { Divider } from '@switch/react';
 
@@ -54,10 +55,40 @@ export default function DividerPage() {
           Content separator — horizontal rule, labelled section divider (line–text–line), or vertical separator for inline layouts.
         </p>
       </div>
+
+      <section style={{ marginBottom: 40 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Preview</h2>
+
+        <ComponentPreview title="Horizontal (Default)">
+          <div style={{ width: '100%' }}>
+            <Divider />
+          </div>
+        </ComponentPreview>
+
+        <ComponentPreview title="With Label">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 24, width: '100%' }}>
+            <Divider label="Today" />
+            <Divider label="Notifications" />
+            <Divider label="or continue with" />
+          </div>
+        </ComponentPreview>
+
+        <ComponentPreview title="Vertical">
+          <div style={{ display: 'flex', alignItems: 'center', height: 40, gap: 16 }}>
+            <span style={{ color: '#374151' }}>Option A</span>
+            <Divider orientation="vertical" />
+            <span style={{ color: '#374151' }}>Option B</span>
+            <Divider orientation="vertical" />
+            <span style={{ color: '#374151' }}>Option C</span>
+          </div>
+        </ComponentPreview>
+      </section>
+
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Code</h2>
         <CodeTabs web={WEB_CODE} reactNative={RN_CODE} />
       </section>
+
       <section>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Props</h2>
         <PropsTable props={PROPS} />

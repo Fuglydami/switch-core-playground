@@ -1,9 +1,10 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { Tooltip, Button } from '@switch/react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
-
-export const metadata: Metadata = { title: 'Tooltip' };
+import { ComponentPreview, PreviewItem } from '@/components/ComponentPreview';
 
 const WEB_CODE = `import { Tooltip } from '@switch/react';
 
@@ -51,16 +52,102 @@ const PROPS = [
   { name: 'placement', type: "'top' | 'bottom' | 'left' | 'right'", default: "'top'", description: 'Preferred position relative to the trigger' },
 ];
 
+const InfoIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ display: 'block' }}>
+    <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M10 9v4M10 7h.01" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+  </svg>
+);
+
+const CopyIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ display: 'block' }}>
+    <rect x="7" y="7" width="9" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M13 7V5.5A1.5 1.5 0 0011.5 4h-6A1.5 1.5 0 004 5.5v6A1.5 1.5 0 005.5 13H7" stroke="currentColor" strokeWidth="1.5" />
+  </svg>
+);
+
 export default function TooltipPage() {
   return (
     <article>
       <div style={{ marginBottom: 32 }}>
         <PlatformBadge platforms={['web', 'ios', 'android']} />
         <h1 style={{ fontSize: 28, fontWeight: 700, margin: '12px 0 8px' }}>Tooltip</h1>
-        <p style={{ color: '#6b7280', fontSize: 16, margin: 0 }}>
+        <p style={{ color: 'var(--switch-color-text-secondary)', fontSize: 16, margin: 0 }}>
           Short contextual labels. On web, shown on hover and focus. On React Native, shown on long-press or press-in (no hover on mobile).
         </p>
       </div>
+
+      <section style={{ marginBottom: 40 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Preview</h2>
+
+        <ComponentPreview title="Basic Tooltip (Hover Me)">
+          <Tooltip content="Copy to clipboard">
+            <button
+              style={{
+                padding: '8px 12px',
+                background: '#f3f4f6',
+                border: '1px solid #e5e7eb',
+                borderRadius: 6,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 6,
+              }}
+            >
+              <CopyIcon />
+              Copy
+            </button>
+          </Tooltip>
+        </ComponentPreview>
+
+        <ComponentPreview title="Placements">
+          <PreviewItem label="Top">
+            <Tooltip content="Tooltip on top" placement="top">
+              <Button size="small">Top</Button>
+            </Tooltip>
+          </PreviewItem>
+          <PreviewItem label="Bottom">
+            <Tooltip content="Tooltip on bottom" placement="bottom">
+              <Button size="small">Bottom</Button>
+            </Tooltip>
+          </PreviewItem>
+          <PreviewItem label="Left">
+            <Tooltip content="Tooltip on left" placement="left">
+              <Button size="small">Left</Button>
+            </Tooltip>
+          </PreviewItem>
+          <PreviewItem label="Right">
+            <Tooltip content="Tooltip on right" placement="right">
+              <Button size="small">Right</Button>
+            </Tooltip>
+          </PreviewItem>
+        </ComponentPreview>
+
+        <ComponentPreview title="Icon Button with Tooltip">
+          <Tooltip content="More information">
+            <button
+              style={{
+                padding: 8,
+                background: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                color: '#6b7280',
+              }}
+              aria-label="More information"
+            >
+              <InfoIcon />
+            </button>
+          </Tooltip>
+        </ComponentPreview>
+
+        <ComponentPreview title="Long Content">
+          <Tooltip content="Transfers are processed on the next business day after 5 PM WAT. International transfers may take longer." placement="bottom">
+            <span style={{ textDecoration: 'underline', textDecorationStyle: 'dotted', cursor: 'help', color: '#374151' }}>
+              Transfer timing info
+            </span>
+          </Tooltip>
+        </ComponentPreview>
+      </section>
 
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Code</h2>
@@ -74,7 +161,7 @@ export default function TooltipPage() {
 
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Platform Notes</h2>
-        <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 12, padding: 20, display: 'flex', flexDirection: 'column', gap: 12 }}>
+        <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 8, padding: 20, display: 'flex', flexDirection: 'column', gap: 12 }}>
           <Note platform="Web" color="#00425F" bg="rgba(0,66,95,0.06)">
             Shown on <code>mouseenter</code> / <code>focus</code>, hidden on <code>mouseleave</code> /{' '}
             <code>blur</code>. The tooltip is absolutely positioned and rendered via{' '}
@@ -103,7 +190,7 @@ export default function TooltipPage() {
 
 function Note({ platform, color, bg, children }: { platform: string; color: string; bg: string; children: React.ReactNode }) {
   return (
-    <div style={{ background: bg, borderRadius: 8, padding: '10px 14px' }}>
+    <div style={{ background: bg, borderRadius: 4, padding: '10px 14px' }}>
       <span style={{ fontSize: 12, fontWeight: 700, color, marginRight: 8 }}>{platform}</span>
       <span style={{ fontSize: 14, color: '#374151' }}>{children}</span>
     </div>

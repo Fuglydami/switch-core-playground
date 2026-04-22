@@ -1,0 +1,645 @@
+{/* Snippets.mdx */}
+import { Meta, Source } from '@storybook/blocks';
+
+<Meta title="Documentation/Snippets" />
+
+# Copy-Paste Snippets
+
+Ready-to-use code patterns for common UI scenarios. Click the copy button on any snippet.
+
+---
+
+## Setup
+
+<Source dark code={`
+// In your app entry point (e.g., _app.tsx, layout.tsx, main.tsx)
+import '@switch/react/styles';
+`} language="tsx" />
+
+---
+
+## Buttons
+
+### Primary Button
+<Source dark code={`
+import { Button } from '@switch/react';
+
+<Button variant="primary" onPress={() => console.log('clicked')}>
+  Submit
+</Button>
+`} language="tsx" />
+
+### Button with Loading State
+<Source dark code={`
+import { Button } from '@switch/react';
+import { useState } from 'react';
+
+function SubmitButton() {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async () => {
+    setLoading(true);
+    await saveData();
+    setLoading(false);
+  };
+
+  return (
+    <Button isLoading={loading} onPress={handleSubmit}>
+      {loading ? 'Saving...' : 'Save'}
+    </Button>
+  );
+}
+`} language="tsx" />
+
+### Button Group
+<Source dark code={`
+import { Button } from '@switch/react';
+
+<div style={{ display: 'flex', gap: 8 }}>
+  <Button variant="outline">Cancel</Button>
+  <Button variant="primary">Submit</Button>
+</div>
+`} language="tsx" />
+
+---
+
+## Forms
+
+### Login Form
+<Source dark code={`
+import { Form, Button, validators, Card } from '@switch/react';
+
+function LoginForm() {
+  const handleSubmit = async (values: { email: string; password: string }) => {
+    await login(values.email, values.password);
+  };
+
+  return (
+    <Card padding="large" style={{ maxWidth: 400 }}>
+      <Form onSubmit={handleSubmit}>
+        <Form.Field
+          name="email"
+          label="Email"
+          type="email"
+          placeholder="you@example.com"
+          rules={[validators.required(), validators.email()]}
+          fullWidth
+        />
+        <Form.Field
+          name="password"
+          label="Password"
+          type="password"
+          placeholder="••••••••"
+          rules={[validators.required(), validators.minLength(8)]}
+          fullWidth
+        />
+        <Form.Submit>
+          <Button type="submit" fullWidth>Sign In</Button>
+        </Form.Submit>
+      </Form>
+    </Card>
+  );
+}
+`} language="tsx" />
+
+### Registration Form
+<Source dark code={`
+import { Form, Button, validators } from '@switch/react';
+
+function RegistrationForm() {
+  return (
+    <Form onSubmit={async (values) => console.log(values)}>
+      <Form.Field
+        name="name"
+        label="Full Name"
+        rules={[validators.required()]}
+        fullWidth
+      />
+      <Form.Field
+        name="email"
+        label="Email"
+        type="email"
+        rules={[validators.required(), validators.email()]}
+        fullWidth
+      />
+      <Form.Field
+        name="password"
+        label="Password"
+        type="password"
+        rules={[validators.required(), validators.minLength(8)]}
+        fullWidth
+      />
+      <Form.Field
+        name="confirmPassword"
+        label="Confirm Password"
+        type="password"
+        rules={[
+          validators.required(),
+          validators.match('password', 'Passwords must match')
+        ]}
+        fullWidth
+      />
+      <Form.Submit>
+        <Button type="submit" fullWidth>Create Account</Button>
+      </Form.Submit>
+    </Form>
+  );
+}
+`} language="tsx" />
+
+### Contact Form with Select
+<Source dark code={`
+import { Form, Button, validators } from '@switch/react';
+
+function ContactForm() {
+  return (
+    <Form onSubmit={async (values) => sendMessage(values)}>
+      <Form.Field
+        name="name"
+        label="Name"
+        rules={[validators.required()]}
+        fullWidth
+      />
+      <Form.Field
+        name="email"
+        label="Email"
+        type="email"
+        rules={[validators.required(), validators.email()]}
+        fullWidth
+      />
+      <Form.Field
+        name="subject"
+        label="Subject"
+        type="select"
+        placeholder="Select a topic"
+        options={[
+          { label: 'General Inquiry', value: 'general' },
+          { label: 'Technical Support', value: 'support' },
+          { label: 'Billing', value: 'billing' },
+        ]}
+        rules={[validators.required()]}
+        fullWidth
+      />
+      <Form.Field
+        name="message"
+        label="Message"
+        placeholder="How can we help?"
+        rules={[validators.required(), validators.minLength(10)]}
+        fullWidth
+      />
+      <Form.Submit>
+        <Button type="submit">Send Message</Button>
+      </Form.Submit>
+    </Form>
+  );
+}
+`} language="tsx" />
+
+---
+
+## Data Display
+
+### Data Table with Search & Pagination
+<Source dark code={`
+import { DataTable, PageHeader, Button, Chip } from '@switch/react';
+
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  status: 'Active' | 'Inactive';
+}
+
+function UsersTable({ users }: { users: User[] }) {
+  return (
+    <>
+      <PageHeader
+        title="Users"
+        subtitle="Manage user accounts"
+        actions={<Button>Add User</Button>}
+      />
+      <DataTable
+        columns={[
+          { id: 'name', header: 'Name', accessor: 'name' },
+          { id: 'email', header: 'Email', accessor: 'email' },
+          {
+            id: 'status',
+            header: 'Status',
+            accessor: 'status',
+            render: (val) => (
+              <Chip
+                colorScheme={val === 'Active' ? 'green' : 'neutral'}
+                size="small"
+              >
+                {val}
+              </Chip>
+            ),
+          },
+        ]}
+        data={users}
+        searchable
+        searchPlaceholder="Search users..."
+        searchFields={['name', 'email']}
+        paginated
+        rowsPerPageOptions={[10, 25, 50]}
+      />
+    </>
+  );
+}
+`} language="tsx" />
+
+### Transaction List
+<Source dark code={`
+import { Card, ListItem, Avatar, Chip } from '@switch/react';
+
+interface Transaction {
+  id: string;
+  merchant: string;
+  amount: string;
+  date: string;
+  status: 'Completed' | 'Pending' | 'Failed';
+}
+
+function TransactionList({ transactions }: { transactions: Transaction[] }) {
+  return (
+    <Card>
+      {transactions.map((tx) => (
+        <ListItem
+          key={tx.id}
+          title={tx.merchant}
+          description={tx.date}
+          leftElement={<Avatar name={tx.merchant} size="small" />}
+          rightElement={
+            <div style={{ textAlign: 'right' }}>
+              <div style={{ fontWeight: 600 }}>{tx.amount}</div>
+              <Chip
+                size="small"
+                colorScheme={
+                  tx.status === 'Completed' ? 'green' :
+                  tx.status === 'Pending' ? 'yellow' : 'red'
+                }
+              >
+                {tx.status}
+              </Chip>
+            </div>
+          }
+        />
+      ))}
+    </Card>
+  );
+}
+`} language="tsx" />
+
+---
+
+## Feedback
+
+### Toast Notifications
+<Source dark code={`
+import { ToastProvider, useToast, Button } from '@switch/react';
+
+// Wrap your app
+function App() {
+  return (
+    <ToastProvider>
+      <YourApp />
+    </ToastProvider>
+  );
+}
+
+// Use in any component
+function SaveButton() {
+  const { showToast } = useToast();
+
+  const handleSave = async () => {
+    try {
+      await saveData();
+      showToast({
+        title: 'Saved',
+        description: 'Your changes have been saved.',
+        variant: 'success',
+      });
+    } catch {
+      showToast({
+        title: 'Error',
+        description: 'Failed to save. Please try again.',
+        variant: 'error',
+      });
+    }
+  };
+
+  return <Button onPress={handleSave}>Save</Button>;
+}
+`} language="tsx" />
+
+### Confirmation Dialog
+<Source dark code={`
+import { useState } from 'react';
+import { Button, ConfirmModal } from '@switch/react';
+
+function DeleteButton({ onDelete }: { onDelete: () => void }) {
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+
+  const handleConfirm = async () => {
+    setDeleting(true);
+    await onDelete();
+    setDeleting(false);
+    setShowConfirm(false);
+  };
+
+  return (
+    <>
+      <Button variant="outline" onPress={() => setShowConfirm(true)}>
+        Delete
+      </Button>
+      <ConfirmModal
+        isOpen={showConfirm}
+        onClose={() => setShowConfirm(false)}
+        onConfirm={handleConfirm}
+        title="Delete Item"
+        description="Are you sure? This action cannot be undone."
+        variant="danger"
+        confirmText="Delete"
+        isLoading={deleting}
+      />
+    </>
+  );
+}
+`} language="tsx" />
+
+### Alert Messages
+<Source dark code={`
+import { Alert } from '@switch/react';
+
+// Success
+<Alert variant="success" title="Payment successful">
+  Your transaction of $50.00 has been processed.
+</Alert>
+
+// Error
+<Alert variant="error" title="Payment failed">
+  Unable to process payment. Please try again.
+</Alert>
+
+// Warning
+<Alert variant="warning" title="Session expiring">
+  Your session will expire in 5 minutes.
+</Alert>
+
+// Info
+<Alert variant="info" title="New feature">
+  Check out our new dashboard analytics.
+</Alert>
+`} language="tsx" />
+
+---
+
+## Navigation
+
+### Page with Breadcrumbs
+<Source dark code={`
+import { PageHeader, Card } from '@switch/react';
+
+function SettingsPage() {
+  return (
+    <div style={{ padding: 24 }}>
+      <PageHeader
+        title="Account Settings"
+        subtitle="Manage your account preferences"
+        breadcrumbs={[
+          { id: 'home', label: 'Home', href: '/' },
+          { id: 'settings', label: 'Settings', href: '/settings' },
+          { id: 'account', label: 'Account' },
+        ]}
+        onBack={() => history.back()}
+      />
+      <Card>
+        {/* Settings content */}
+      </Card>
+    </div>
+  );
+}
+`} language="tsx" />
+
+### Tabs Layout
+<Source dark code={`
+import { Tabs, Card } from '@switch/react';
+
+function SettingsTabs() {
+  return (
+    <Tabs
+      variant="underline"
+      items={[
+        {
+          id: 'profile',
+          label: 'Profile',
+          content: <ProfileSettings />,
+        },
+        {
+          id: 'notifications',
+          label: 'Notifications',
+          content: <NotificationSettings />,
+        },
+        {
+          id: 'security',
+          label: 'Security',
+          content: <SecuritySettings />,
+        },
+      ]}
+    />
+  );
+}
+`} language="tsx" />
+
+---
+
+## Layout
+
+### Dashboard Stats Grid
+<Source dark code={`
+import { Card } from '@switch/react';
+
+const stats = [
+  { label: 'Total Revenue', value: '$45,231', change: '+12.5%' },
+  { label: 'Active Users', value: '2,350', change: '+4.3%' },
+  { label: 'Pending Orders', value: '12', change: '-2.1%' },
+  { label: 'Conversion Rate', value: '3.2%', change: '+0.8%' },
+];
+
+function StatsGrid() {
+  return (
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+      gap: 16,
+    }}>
+      {stats.map((stat) => (
+        <Card key={stat.label} padding="medium">
+          <p style={{ fontSize: 14, color: '#666', margin: '0 0 8px' }}>
+            {stat.label}
+          </p>
+          <p style={{ fontSize: 28, fontWeight: 700, margin: '0 0 4px' }}>
+            {stat.value}
+          </p>
+          <p style={{
+            fontSize: 14,
+            margin: 0,
+            color: stat.change.startsWith('+') ? '#22c55e' : '#ef4444',
+          }}>
+            {stat.change}
+          </p>
+        </Card>
+      ))}
+    </div>
+  );
+}
+`} language="tsx" />
+
+### Modal Form
+<Source dark code={`
+import { useState } from 'react';
+import { Modal, Form, Button, validators } from '@switch/react';
+
+function AddUserModal() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <Button onPress={() => setIsOpen(true)}>Add User</Button>
+      <Modal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        title="Add New User"
+        size="medium"
+      >
+        <Form onSubmit={async (values) => {
+          await createUser(values);
+          setIsOpen(false);
+        }}>
+          <Form.Field
+            name="name"
+            label="Name"
+            rules={[validators.required()]}
+            fullWidth
+          />
+          <Form.Field
+            name="email"
+            label="Email"
+            type="email"
+            rules={[validators.required(), validators.email()]}
+            fullWidth
+          />
+          <Form.Field
+            name="role"
+            label="Role"
+            type="select"
+            options={[
+              { label: 'Admin', value: 'admin' },
+              { label: 'User', value: 'user' },
+            ]}
+            rules={[validators.required()]}
+            fullWidth
+          />
+          <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
+            <Button variant="outline" onPress={() => setIsOpen(false)}>
+              Cancel
+            </Button>
+            <Form.Submit>
+              <Button type="submit">Add User</Button>
+            </Form.Submit>
+          </div>
+        </Form>
+      </Modal>
+    </>
+  );
+}
+`} language="tsx" />
+
+---
+
+## File Upload
+
+### Basic Upload
+<Source dark code={`
+import { useState } from 'react';
+import { Upload } from '@switch/react';
+
+interface UploadFile {
+  id: string;
+  name: string;
+  size: number;
+  status: 'idle' | 'uploading' | 'completed' | 'failed';
+  progress?: number;
+}
+
+function FileUploader() {
+  const [files, setFiles] = useState<UploadFile[]>([]);
+
+  const handleFilesAdded = async (newFiles: File[]) => {
+    const uploads = newFiles.map((file) => ({
+      id: crypto.randomUUID(),
+      name: file.name,
+      size: file.size,
+      status: 'uploading' as const,
+      progress: 0,
+    }));
+
+    setFiles((prev) => [...prev, ...uploads]);
+
+    // Upload each file
+    for (const upload of uploads) {
+      await uploadFile(upload.id);
+    }
+  };
+
+  return (
+    <Upload
+      accept="image/*,.pdf"
+      multiple
+      maxSize={5 * 1024 * 1024}
+      files={files}
+      onFilesAdded={handleFilesAdded}
+      onRemove={(id) => setFiles((prev) => prev.filter((f) => f.id !== id))}
+    />
+  );
+}
+`} language="tsx" />
+
+---
+
+## Search
+
+### Debounced Search
+<Source dark code={`
+import { useState } from 'react';
+import { SearchInput } from '@switch/react';
+
+function SearchPage() {
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const handleSearch = async (query: string) => {
+    if (!query) {
+      setResults([]);
+      return;
+    }
+    setLoading(true);
+    const data = await searchAPI(query);
+    setResults(data);
+    setLoading(false);
+  };
+
+  return (
+    <div>
+      <SearchInput
+        placeholder="Search..."
+        onSearch={handleSearch}
+        debounceMs={300}
+        isLoading={loading}
+      />
+      {/* Render results */}
+    </div>
+  );
+}
+`} language="tsx" />

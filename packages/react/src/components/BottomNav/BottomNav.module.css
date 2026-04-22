@@ -1,0 +1,109 @@
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--switch-color-surface-primary, #ffffff);
+  border-top: 1px solid var(--switch-color-border-default, #e5e7eb);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  font-family: var(--switch-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  z-index: 1000;
+}
+
+.list {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 8px 4px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex: 1;
+  min-width: 64px;
+  max-width: 96px;
+  padding: 8px 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.15s ease, transform 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.item:active:not(.disabled) {
+  transform: scale(0.95);
+}
+
+.icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--switch-color-text-tertiary, #9ca3af);
+}
+
+.active .icon {
+  color: var(--switch-color-semantic-interactive, #0275d8);
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  background: var(--switch-color-semantic-error, #dc2626);
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--switch-color-text-tertiary, #9ca3af);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.active .label {
+  color: var(--switch-color-semantic-interactive, #0275d8);
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* Variants */
+.outline .icon,
+.fill .icon,
+.outline-fill .icon {
+  color: var(--switch-color-text-tertiary, #9ca3af);
+}
+
+.outline .active .icon,
+.fill .active .icon,
+.outline-fill .active .icon {
+  color: var(--switch-color-semantic-interactive, #0275d8);
+}

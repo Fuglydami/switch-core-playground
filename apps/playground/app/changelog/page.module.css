@@ -1,0 +1,140 @@
+.main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.header {
+  margin-bottom: 48px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--switch-color-text-primary);
+  margin: 0 0 12px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--switch-color-text-secondary);
+  margin: 0;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.entry {
+  background: var(--switch-color-surface-primary);
+  border: 1px solid var(--switch-color-border-default);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.versionHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.version {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--switch-color-text-primary);
+  margin: 0;
+}
+
+.date {
+  font-size: 14px;
+  color: var(--switch-color-text-secondary);
+  background: var(--switch-color-surface-grey);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.changeList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.changeItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.changeType {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  min-width: 70px;
+  text-align: center;
+}
+
+.changeDescription {
+  font-size: 14px;
+  color: var(--switch-color-text-primary);
+  line-height: 1.5;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--switch-color-border-default);
+  margin: 24px 0 0;
+}
+
+.parity {
+  margin-top: 48px;
+  background: var(--switch-color-surface-grey);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.parityTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--switch-color-text-primary);
+  margin: 0 0 12px;
+}
+
+.parityDescription {
+  font-size: 14px;
+  color: var(--switch-color-text-secondary);
+  margin: 0 0 16px;
+}
+
+.parityDescription code {
+  background: var(--switch-color-surface-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.parityList {
+  margin: 0 0 16px;
+  padding-left: 20px;
+}
+
+.parityList li {
+  font-size: 14px;
+  color: var(--switch-color-text-primary);
+  margin-bottom: 8px;
+}
+
+.parityNote {
+  font-size: 13px;
+  color: var(--switch-color-text-secondary);
+  font-style: italic;
+  margin: 0;
+}

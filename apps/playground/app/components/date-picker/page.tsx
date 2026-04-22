@@ -1,9 +1,11 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { useState } from 'react';
+import { DatePicker } from '@switch/react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
-
-export const metadata: Metadata = { title: 'DatePicker' };
+import { ComponentPreview } from '@/components/ComponentPreview';
 
 const WEB_CODE = `import { DatePicker } from '@switch/react';
 import { useState } from 'react';
@@ -57,6 +59,14 @@ const PROPS = [
 ];
 
 export default function DatePickerPage() {
+  const [basicDate, setBasicDate] = useState<Date | null>(null);
+  const [appointmentDate, setAppointmentDate] = useState<Date | null>(null);
+  const [errorDate, setErrorDate] = useState<Date | null>(null);
+
+  const today = new Date();
+  const nextMonth = new Date();
+  nextMonth.setMonth(nextMonth.getMonth() + 1);
+
   return (
     <article>
       <div style={{ marginBottom: 32 }}>
@@ -68,6 +78,67 @@ export default function DatePickerPage() {
           <code>@react-native-community/datetimepicker</code>.
         </p>
       </div>
+
+      <section style={{ marginBottom: 40 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Preview</h2>
+
+        <ComponentPreview title="Basic DatePicker">
+          <div style={{ width: '100%', maxWidth: 300 }}>
+            <DatePicker
+              label="Select a date"
+              value={basicDate}
+              onChange={setBasicDate}
+              placeholder="Choose a date"
+            />
+            {basicDate && (
+              <p style={{ marginTop: 8, fontSize: 14, color: '#6b7280' }}>
+                Selected: {basicDate.toLocaleDateString()}
+              </p>
+            )}
+          </div>
+        </ComponentPreview>
+
+        <ComponentPreview title="With Min/Max Date">
+          <div style={{ width: '100%', maxWidth: 300 }}>
+            <DatePicker
+              label="Appointment date"
+              value={appointmentDate}
+              onChange={setAppointmentDate}
+              minDate={today}
+              maxDate={nextMonth}
+              placeholder="Choose within next month"
+            />
+            <p style={{ marginTop: 8, fontSize: 12, color: '#6b7280' }}>
+              Only dates from today to next month are selectable
+            </p>
+          </div>
+        </ComponentPreview>
+
+        <ComponentPreview title="Error State">
+          <div style={{ width: '100%', maxWidth: 300 }}>
+            <DatePicker
+              label="Date of birth"
+              value={errorDate}
+              onChange={setErrorDate}
+              isError
+              errorMessage="Please select a valid date"
+              placeholder="Select your birthdate"
+            />
+          </div>
+        </ComponentPreview>
+
+        <ComponentPreview title="Disabled">
+          <div style={{ width: '100%', maxWidth: 300 }}>
+            <DatePicker
+              label="Event date"
+              value={null}
+              onChange={() => {}}
+              disabled
+              placeholder="Not available"
+            />
+          </div>
+        </ComponentPreview>
+      </section>
 
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Code</h2>

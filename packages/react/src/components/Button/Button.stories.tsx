@@ -4,22 +4,71 @@ import { Button } from './Button';
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
+  parameters: {
+    docs: {
+      description: {
+        component: `
+Buttons trigger actions and events. Use the appropriate variant and color scheme for the context.
+
+## Quick Start
+\`\`\`tsx
+import { Button } from '@switch/react';
+
+<Button variant="primary" onPress={() => console.log('clicked')}>
+  Click me
+</Button>
+\`\`\`
+
+## With Loading State
+\`\`\`tsx
+<Button isLoading={true}>
+  Submitting...
+</Button>
+\`\`\`
+
+## Button Group
+\`\`\`tsx
+<div style={{ display: 'flex', gap: 8 }}>
+  <Button variant="outline">Cancel</Button>
+  <Button variant="primary">Submit</Button>
+</div>
+\`\`\`
+        `,
+      },
+    },
+  },
   argTypes: {
     variant: {
       control: 'select',
       options: ['primary', 'secondary', 'tertiary', 'outline', 'link'],
+      description: 'Visual style of the button',
     },
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
+      description: 'Size of the button',
     },
     shape: {
       control: 'select',
       options: ['rectangular', 'pill', 'square', 'circle'],
+      description: 'Shape of the button',
     },
     colorScheme: {
       control: 'select',
       options: ['popBlue', 'activeBlue', 'primaryBlue', 'monochrome'],
+      description: 'Color scheme of the button',
+    },
+    isLoading: {
+      control: 'boolean',
+      description: 'Shows loading spinner and disables button',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Disables the button',
+    },
+    fullWidth: {
+      control: 'boolean',
+      description: 'Button takes full width of container',
     },
   },
   args: {

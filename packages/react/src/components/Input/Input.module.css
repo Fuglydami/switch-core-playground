@@ -4,6 +4,10 @@
   gap: var(--switch-spacing-1);
 }
 
+.fullWidth {
+  width: 100%;
+}
+
 .label {
   font-family: var(--switch-typography-font-family-sans);
   font-size: var(--switch-typography-font-size-body-medium);
@@ -44,6 +48,12 @@
   padding: var(--switch-spacing-2) var(--switch-spacing-3);
   font-size: var(--switch-typography-font-size-body-small);
   min-height: 32px;
+}
+
+.medium .input {
+  padding: var(--switch-spacing-2) var(--switch-spacing-3);
+  font-size: var(--switch-typography-font-size-body-medium);
+  min-height: 40px;
 }
 
 .large .input {

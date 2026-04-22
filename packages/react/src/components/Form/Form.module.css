@@ -1,0 +1,11 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--switch-spacing-4);
+}
+
+.submitRow {
+  display: flex;
+  gap: var(--switch-spacing-3);
+  margin-top: var(--switch-spacing-2);
+}

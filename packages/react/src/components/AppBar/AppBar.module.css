@@ -1,0 +1,160 @@
+.appbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: var(--switch-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  padding-top: env(safe-area-inset-top, 0);
+}
+
+.light {
+  background: var(--switch-color-surface-primary, #ffffff);
+  color: var(--switch-color-text-primary, #111827);
+  border-bottom: 1px solid var(--switch-color-border-default, #e5e7eb);
+}
+
+.dark {
+  background: var(--switch-color-brand-primary, #00425f);
+  color: #ffffff;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: minmax(48px, auto) 1fr minmax(48px, auto);
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+}
+
+.default .content {
+  min-height: 56px;
+}
+
+.large .content {
+  min-height: 96px;
+  padding: 12px 8px;
+}
+
+.leading {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.alignCenter .center {
+  align-items: center;
+  text-align: center;
+}
+
+.alignLeft .center {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.trailing {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: inherit;
+  transition: background-color 0.15s ease;
+}
+
+.light .back:hover {
+  background: var(--switch-color-surface-hover, #f3f4f6);
+}
+
+.dark .back:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.7;
+  margin-bottom: 2px;
+}
+
+.title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.large .title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+.action {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: inherit;
+  transition: background-color 0.15s ease;
+}
+
+.action:hover {
+  background: var(--switch-color-surface-hover, #f3f4f6);
+}
+
+.dark .action:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.action:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.actionBadge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  background: var(--switch-color-semantic-error, #dc2626);
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  border-radius: 8px;
+}

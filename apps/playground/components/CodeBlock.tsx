@@ -1,55 +1,88 @@
 'use client';
 
 import { useState } from 'react';
+import styles from './CodeBlock.module.css';
 
 interface CodeBlockProps {
   code: string;
   language?: string;
+  showLineNumbers?: boolean;
+  fileName?: string;
 }
 
-export function CodeBlock({ code, language = 'tsx' }: CodeBlockProps) {
+export function CodeBlock({ code, language = 'tsx', showLineNumbers = true, fileName }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
+  const trimmedCode = code.trim();
+  const lines = trimmedCode.split('\n');
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(code);
+    await navigator.clipboard.writeText(trimmedCode);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div style={{ position: 'relative', borderRadius: 12, overflow: 'hidden', background: '#1e293b' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 16px', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-        <span style={{ fontSize: 12, color: '#94a3b8', fontFamily: 'var(--switch-typography-font-family-mono)' }}>
-          {language}
-        </span>
-        <button
-          onClick={handleCopy}
-          style={{
-            fontSize: 12,
-            padding: '4px 10px',
-            borderRadius: 6,
-            border: '1px solid rgba(255,255,255,0.15)',
-            background: copied ? 'rgba(0,184,222,0.2)' : 'transparent',
-            color: copied ? '#00b8de' : '#94a3b8',
-            cursor: 'pointer',
-            transition: 'all 150ms ease',
-            fontFamily: 'var(--switch-typography-font-family-sans)',
-          }}
-        >
-          {copied ? 'Copied!' : 'Copy'}
-        </button>
+    <div className={styles.container}>
+      {/* Editor header */}
+      <div className={styles.header}>
+        <div className={styles.windowControls}>
+          <span className={styles.dot} data-color="red" />
+          <span className={styles.dot} data-color="yellow" />
+          <span className={styles.dot} data-color="green" />
+        </div>
+        {fileName && <span className={styles.fileName}>{fileName}</span>}
+        <div className={styles.headerRight}>
+          <span className={styles.language}>{language}</span>
+          <button
+            onClick={handleCopy}
+            className={styles.copyButton}
+            data-copied={copied}
+          >
+            {copied ? (
+              <>
+                <CheckIcon />
+                Copied
+              </>
+            ) : (
+              <>
+                <CopyIcon />
+                Copy
+              </>
+            )}
+          </button>
+        </div>
       </div>
-      <pre style={{
-        margin: 0,
-        padding: '16px',
-        overflow: 'auto',
-        fontFamily: 'var(--switch-typography-font-family-mono)',
-        fontSize: 13,
-        lineHeight: 1.6,
-        color: '#e2e8f0',
-      }}>
-        <code>{code}</code>
-      </pre>
+
+      {/* Code area */}
+      <div className={styles.codeArea}>
+        {showLineNumbers && (
+          <div className={styles.lineNumbers} aria-hidden="true">
+            {lines.map((_, i) => (
+              <span key={i}>{i + 1}</span>
+            ))}
+          </div>
+        )}
+        <pre className={styles.pre}>
+          <code className={styles.code}>{trimmedCode}</code>
+        </pre>
+      </div>
     </div>
+  );
+}
+
+function CopyIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+      <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+    </svg>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="20,6 9,17 4,12" />
+    </svg>
   );
 }

@@ -24,7 +24,7 @@ export default function TypographyPage() {
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 40 }}>
         {FONT_SIZES.map(({ key, value }) => (
           <div key={key} style={{ display: 'flex', alignItems: 'center', gap: 20, background: '#fff', padding: '16px 16px', borderRadius: 8, border: '1px solid #e5e7eb' }}>
-            <span style={{ width: 60, fontSize: 12, fontFamily: 'var(--switch-typography-font-family-mono)', color: '#9ca3af' }}>fontSize.{key}</span>
+            <span style={{ width: 80, fontSize: 12, fontFamily: 'var(--switch-typography-font-family-mono)', color: '#9ca3af' }}>fontSize.{key}</span>
             <span style={{ width: 48, fontSize: 12, color: '#9ca3af' }}>{value}</span>
             <span style={{ fontSize: value, fontWeight: 500, color: 'var(--switch-color-semantic-primary)' }}>
               The quick brown fox

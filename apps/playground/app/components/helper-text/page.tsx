@@ -1,9 +1,10 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { HelperText } from '@switch/react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
-
-export const metadata: Metadata = { title: 'HelperText' };
+import { ComponentPreview } from '@/components/ComponentPreview';
 
 const WEB_CODE = `// HelperText is React Native-only.
 // On web, use the helperText prop on <Input> instead:
@@ -39,7 +40,7 @@ const RN_CODE = `import { HelperText } from '@switch/react-native';
 <HelperText variant="info">Min: NGN 100 · Max: NGN 5,000,000</HelperText>`;
 
 const PROPS = [
-  { name: 'children', type: 'React.ReactNode', required: true,  description: 'The guidance text or JSX content' },
+  { name: 'text', type: 'string', required: true,  description: 'The guidance text content' },
   { name: 'variant',  type: "'info' | 'warning' | 'error'", default: "'info'", description: 'Controls the left-border accent colour and background tint' },
 ];
 
@@ -49,13 +50,25 @@ export default function HelperTextPage() {
       <div style={{ marginBottom: 32 }}>
         <PlatformBadge platforms={['ios', 'android']} />
         <h1 style={{ fontSize: 28, fontWeight: 700, margin: '12px 0 8px' }}>HelperText</h1>
-        <p style={{ color: '#6b7280', fontSize: 16, margin: 0 }}>
+        <p style={{ color: 'var(--switch-color-text-secondary)', fontSize: 16, margin: 0 }}>
           Inline contextual guidance block for React Native. Replaces{' '}
           <a href="/components/tooltip" style={{ color: '#00425F' }}>Tooltip</a> at P1 on mobile since
           there is no reliable hover interaction. On web, use the <code>helperText</code> prop on{' '}
           <code>{'<Input>'}</code> or a plain paragraph instead.
         </p>
       </div>
+
+      <section style={{ marginBottom: 40 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Preview</h2>
+
+        <ComponentPreview title="All Variants">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, width: '100%', maxWidth: 480 }}>
+            <HelperText variant="info" text="Transfers are processed on the next business day after 5 PM WAT." />
+            <HelperText variant="warning" text="Your account KYC expires in 3 days. Renew to avoid transaction limits." />
+            <HelperText variant="error" text="Insufficient funds. Please top up your wallet and try again." />
+          </div>
+        </ComponentPreview>
+      </section>
 
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Code</h2>
@@ -68,38 +81,8 @@ export default function HelperTextPage() {
       </section>
 
       <section style={{ marginBottom: 40 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Variants</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          <VariantPreview
-            variant="info"
-            color="#0369a1"
-            bg="rgba(3,105,161,0.06)"
-            border="#0369a1"
-            label="info"
-            text="Transfers are processed on the next business day after 5 PM WAT."
-          />
-          <VariantPreview
-            variant="warning"
-            color="#b45309"
-            bg="rgba(180,83,9,0.06)"
-            border="#b45309"
-            label="warning"
-            text="Your account KYC expires in 3 days. Renew to avoid transaction limits."
-          />
-          <VariantPreview
-            variant="error"
-            color="#dc2626"
-            bg="rgba(220,38,38,0.06)"
-            border="#dc2626"
-            label="error"
-            text="Insufficient funds. Please top up your wallet and try again."
-          />
-        </div>
-      </section>
-
-      <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Platform Notes</h2>
-        <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 12, padding: 20, display: 'flex', flexDirection: 'column', gap: 12 }}>
+        <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 8, padding: 20, display: 'flex', flexDirection: 'column', gap: 12 }}>
           <Note platform="React Native" color="#6d28d9" bg="rgba(109,40,217,0.06)">
             Renders as a <code>View</code> with a left border accent and a subtle background tint derived
             from the variant colour. The left border width is 3 dp. Typography uses the{' '}
@@ -123,20 +106,9 @@ export default function HelperTextPage() {
   );
 }
 
-function VariantPreview({ label, text, color, bg, border }: {
-  variant: string; label: string; text: string; color: string; bg: string; border: string;
-}) {
-  return (
-    <div style={{ background: bg, borderLeft: `3px solid ${border}`, borderRadius: 6, padding: '10px 14px' }}>
-      <span style={{ fontSize: 11, fontWeight: 700, color, textTransform: 'uppercase', letterSpacing: '0.06em', display: 'block', marginBottom: 4 }}>{label}</span>
-      <span style={{ fontSize: 14, color: '#374151' }}>{text}</span>
-    </div>
-  );
-}
-
 function Note({ platform, color, bg, children }: { platform: string; color: string; bg: string; children: React.ReactNode }) {
   return (
-    <div style={{ background: bg, borderRadius: 8, padding: '10px 14px' }}>
+    <div style={{ background: bg, borderRadius: 4, padding: '10px 14px' }}>
       <span style={{ fontSize: 12, fontWeight: 700, color, marginRight: 8 }}>{platform}</span>
       <span style={{ fontSize: 14, color: '#374151' }}>{children}</span>
     </div>

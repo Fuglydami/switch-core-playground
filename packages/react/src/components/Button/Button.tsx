@@ -7,6 +7,8 @@ export interface ButtonProps
     Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'disabled' | 'onClick'> {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
+  /** Make button take full width of container */
+  fullWidth?: boolean;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -19,6 +21,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       isLoading = false,
       leftIcon,
       rightIcon,
+      fullWidth = false,
       children,
       disabled,
       className,
@@ -42,6 +45,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           styles[shape],
           styles[colorScheme],
           isLoading ? styles.loading : '',
+          fullWidth ? styles.fullWidth : '',
           className ?? '',
         ]
           .filter(Boolean)

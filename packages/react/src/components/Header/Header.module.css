@@ -1,0 +1,236 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: var(--switch-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  border-bottom: 1px solid var(--switch-color-border-default, #e5e7eb);
+}
+
+.light {
+  background: var(--switch-color-surface-primary, #ffffff);
+  color: var(--switch-color-text-primary, #111827);
+}
+
+.dark {
+  background: var(--switch-color-brand-primary, #00425f);
+  color: #ffffff;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px;
+}
+
+.logo {
+  flex-shrink: 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+}
+
+.navItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: inherit;
+  text-decoration: none;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  opacity: 0.7;
+}
+
+.light .navItem:hover {
+  background: var(--switch-color-surface-hover, #f3f4f6);
+  opacity: 1;
+}
+
+.dark .navItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 1;
+}
+
+.navItemActive {
+  opacity: 1;
+  font-weight: 600;
+}
+
+.light .navItemActive {
+  background: var(--switch-color-surface-secondary, #f3f4f6);
+}
+
+.dark .navItemActive {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.navItem:focus-visible {
+  outline: 2px solid var(--switch-color-semantic-interactive, #0275d8);
+  outline-offset: 2px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.notification {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: inherit;
+  transition: background-color 0.15s ease;
+}
+
+.light .notification:hover {
+  background: var(--switch-color-surface-hover, #f3f4f6);
+}
+
+.dark .notification:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.notificationBadge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  background: var(--switch-color-semantic-error, #dc2626);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+  border-radius: 9px;
+}
+
+.user {
+  position: relative;
+}
+
+.userButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 6px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: inherit;
+  transition: background-color 0.15s ease;
+}
+
+.light .userButton:hover {
+  background: var(--switch-color-surface-hover, #f3f4f6);
+}
+
+.dark .userButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--switch-color-surface-secondary, #e5e7eb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatarInitials {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--switch-color-text-secondary, #6b7280);
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.userDesignation {
+  font-size: 12px;
+  opacity: 0.7;
+  line-height: 1.2;
+}
+
+.userMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  min-width: 180px;
+  background: var(--switch-color-surface-primary, #ffffff);
+  border: 1px solid var(--switch-color-border-default, #e5e7eb);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 4px;
+  z-index: 10;
+}
+
+.userMenuItem {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  text-align: left;
+  color: var(--switch-color-text-primary, #111827);
+  background: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.userMenuItem:hover {
+  background: var(--switch-color-surface-hover, #f3f4f6);
+}

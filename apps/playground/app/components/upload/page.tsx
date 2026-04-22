@@ -1,9 +1,11 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { useState, useEffect } from 'react';
+import { Upload } from '@switch/react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
-
-export const metadata: Metadata = { title: 'Upload' };
+import { ComponentPreview } from '@/components/ComponentPreview';
 
 const WEB_CODE = `import { Upload } from '@switch/react';
 import { useState } from 'react';
@@ -42,7 +44,7 @@ const PROPS = [
   { name: 'maxSize',       type: 'number',           default: '—',     description: 'Maximum file size in bytes; larger files are filtered out' },
   { name: 'files',         type: 'UploadFile[]',     default: '[]',    description: 'Current file list (controlled)' },
   { name: 'onFilesAdded',  type: '(files: File[]) => void', default: '—', description: 'Called with validated File objects when the user picks or drops files' },
-  { name: 'onRemove',      type: '(id: string) => void',    default: '—', description: 'Called when the ✕ button is clicked' },
+  { name: 'onRemove',      type: '(id: string) => void',    default: '—', description: 'Called when the X button is clicked' },
   { name: 'onRetry',       type: '(id: string) => void',    default: '—', description: 'Called when the Retry link is clicked on a failed file' },
   { name: 'disabled',      type: 'boolean',          default: 'false', description: 'Disables the drop zone and file picker' },
   { name: 'className',     type: 'string',           default: '—',     description: 'Extra class applied to the outer wrapper' },
@@ -57,7 +59,104 @@ const FILE_PROPS = [
   { name: 'errorMessage', type: 'string',     default: '—',    description: 'Error detail shown below the filename when status is "failed"' },
 ];
 
+type UploadFile = {
+  id: string;
+  name: string;
+  size: number;
+  status: 'idle' | 'uploading' | 'completed' | 'failed';
+  progress?: number;
+  errorMessage?: string;
+};
+
 export default function UploadPage() {
+  const [files, setFiles] = useState<UploadFile[]>([]);
+  const [demoFiles, setDemoFiles] = useState<UploadFile[]>([
+    { id: '1', name: 'document.pdf', size: 1024000, status: 'completed' },
+    { id: '2', name: 'photo.jpg', size: 2048000, status: 'uploading', progress: 65 },
+    { id: '3', name: 'data.csv', size: 512000, status: 'failed', errorMessage: 'Network error' },
+  ]);
+
+  // Simulate upload progress for the demo
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDemoFiles(prev => prev.map(f => {
+        if (f.status === 'uploading' && f.progress !== undefined) {
+          const newProgress = f.progress + 5;
+          if (newProgress >= 100) {
+            return { ...f, status: 'completed', progress: 100 };
+          }
+          return { ...f, progress: newProgress };
+        }
+        return f;
+      }));
+    }, 500);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleFilesAdded = (newFiles: File[]) => {
+    const entries: UploadFile[] = newFiles.map((f) => ({
+      id: crypto.randomUUID(),
+      name: f.name,
+      size: f.size,
+      status: 'uploading',
+      progress: 0,
+    }));
+    setFiles((prev) => [...prev, ...entries]);
+
+    // Simulate upload progress
+    entries.forEach((entry) => {
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += Math.random() * 20;
+        if (progress >= 100) {
+          setFiles((prev) =>
+            prev.map((f) =>
+              f.id === entry.id ? { ...f, status: 'completed', progress: 100 } : f
+            )
+          );
+          clearInterval(interval);
+        } else {
+          setFiles((prev) =>
+            prev.map((f) =>
+              f.id === entry.id ? { ...f, progress: Math.min(progress, 99) } : f
+            )
+          );
+        }
+      }, 300);
+    });
+  };
+
+  const handleRemove = (id: string) => {
+    setFiles((prev) => prev.filter((f) => f.id !== id));
+  };
+
+  const handleRetry = (id: string) => {
+    setFiles((prev) =>
+      prev.map((f) =>
+        f.id === id ? { ...f, status: 'uploading', progress: 0, errorMessage: undefined } : f
+      )
+    );
+    // Simulate retry
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += Math.random() * 20;
+      if (progress >= 100) {
+        setFiles((prev) =>
+          prev.map((f) =>
+            f.id === id ? { ...f, status: 'completed', progress: 100 } : f
+          )
+        );
+        clearInterval(interval);
+      } else {
+        setFiles((prev) =>
+          prev.map((f) =>
+            f.id === id ? { ...f, progress: Math.min(progress, 99) } : f
+          )
+        );
+      }
+    }, 300);
+  };
+
   return (
     <article>
       <div style={{ marginBottom: 32 }}>
@@ -67,6 +166,56 @@ export default function UploadPage() {
           Drag-and-drop or click-to-browse file upload zone with a managed file list. Each file independently tracks upload progress, completion, and failure.
         </p>
       </div>
+
+      <section style={{ marginBottom: 40 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Preview</h2>
+
+        <ComponentPreview title="Interactive Upload (Try It)">
+          <div style={{ width: '100%', maxWidth: 500 }}>
+            <Upload
+              accept="image/*, .pdf, .doc, .docx"
+              multiple
+              maxSize={10 * 1024 * 1024}
+              files={files}
+              onFilesAdded={handleFilesAdded}
+              onRemove={handleRemove}
+              onRetry={handleRetry}
+            />
+            <p style={{ marginTop: 8, fontSize: 12, color: '#6b7280' }}>
+              Accepts images, PDFs, and Word docs up to 10MB
+            </p>
+          </div>
+        </ComponentPreview>
+
+        <ComponentPreview title="File States Demo">
+          <div style={{ width: '100%', maxWidth: 500 }}>
+            <Upload
+              files={demoFiles}
+              onFilesAdded={() => {}}
+              onRemove={(id) => setDemoFiles(prev => prev.filter(f => f.id !== id))}
+              onRetry={(id) => {
+                setDemoFiles(prev => prev.map(f =>
+                  f.id === id ? { ...f, status: 'uploading', progress: 0, errorMessage: undefined } : f
+                ));
+              }}
+            />
+            <p style={{ marginTop: 8, fontSize: 12, color: '#6b7280' }}>
+              Shows completed, uploading, and failed states
+            </p>
+          </div>
+        </ComponentPreview>
+
+        <ComponentPreview title="Disabled">
+          <div style={{ width: '100%', maxWidth: 500 }}>
+            <Upload
+              files={[]}
+              onFilesAdded={() => {}}
+              onRemove={() => {}}
+              disabled
+            />
+          </div>
+        </ComponentPreview>
+      </section>
 
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Code</h2>

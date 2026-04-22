@@ -23,15 +23,21 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
   isWarning?: boolean;
   /** Input size: small (32px), medium (40px), large (48px) */
   size?: InputSize;
-  /** Leading content — icon, flag, etc. */
+  /** Leading icon */
+  leadingIcon?: React.ReactNode;
+  /** Trailing icon */
+  trailingIcon?: React.ReactNode;
+  /** Leading content — icon, flag, etc. (alias for leadingIcon) */
   leftAddon?: React.ReactNode;
-  /** Trailing content — icon, button, etc. */
+  /** Trailing content — icon, button, etc. (alias for trailingIcon) */
   rightAddon?: React.ReactNode;
   /** For pre-select / post-select: the selector element */
   selectAddon?: React.ReactNode;
   /** Controlled value for PIN inputs */
   pinValues?: string[];
   onPinChange?: (values: string[]) => void;
+  /** Make input take full width of container */
+  fullWidth?: boolean;
 }
 
 // ── PIN input ─────────────────────────────────────────────────────────────
@@ -117,11 +123,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       isSuccess = false,
       isWarning = false,
       size = 'medium',
+      leadingIcon,
+      trailingIcon,
       leftAddon,
       rightAddon,
       selectAddon,
       pinValues,
       onPinChange,
+      fullWidth = false,
       id,
       className,
       disabled,
@@ -228,7 +237,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const isPostSelect = inputType === 'post-select';
 
     return (
-      <div className={[styles.wrapper, className].filter(Boolean).join(' ')}>
+      <div className={[styles.wrapper, fullWidth ? styles.fullWidth : '', className].filter(Boolean).join(' ')}>
         {label && (
           <label htmlFor={inputId} className={styles.label}>
             {label}
@@ -251,9 +260,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
               </svg>
             </span>
           )}
-          {!isSearch && leftAddon && (
+          {!isSearch && (leadingIcon || leftAddon) && (
             <span className={styles.addon} aria-hidden="true">
-              {leftAddon}
+              {leadingIcon || leftAddon}
             </span>
           )}
 
@@ -277,9 +286,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
               </svg>
             </span>
           )}
-          {!isSearch && rightAddon && (
+          {!isSearch && (trailingIcon || rightAddon) && (
             <span className={styles.addon} aria-hidden="true">
-              {rightAddon}
+              {trailingIcon || rightAddon}
             </span>
           )}
 

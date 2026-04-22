@@ -1,9 +1,10 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { Button } from '@switch/react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
-
-export const metadata: Metadata = { title: 'Button' };
+import { ComponentPreview, PreviewItem } from '@/components/ComponentPreview';
 
 const WEB_CODE = `import { Button } from '@switch/react';
 
@@ -91,7 +92,20 @@ const PROPS = [
   { name: 'children',     type: 'React.ReactNode',                                  required: true,          description: 'Button label content' },
   { name: 'leftIcon',     type: 'React.ReactNode',                                  default: '—',            description: 'Icon rendered to the left of the label' },
   { name: 'rightIcon',    type: 'React.ReactNode',                                  default: '—',            description: 'Icon rendered to the right of the label' },
+  { name: 'fullWidth',    type: 'boolean',                                          default: 'false',        description: 'Makes button take full width of container' },
 ];
+
+const PlusIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path d="M8 3v10M3 8h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+);
+
+const ArrowIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
 
 export default function ButtonPage() {
   return (
@@ -99,10 +113,77 @@ export default function ButtonPage() {
       <div style={{ marginBottom: 32 }}>
         <PlatformBadge platforms={['web', 'ios', 'android']} />
         <h1 style={{ fontSize: 28, fontWeight: 700, margin: '12px 0 8px' }}>Button</h1>
-        <p style={{ color: '#6b7280', fontSize: 16, margin: 0 }}>
+        <p style={{ color: 'var(--switch-color-text-secondary)', fontSize: 16, margin: 0 }}>
           Triggers an action or event. Available in three variants, four color schemes, and two shapes across both platforms.
         </p>
       </div>
+
+      <section style={{ marginBottom: 40 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Preview</h2>
+
+        <ComponentPreview title="Variants">
+          <Button variant="primary">Primary</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="tertiary">Tertiary</Button>
+          <Button variant="outline">Outline</Button>
+          <Button variant="link">Link</Button>
+        </ComponentPreview>
+
+        <ComponentPreview title="Sizes">
+          <PreviewItem label="Small">
+            <Button size="small">Small</Button>
+          </PreviewItem>
+          <PreviewItem label="Medium">
+            <Button size="medium">Medium</Button>
+          </PreviewItem>
+          <PreviewItem label="Large">
+            <Button size="large">Large</Button>
+          </PreviewItem>
+        </ComponentPreview>
+
+        <ComponentPreview title="Shapes">
+          <PreviewItem label="Rectangular">
+            <Button shape="rectangular">Rectangular</Button>
+          </PreviewItem>
+          <PreviewItem label="Pill">
+            <Button shape="pill">Pill</Button>
+          </PreviewItem>
+          <PreviewItem label="Square">
+            <Button shape="square">+</Button>
+          </PreviewItem>
+          <PreviewItem label="Circle">
+            <Button shape="circle">+</Button>
+          </PreviewItem>
+        </ComponentPreview>
+
+        <ComponentPreview title="Color Schemes">
+          <Button colorScheme="popBlue">PopBlue</Button>
+          <Button colorScheme="activeBlue">ActiveBlue</Button>
+          <Button colorScheme="primaryBlue">PrimaryBlue</Button>
+          <Button colorScheme="monochrome">Monochrome</Button>
+        </ComponentPreview>
+
+        <ComponentPreview title="With Icons">
+          <Button leftIcon={<PlusIcon />}>Add item</Button>
+          <Button rightIcon={<ArrowIcon />}>Next</Button>
+          <Button leftIcon={<PlusIcon />} rightIcon={<ArrowIcon />}>Both</Button>
+        </ComponentPreview>
+
+        <ComponentPreview title="States">
+          <PreviewItem label="Loading">
+            <Button isLoading>Saving...</Button>
+          </PreviewItem>
+          <PreviewItem label="Disabled">
+            <Button disabled>Disabled</Button>
+          </PreviewItem>
+        </ComponentPreview>
+
+        <ComponentPreview title="Full Width">
+          <div style={{ width: '100%', maxWidth: 320 }}>
+            <Button fullWidth>Full Width Button</Button>
+          </div>
+        </ComponentPreview>
+      </section>
 
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Code</h2>
@@ -111,7 +192,7 @@ export default function ButtonPage() {
 
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Props</h2>
-        <p style={{ color: '#6b7280', fontSize: 14, margin: '0 0 12px' }}>
+        <p style={{ color: 'var(--switch-color-text-secondary)', fontSize: 14, margin: '0 0 12px' }}>
           Shared across web and React Native. Web additionally accepts all native{' '}
           <code>{'<button>'}</code> HTML attributes; RN accepts all{' '}
           <code>PressableProps</code>.
@@ -121,7 +202,7 @@ export default function ButtonPage() {
 
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Platform Notes</h2>
-        <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 12, padding: 20, display: 'flex', flexDirection: 'column', gap: 12 }}>
+        <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 8, padding: 20, display: 'flex', flexDirection: 'column', gap: 12 }}>
           <PlatformNote platform="Web" color="#00425F" bg="rgba(0,66,95,0.06)">
             Renders as a native <code>{'<button>'}</code> element. Press animation is handled by CSS <code>:active</code> states in the CSS Module.
           </PlatformNote>
@@ -144,13 +225,13 @@ export default function ButtonPage() {
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Consumer Setup</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           <div>
-            <p style={{ fontSize: 13, fontWeight: 600, color: '#6b7280', margin: '0 0 8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Web</p>
+            <p style={{ fontSize: 13, fontWeight: 600, color: 'var(--switch-color-text-secondary)', margin: '0 0 8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Web</p>
             <pre style={{ background: '#1e293b', color: '#e2e8f0', padding: '12px 16px', borderRadius: 8, fontSize: 13, margin: 0, overflow: 'auto' }}>
               {`pnpm add @switch/react @switch/tokens`}
             </pre>
           </div>
           <div>
-            <p style={{ fontSize: 13, fontWeight: 600, color: '#6b7280', margin: '0 0 8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>React Native (Expo)</p>
+            <p style={{ fontSize: 13, fontWeight: 600, color: 'var(--switch-color-text-secondary)', margin: '0 0 8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>React Native (Expo)</p>
             <pre style={{ background: '#1e293b', color: '#e2e8f0', padding: '12px 16px', borderRadius: 8, fontSize: 13, margin: 0, overflow: 'auto' }}>
               {`npx expo install @switch/react-native \\
   react-native-reanimated \\
@@ -163,7 +244,7 @@ export default function ButtonPage() {
 
       <section>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 12px' }}>Figma</h2>
-        <p style={{ fontSize: 14, color: '#6b7280', margin: 0 }}>
+        <p style={{ fontSize: 14, color: 'var(--switch-color-text-secondary)', margin: 0 }}>
           View the Button component in{' '}
           <a
             href="https://www.figma.com/design/wwcGjfpa7YixGCNO0eJk8b/Switch-Core?node-id=0-1"
@@ -189,7 +270,7 @@ function PlatformNote({
   children: React.ReactNode;
 }) {
   return (
-    <div style={{ background: bg, borderRadius: 8, padding: '10px 14px' }}>
+    <div style={{ background: bg, borderRadius: 4, padding: '10px 14px' }}>
       <span style={{ fontSize: 12, fontWeight: 700, color, marginRight: 8 }}>{platform}</span>
       <span style={{ fontSize: 14, color: '#374151' }}>{children}</span>
     </div>

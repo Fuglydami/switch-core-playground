@@ -205,7 +205,7 @@ export default function HomePage() {
           </div>
           <pre style={{
             background: 'var(--switch-color-neutral-1000)',
-            color: 'var(--switch-color-text-secondary)',
+            color: 'var(--switch-color-neutral-50)',
             padding: '20px 24px',
             fontSize: 13,
             fontFamily: 'var(--switch-typography-font-family-mono)',

@@ -1,9 +1,11 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { useState } from 'react';
+import { Accordion } from '@switch/react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
-
-export const metadata: Metadata = { title: 'Accordion' };
+import { ComponentPreview } from '@/components/ComponentPreview';
 
 const WEB_CODE = `import { Accordion } from '@switch/react';
 
@@ -57,6 +59,20 @@ const ITEM_PROPS = [
 ];
 
 export default function AccordionPage() {
+  const [controlledOpen, setControlledOpen] = useState<string[]>(['faq-1']);
+
+  const faqItems = [
+    { id: 'faq-1', label: 'What is Switch Core?', content: 'Switch Core is a cross-platform design system that provides consistent UI components for web (React) and mobile (React Native) applications.' },
+    { id: 'faq-2', label: 'How do I install it?', content: 'For web, run `pnpm add @switch/react @switch/tokens`. For React Native, run `npx expo install @switch/react-native`.' },
+    { id: 'faq-3', label: 'Is it production ready?', content: 'Yes! Switch Core is actively used in production applications and is maintained by a dedicated team.' },
+  ];
+
+  const paymentItems = [
+    { id: 'pay-1', label: 'How long do transfers take?', content: 'Transfers are typically processed within minutes during business hours. International transfers may take 1-3 business days.' },
+    { id: 'pay-2', label: 'What are the transfer limits?', content: 'Daily limit: NGN 5,000,000. Monthly limit: NGN 50,000,000. Contact support to increase limits.' },
+    { id: 'pay-3', label: 'Are there any fees?', content: 'Domestic transfers are free. International transfers have a 1% fee (capped at NGN 10,000).' },
+  ];
+
   return (
     <article>
       <div style={{ marginBottom: 32 }}>
@@ -66,6 +82,42 @@ export default function AccordionPage() {
           Vertically stacked disclosure panels. Supports single- or multi-open mode with smooth chevron animation and full keyboard navigation.
         </p>
       </div>
+
+      <section style={{ marginBottom: 40 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Preview</h2>
+
+        <ComponentPreview title="Single Open (Default)">
+          <div style={{ width: '100%' }}>
+            <Accordion items={faqItems} defaultOpen={['faq-1']} />
+          </div>
+        </ComponentPreview>
+
+        <ComponentPreview title="Multiple Open">
+          <div style={{ width: '100%' }}>
+            <Accordion items={paymentItems} multiple defaultOpen={['pay-1', 'pay-2']} />
+          </div>
+        </ComponentPreview>
+
+        <ComponentPreview title="Borderless Variant">
+          <div style={{ width: '100%' }}>
+            <Accordion items={faqItems} variant="borderless" defaultOpen={['faq-2']} />
+          </div>
+        </ComponentPreview>
+
+        <ComponentPreview title="Controlled">
+          <div style={{ width: '100%' }}>
+            <p style={{ margin: '0 0 12px', fontSize: 14, color: '#6b7280' }}>
+              Open panels: {controlledOpen.length > 0 ? controlledOpen.join(', ') : 'none'}
+            </p>
+            <Accordion
+              items={faqItems}
+              openIds={controlledOpen}
+              onToggle={setControlledOpen}
+              multiple
+            />
+          </div>
+        </ComponentPreview>
+      </section>
 
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Code</h2>

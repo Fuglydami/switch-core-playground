@@ -1,9 +1,11 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { useState, useEffect } from 'react';
+import { RingLoader, ProgressBar, StepProgress } from '@switch/react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
-
-export const metadata: Metadata = { title: 'Loader' };
+import { ComponentPreview, PreviewItem } from '@/components/ComponentPreview';
 
 const WEB_CODE = `import { RingLoader, ProgressBar, StepProgress } from '@switch/react';
 
@@ -82,6 +84,23 @@ const STEP_PROPS = [
 ];
 
 export default function LoaderPage() {
+  const [progress, setProgress] = useState(0);
+  const [stepIndex, setStepIndex] = useState(1);
+
+  // Animate progress for demo
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress(p => (p >= 100 ? 0 : p + 5));
+    }, 200);
+    return () => clearInterval(timer);
+  }, []);
+
+  const steps = [
+    { id: '1', label: 'Name & email' },
+    { id: '2', label: 'Company details' },
+    { id: '3', label: 'Invite team' },
+  ];
+
   return (
     <article>
       <div style={{ marginBottom: 32 }}>
@@ -91,18 +110,91 @@ export default function LoaderPage() {
           Three loader primitives: RingLoader (indeterminate or determinate spinner that shows a checkmark at 100%), ProgressBar (labelled linear track), and StepProgress (multi-step wizard indicator, horizontal or vertical).
         </p>
       </div>
+
+      <section style={{ marginBottom: 40 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Preview</h2>
+
+        <ComponentPreview title="RingLoader - Indeterminate">
+          <PreviewItem label="Small">
+            <RingLoader size="small" />
+          </PreviewItem>
+          <PreviewItem label="Medium">
+            <RingLoader size="medium" />
+          </PreviewItem>
+          <PreviewItem label="Large">
+            <RingLoader size="large" />
+          </PreviewItem>
+        </ComponentPreview>
+
+        <ComponentPreview title="RingLoader - Determinate">
+          <PreviewItem label="0%">
+            <RingLoader size="large" progress={0} />
+          </PreviewItem>
+          <PreviewItem label="Animated">
+            <RingLoader size="large" progress={progress} />
+          </PreviewItem>
+          <PreviewItem label="100% (checkmark)">
+            <RingLoader size="large" progress={100} />
+          </PreviewItem>
+        </ComponentPreview>
+
+        <ComponentPreview title="ProgressBar">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16, width: '100%', maxWidth: 400 }}>
+            <ProgressBar value={25} size="thin" />
+            <ProgressBar value={50} label="Uploading…" size="medium" />
+            <ProgressBar value={75} label="Processing" showPercent size="thick" />
+            <ProgressBar value={progress} label="Animated" showPercent size="medium" />
+          </div>
+        </ComponentPreview>
+
+        <ComponentPreview title="StepProgress - Horizontal">
+          <div style={{ width: '100%' }}>
+            <StepProgress
+              steps={steps}
+              activeIndex={stepIndex}
+              orientation="horizontal"
+            />
+            <div style={{ marginTop: 16, display: 'flex', gap: 8 }}>
+              <button
+                onClick={() => setStepIndex(i => Math.max(0, i - 1))}
+                style={{ padding: '6px 12px', background: '#f3f4f6', border: '1px solid #e5e7eb', borderRadius: 4, cursor: 'pointer' }}
+              >
+                Previous
+              </button>
+              <button
+                onClick={() => setStepIndex(i => Math.min(steps.length - 1, i + 1))}
+                style={{ padding: '6px 12px', background: 'var(--switch-color-activeblue-400)', color: '#fff', border: 'none', borderRadius: 4, cursor: 'pointer' }}
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </ComponentPreview>
+
+        <ComponentPreview title="StepProgress - Vertical">
+          <StepProgress
+            steps={steps}
+            activeIndex={stepIndex}
+            orientation="vertical"
+          />
+        </ComponentPreview>
+      </section>
+
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Code</h2>
         <CodeTabs web={WEB_CODE} reactNative={RN_CODE} />
       </section>
+
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>RingLoader Props</h2>
         <PropsTable props={RING_PROPS} />
       </section>
+
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>ProgressBar Props</h2>
         <PropsTable props={BAR_PROPS} />
       </section>
+
       <section>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>StepProgress Props</h2>
         <PropsTable props={STEP_PROPS} />

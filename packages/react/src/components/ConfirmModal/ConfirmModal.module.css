@@ -1,0 +1,58 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--switch-spacing-4) 0;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--switch-spacing-4);
+  color: var(--switch-color-activeblue-400);
+}
+
+.icon.danger {
+  color: var(--switch-color-primaryred-500);
+}
+
+.title {
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-heading-small);
+  font-weight: var(--switch-typography-font-weight-bold);
+  color: var(--switch-color-text-primary);
+  margin: 0 0 var(--switch-spacing-2);
+}
+
+.description {
+  font-family: var(--switch-typography-font-family-sans);
+  font-size: var(--switch-typography-font-size-body-medium);
+  color: var(--switch-color-text-secondary);
+  margin: 0 0 var(--switch-spacing-6);
+  max-width: 320px;
+}
+
+.actions {
+  display: flex;
+  gap: var(--switch-spacing-3);
+  width: 100%;
+  justify-content: center;
+}
+
+.actions > * {
+  min-width: 120px;
+}
+
+.dangerBtn {
+  background-color: var(--switch-color-primaryred-500) !important;
+  border-color: var(--switch-color-primaryred-500) !important;
+}
+
+.dangerBtn:hover {
+  background-color: var(--switch-color-primaryred-600) !important;
+  border-color: var(--switch-color-primaryred-600) !important;
+}

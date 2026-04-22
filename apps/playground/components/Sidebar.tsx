@@ -29,7 +29,10 @@ const NAV: NavSection[] = [
     items: [
       { href: '/components/accordion',   label: 'Accordion' },
       { href: '/components/alert',       label: 'Alert' },
+      { href: '/components/app-bar',     label: 'AppBar' },
       { href: '/components/avatar',      label: 'Avatar' },
+      { href: '/components/bottom-nav',  label: 'BottomNav'},
+      { href: '/components/breadcrumb',  label: 'Breadcrumb'},
       { href: '/components/button',      label: 'Button' },
       { href: '/components/card',        label: 'Card' },
       { href: '/components/chip',        label: 'Chip' },
@@ -37,6 +40,7 @@ const NAV: NavSection[] = [
       { href: '/components/date-picker', label: 'DatePicker' },
       { href: '/components/divider',     label: 'Divider' },
       { href: '/components/empty-state', label: 'EmptyState' },
+      { href: '/components/header',      label: 'Header' },
       { href: '/components/helper-text', label: 'HelperText' },
       { href: '/components/input',       label: 'Input' },
       { href: '/components/list-item',   label: 'ListItem' },

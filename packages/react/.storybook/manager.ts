@@ -5,8 +5,9 @@ const theme = create({
   base: 'light',
 
   // Brand
-  brandTitle: 'Switch Design System',
-  brandUrl: 'https://switch.com',
+  brandTitle: 'Interswitch Design System',
+  brandUrl: 'https://interswitchgroup.com',
+  brandImage: '/interswitch-logo.png',
   brandTarget: '_self',
 
   // Colors

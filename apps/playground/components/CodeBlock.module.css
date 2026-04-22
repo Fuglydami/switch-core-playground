@@ -1,0 +1,129 @@
+.container {
+  background: #1e1e2e;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #313244;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  background: #181825;
+  border-bottom: 1px solid #313244;
+  gap: 12px;
+}
+
+.windowControls {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #6c7086;
+}
+
+.dot[data-color="red"] {
+  background: #f38ba8;
+}
+
+.dot[data-color="yellow"] {
+  background: #f9e2af;
+}
+
+.dot[data-color="green"] {
+  background: #a6e3a1;
+}
+
+.fileName {
+  flex: 1;
+  font-size: 13px;
+  color: #cdd6f4;
+  text-align: center;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.language {
+  font-size: 11px;
+  color: #6c7086;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.copyButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  background: transparent;
+  border: 1px solid #45475a;
+  border-radius: 6px;
+  color: #a6adc8;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.copyButton:hover {
+  background: #313244;
+  color: #cdd6f4;
+  border-color: #585b70;
+}
+
+.copyButton[data-copied="true"] {
+  color: #a6e3a1;
+  border-color: #a6e3a1;
+}
+
+.codeArea {
+  display: flex;
+  overflow-x: auto;
+}
+
+.lineNumbers {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+  background: #181825;
+  border-right: 1px solid #313244;
+  text-align: right;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.lineNumbers span {
+  display: block;
+  padding: 0 12px;
+  min-width: 32px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #585b70;
+}
+
+.pre {
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+  flex: 1;
+  min-width: 0;
+}
+
+.code {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #cdd6f4;
+  white-space: pre;
+  display: block;
+}

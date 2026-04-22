@@ -17,37 +17,22 @@ const preview: Preview = {
     layout: 'padded',
     docs: {
       toc: true,
-    },
-  },
-  globalTypes: {
-    theme: {
-      name: 'Theme',
-      description: 'Global theme for components',
-      defaultValue: 'light',
-      toolbar: {
-        icon: 'circlehollow',
-        items: [
-          { value: 'light', icon: 'sun', title: 'Light' },
-          { value: 'dark', icon: 'moon', title: 'Dark' },
-        ],
-        showName: true,
-        dynamicTitle: true,
+      source: {
+        language: 'tsx',
+        type: 'code',
       },
     },
   },
   decorators: [
-    (Story, context) => {
-      const theme = context.globals.theme || 'light';
-
-      // Apply theme to the document
-      document.documentElement.setAttribute('data-theme', theme);
+    (Story) => {
+      document.documentElement.setAttribute('data-theme', 'light');
 
       return (
         <div
-          data-theme={theme}
+          data-theme="light"
           style={{
             padding: '2rem',
-            background: theme === 'dark' ? '#1f2126' : '#ffffff',
+            background: '#ffffff',
             minHeight: '100px',
             width: '100%',
             maxWidth: '100%',

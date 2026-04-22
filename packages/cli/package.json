@@ -1,0 +1,27 @@
+{
+  "name": "@switch/cli",
+  "version": "1.0.0",
+  "description": "CLI tools for Switch Design System",
+  "bin": {
+    "switch": "./dist/index.js"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "chalk": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}

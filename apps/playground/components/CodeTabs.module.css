@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.tabBar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--switch-color-neutral-100);
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.tab {
+  padding: 6px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--switch-typography-font-family-sans);
+  background: transparent;
+  color: var(--switch-color-text-secondary);
+  transition: all 150ms ease;
+}
+
+.tab:hover {
+  color: var(--switch-color-text-primary);
+}
+
+.tab[data-active="true"] {
+  background: white;
+  color: var(--switch-color-semantic-primary);
+  box-shadow: var(--switch-shadow-sm);
+}

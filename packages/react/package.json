@@ -1,34 +1,65 @@
 {
-  "name": "@switch/react",
-  "version": "0.1.0",
+  "name": "switch-core-react",
+  "version": "0.2.0",
+  "description": "Switch Core Design System - React components for Interswitch",
+  "author": "Interswitch",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Fuglydami/switch-core-playground"
+  },
+  "homepage": "https://github.com/Fuglydami/switch-core-playground#readme",
+  "bugs": {
+    "url": "https://github.com/Fuglydami/switch-core-playground/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "design-system",
+    "interswitch",
+    "switch",
+    "ui"
+  ],
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./styles": "./dist/styles/tokens.css",
+    "./styles/tokens.css": "./dist/styles/tokens.css"
   },
   "scripts": {
-    "build": "tsc --project tsconfig.build.json",
+    "build": "tsc --project tsconfig.build.json && npm run copy-css && npm run copy-tokens",
+    "copy-css": "find src -name '*.module.css' -exec sh -c 'dest=\"dist/${0#src/}\"; mkdir -p \"$(dirname \"$dest\")\"; cp \"$0\" \"$dest\"' {} \\;",
+    "copy-tokens": "mkdir -p dist/styles && cp src/styles/tokens.css dist/styles/",
     "dev": "tsc --project tsconfig.build.json --watch",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "vitest run",
     "test:watch": "vitest",
     "chromatic": "chromatic --exit-zero-on-changes",
-    "lint": "eslint src --ext .ts,.tsx"
+    "lint": "eslint src --ext .ts,.tsx",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
   },
-  "dependencies": {
-    "@switch/tokens": "workspace:*",
-    "@switch/types": "workspace:*"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@figma/code-connect": "^1.0.0",
     "@storybook/addon-a11y": "^8.0.0",
