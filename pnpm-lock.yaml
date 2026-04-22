@@ -138,13 +138,6 @@ importers:
         version: 5.9.3
 
   packages/react:
-    dependencies:
-      '@switch/tokens':
-        specifier: workspace:*
-        version: link:../tokens
-      '@switch/types':
-        specifier: workspace:*
-        version: link:../types
     devDependencies:
       '@figma/code-connect':
         specifier: ^1.0.0
