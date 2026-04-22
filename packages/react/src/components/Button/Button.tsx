@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ButtonBaseProps } from '@switch/types';
+import type { ButtonBaseProps } from '../../types';
 import styles from './Button.module.css';
 
 export interface ButtonProps

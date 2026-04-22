@@ -1,4 +1,4 @@
-import type { HelperTextBaseProps } from '@switch/types';
+import type { HelperTextBaseProps } from '../../types';
 import styles from './HelperText.module.css';
 
 export interface HelperTextProps extends HelperTextBaseProps {

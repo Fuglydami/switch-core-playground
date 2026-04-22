@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useId, useReducer, useRef } from 'react';
-import type { DatePickerBaseProps } from '@switch/types';
+import type { DatePickerBaseProps } from '../../types';
 import styles from './DatePicker.module.css';
 
 export interface DatePickerProps extends DatePickerBaseProps {

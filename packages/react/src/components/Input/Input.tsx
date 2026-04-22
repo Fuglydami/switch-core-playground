@@ -1,5 +1,5 @@
 import React from 'react';
-import type { InputSize, InputType } from '@switch/types';
+import type { InputSize, InputType } from '../../types';
 import styles from './Input.module.css';
 
 export type { InputType, InputSize };
