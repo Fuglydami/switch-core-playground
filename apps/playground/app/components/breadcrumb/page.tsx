@@ -6,7 +6,7 @@ import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Breadcrumb } from '@switch/react';
+const WEB_CODE = `import { Breadcrumb } from '@switch/react;
 
 <Breadcrumb
   items={[
