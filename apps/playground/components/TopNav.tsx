@@ -12,7 +12,7 @@ export function TopNav() {
       {/* Logo + version */}
       <div className={styles.logoArea}>
         <Link href="/" className={styles.logoLink}>
-          <img src="/interswitch-logo.png" alt="Interswitch" height={28} />
+          <img src="/interswitch-logo.png" alt="Interswitch" height={24} />
         </Link>
         <div className={styles.versionBadge}>
           v1.0.0
