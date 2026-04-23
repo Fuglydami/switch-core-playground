@@ -1,6 +1,4 @@
 {
   "buildCommand": "pnpm turbo build",
-  "installCommand": "pnpm install",
-  "framework": "nextjs",
-  "outputDirectory": "apps/playground/.next"
+  "installCommand": "pnpm install"
 }
