@@ -1,4 +1,5 @@
 {
-  "buildCommand": "pnpm turbo build",
-  "installCommand": "pnpm install"
+  "buildCommand": "cd ../.. && pnpm turbo build --filter=playground",
+  "installCommand": "cd ../.. && pnpm install",
+  "outputDirectory": ".next"
 }
