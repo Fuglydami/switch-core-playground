@@ -65,8 +65,8 @@ export const CustomSeparator: Story = {
 export const WithClickHandlers: Story = {
   args: {
     items: [
-      { id: 'home', label: 'Home', onClick: () => alert('Navigate to Home') },
-      { id: 'products', label: 'Products', onClick: () => alert('Navigate to Products') },
+      { id: 'home', label: 'Home', onClick: () => console.log('Navigate to Home') },
+      { id: 'products', label: 'Products', onClick: () => console.log('Navigate to Products') },
       { id: 'current', label: 'Current Page' },
     ],
     onNavigate: (item) => console.log('Navigated to:', item.id),

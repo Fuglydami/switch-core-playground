@@ -77,7 +77,7 @@ export const Default: Story = {
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
           onConfirm={() => {
-            alert('Confirmed!');
+            console.log('Confirmed!');
             setIsOpen(false);
           }}
           title="Confirm action"
@@ -98,7 +98,7 @@ export const Danger: Story = {
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
           onConfirm={() => {
-            alert('Deleted!');
+            console.log('Deleted!');
             setIsOpen(false);
           }}
           title="Delete this item?"

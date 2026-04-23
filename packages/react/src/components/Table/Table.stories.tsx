@@ -52,7 +52,7 @@ export const Dense: Story = {
 
 export const ClickableRows: Story = {
   args: {
-    onRowPress: (row) => alert(`Clicked: ${row.name}`),
+    onRowPress: (row) => console.log(`Clicked: ${row.name}`),
   },
 };
 

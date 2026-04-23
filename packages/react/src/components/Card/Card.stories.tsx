@@ -64,7 +64,7 @@ export const NoPadding: Story = {
 
 export const Clickable: Story = {
   args: {
-    onPress: () => alert('Card clicked!'),
+    onPress: () => console.log('Card clicked!'),
     children: (
       <div>
         <h3 style={{ margin: '0 0 8px' }}>Clickable Card</h3>

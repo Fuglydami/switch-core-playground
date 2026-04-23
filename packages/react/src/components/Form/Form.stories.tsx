@@ -64,7 +64,7 @@ export const LoginForm: Story = {
         }}
         onSubmit={async (values) => {
           await new Promise(resolve => setTimeout(resolve, 1000));
-          alert(`Login: ${JSON.stringify(values)}`);
+          console.log(`Login: ${JSON.stringify(values)}`);
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
@@ -99,7 +99,7 @@ export const RegistrationForm: Story = {
       <Form
         onSubmit={async (values) => {
           await new Promise(resolve => setTimeout(resolve, 1500));
-          alert(`Registration: ${JSON.stringify(values)}`);
+          console.log(`Registration: ${JSON.stringify(values)}`);
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
@@ -165,7 +165,7 @@ export const ContactForm: Story = {
       <Form
         onSubmit={async (values) => {
           await new Promise(resolve => setTimeout(resolve, 1000));
-          alert(`Contact form submitted: ${JSON.stringify(values)}`);
+          console.log(`Contact form submitted: ${JSON.stringify(values)}`);
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
@@ -236,7 +236,7 @@ export const ProfileForm: Story = {
         }}
         onSubmit={async (values) => {
           await new Promise(resolve => setTimeout(resolve, 1000));
-          alert(`Profile updated: ${JSON.stringify(values)}`);
+          console.log(`Profile updated: ${JSON.stringify(values)}`);
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>

@@ -54,7 +54,7 @@ export const Default: Story = {
   args: {
     title: 'Settings',
     showBack: true,
-    onBack: () => alert('Go back'),
+    onBack: () => console.log('Go back'),
   },
 };
 
@@ -62,11 +62,11 @@ export const WithTrailingActions: Story = {
   args: {
     title: 'Messages',
     showBack: true,
-    onBack: () => alert('Go back'),
+    onBack: () => console.log('Go back'),
     trailing: (
       <>
-        <AppBarAction icon={<SearchIcon />} label="Search" onClick={() => alert('Search')} />
-        <AppBarAction icon={<MoreIcon />} label="More" onClick={() => alert('More')} />
+        <AppBarAction icon={<SearchIcon />} label="Search" onClick={() => console.log('Search')} />
+        <AppBarAction icon={<MoreIcon />} label="More" onClick={() => console.log('More')} />
       </>
     ),
   },
@@ -76,9 +76,9 @@ export const WithBadge: Story = {
   args: {
     title: 'Notifications',
     showBack: true,
-    onBack: () => alert('Go back'),
+    onBack: () => console.log('Go back'),
     trailing: (
-      <AppBarAction icon={<BellIcon />} label="Notifications" badge={5} onClick={() => alert('Notifications')} />
+      <AppBarAction icon={<BellIcon />} label="Notifications" badge={5} onClick={() => console.log('Notifications')} />
     ),
   },
 };
@@ -91,7 +91,7 @@ export const LargeWithLabel: Story = {
     subtitle: 'Last updated 5 min ago',
     titleAlign: 'left',
     trailing: (
-      <AppBarAction icon={<BellIcon />} label="Notifications" badge={3} onClick={() => alert('Notifications')} />
+      <AppBarAction icon={<BellIcon />} label="Notifications" badge={3} onClick={() => console.log('Notifications')} />
     ),
   },
 };
@@ -120,7 +120,7 @@ export const DarkVariant: Story = {
   args: {
     title: 'Dark AppBar',
     showBack: true,
-    onBack: () => alert('Go back'),
+    onBack: () => console.log('Go back'),
     variant: 'dark',
     trailing: (
       <>

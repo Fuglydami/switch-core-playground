@@ -52,7 +52,7 @@ export const Clickable: Story = {
     variant: 'label',
     label: 'Click me',
     sublabel: 'I am interactive',
-    onClick: () => alert('Clicked!'),
+    onClick: () => console.log('Clicked!'),
   },
 };
 

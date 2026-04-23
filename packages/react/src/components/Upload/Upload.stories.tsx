@@ -34,7 +34,7 @@ export const Interactive: Story = {
 
     const handleFilesAdded = (newFiles: File[]) => {
       const uploadFiles: UploadFile[] = newFiles.map((f) => ({
-        id: crypto.randomUUID(),
+        id: `upload-${Date.now()}-${Math.random().toString(36).slice(2)}`,
         name: f.name,
         size: f.size,
         status: 'uploading',

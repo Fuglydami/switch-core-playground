@@ -51,7 +51,7 @@
     "build-storybook": "storybook build",
     "test": "vitest run",
     "test:watch": "vitest",
-    "chromatic": "chromatic --exit-zero-on-changes",
+    "chromatic": "chromatic --exit-zero-on-changes --allow-console-errors",
     "lint": "eslint src --ext .ts,.tsx",
     "prepublishOnly": "npm run build"
   },

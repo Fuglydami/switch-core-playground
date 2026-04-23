@@ -46,7 +46,7 @@ export const WithIcons: Story = {
         id: 'duplicate', label: 'Duplicate', shortcut: '⌘D', onClick: () => {},
         icon: <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="4" y="4" width="8" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.25" /><path d="M2 10V3a1 1 0 011-1h7" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" /></svg>,
       },
-      { id: 'sep', label: 'separator' } as never,
+      { id: 'separator', label: '' },
       {
         id: 'delete', label: 'Delete', danger: true, onClick: () => {},
         icon: <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 3.5h10M5.5 3.5V2h3v1.5M5 5.5v5M9 5.5v5M3 3.5l.5 8.5h7L11 3.5H3z" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" /></svg>,

@@ -158,7 +158,7 @@ export const WithRowClick: Story = {
   args: {
     columns,
     data: sampleUsers.slice(0, 5),
-    onRowClick: (row) => alert(`Clicked: ${row.name}`),
+    onRowClick: (row) => console.log(`Clicked: ${row.name}`),
   },
 };
 

@@ -85,7 +85,7 @@ export const WithBackButton: Story = {
   args: {
     title: 'Order Details',
     subtitle: 'Order #12345',
-    onBack: () => alert('Back clicked'),
+    onBack: () => console.log('Back clicked'),
   },
 };
 
@@ -105,7 +105,7 @@ export const FullExample: Story = {
         <Button>Refund</Button>
       </div>
     ),
-    onBack: () => alert('Back clicked'),
+    onBack: () => console.log('Back clicked'),
   },
 };
 

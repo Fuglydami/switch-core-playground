@@ -46,7 +46,7 @@ export const Default: Story = {
       designation: 'Admin',
     },
     userMenuItems,
-    onNotificationClick: () => alert('Notifications'),
+    onNotificationClick: () => console.log('Notifications clicked'),
     notificationCount: 5,
   },
 };
@@ -62,7 +62,7 @@ export const WithAvatar: Story = {
       avatar: 'https://i.pravatar.cc/80?img=5',
     },
     userMenuItems,
-    onNotificationClick: () => alert('Notifications'),
+    onNotificationClick: () => console.log('Notifications clicked'),
     notificationCount: 12,
   },
 };
@@ -78,7 +78,7 @@ export const DarkVariant: Story = {
       designation: 'Admin',
     },
     userMenuItems,
-    onNotificationClick: () => alert('Notifications'),
+    onNotificationClick: () => console.log('Notifications clicked'),
     notificationCount: 3,
   },
 };
