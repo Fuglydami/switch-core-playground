@@ -2,7 +2,7 @@ import type React from 'react';
 
 // Button types
 export type ButtonSize = 'small' | 'medium' | 'large';
-export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'outline' | 'link';
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'outline' | 'link' | 'tonal';
 export type ButtonShape = 'rectangular' | 'pill' | 'square' | 'circle';
 export type ButtonColor = 'popBlue' | 'activeBlue' | 'primaryBlue' | 'monochrome';
 

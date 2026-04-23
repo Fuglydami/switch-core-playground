@@ -26,7 +26,7 @@ Triggers actions. Use for primary CTAs, form submissions, and interactive elemen
 import { Button } from '@switch/react';
 
 <Button
-  variant="primary" | "secondary" | "tertiary" | "outline" | "link"
+  variant="primary" | "secondary" | "tertiary" | "outline" | "link" | "tonal"
   colorScheme="popBlue" | "activeBlue" | "primaryBlue" | "monochrome"
   size="small" | "medium" | "large"
   shape="rectangular" | "pill" | "square" | "circle"

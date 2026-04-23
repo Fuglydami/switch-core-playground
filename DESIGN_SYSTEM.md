@@ -42,7 +42,7 @@ import {
 ### Button
 ```tsx
 <Button
-  variant="primary" | "secondary" | "tertiary" | "outline" | "link"
+  variant="primary" | "secondary" | "tertiary" | "outline" | "link" | "tonal"
   colorScheme="popBlue" | "activeBlue" | "primaryBlue" | "monochrome"
   size="small" | "medium" | "large"
   shape="rectangular" | "pill" | "square" | "circle"
@@ -53,6 +53,11 @@ import {
   rightIcon={<Icon />}
   onPress={() => {}}
 >
+  Label
+</Button>
+
+// Tonal variant - medium opacity background with white text
+<Button variant="tonal" colorScheme="activeBlue" leftIcon={<ClockIcon />} rightIcon={<ArrowIcon />}>
   Label
 </Button>
 ```

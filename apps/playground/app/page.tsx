@@ -5,6 +5,19 @@ export const metadata: Metadata = { title: 'Switch Core — Playground' };
 
 const QUICK_LINKS = [
   {
+    href: 'https://github.com/Fuglydami/switch-core-playground/blob/main/DESIGN_SYSTEM.md',
+    label: 'Vibe Coding Guide',
+    description: 'Use AI to build UIs with Switch components',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M10 2L2 7l8 5 8-5-8-5z" fill="var(--switch-color-popblue)" />
+        <path d="M2 13l8 5 8-5" stroke="var(--switch-color-popblue)" strokeWidth="1.5" fill="none" />
+        <path d="M2 10l8 5 8-5" stroke="var(--switch-color-popblue)" strokeWidth="1.5" fill="none" opacity="0.5" />
+      </svg>
+    ),
+    external: true,
+  },
+  {
     href: '/tokens/colors',
     label: 'Design Tokens',
     description: 'Colors, spacing, typography and shadows',
@@ -102,27 +115,40 @@ export default function HomePage() {
         gap: 12,
         marginBottom: 48,
       }}>
-        {QUICK_LINKS.map((link) => (
-          <Link key={link.href} href={link.href} style={{ textDecoration: 'none' }}>
-            <div style={{
-              padding: '18px 20px',
-              background: 'var(--switch-color-surface-primary)',
-              borderRadius: 12,
-              border: '1px solid var(--switch-color-border-default)',
-              boxShadow: 'var(--switch-shadow-sm)',
-              height: '100%',
-              boxSizing: 'border-box',
-            }}>
-              <div style={{ marginBottom: 10 }}>{link.icon}</div>
-              <p style={{ fontSize: 15, fontWeight: 600, color: 'var(--switch-color-text-primary)', margin: '0 0 4px' }}>
-                {link.label}
-              </p>
-              <p style={{ fontSize: 13, color: 'var(--switch-color-text-secondary)', margin: 0, lineHeight: 1.5 }}>
-                {link.description}
-              </p>
-            </div>
-          </Link>
-        ))}
+        {QUICK_LINKS.map((link) => {
+          const isExternal = 'external' in link && link.external;
+          const LinkComponent = isExternal ? 'a' : Link;
+          const linkProps = isExternal
+            ? { href: link.href, target: '_blank', rel: 'noopener noreferrer' }
+            : { href: link.href };
+
+          return (
+            <LinkComponent key={link.href} {...linkProps} style={{ textDecoration: 'none' }}>
+              <div style={{
+                padding: '18px 20px',
+                background: 'var(--switch-color-surface-primary)',
+                borderRadius: 12,
+                border: '1px solid var(--switch-color-border-default)',
+                boxShadow: 'var(--switch-shadow-sm)',
+                height: '100%',
+                boxSizing: 'border-box',
+              }}>
+                <div style={{ marginBottom: 10 }}>{link.icon}</div>
+                <p style={{ fontSize: 15, fontWeight: 600, color: 'var(--switch-color-text-primary)', margin: '0 0 4px' }}>
+                  {link.label}
+                  {isExternal && (
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ marginLeft: 4, verticalAlign: 'middle' }}>
+                      <path d="M3.5 2.5h6v6M9 3L3 9" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  )}
+                </p>
+                <p style={{ fontSize: 13, color: 'var(--switch-color-text-secondary)', margin: 0, lineHeight: 1.5 }}>
+                  {link.description}
+                </p>
+              </div>
+            </LinkComponent>
+          );
+        })}
       </div>
 
       {/* Packages */}

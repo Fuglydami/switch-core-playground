@@ -76,6 +76,16 @@
   color: var(--switch-color-text-placeholder);
 }
 
+/* Remove browser autofill background color */
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus,
+.input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--switch-color-input-fill) inset !important;
+  -webkit-text-fill-color: var(--switch-color-text-primary) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .input:disabled {
   cursor: not-allowed;
   color: var(--switch-color-text-disabled);
@@ -143,6 +153,16 @@
   color: var(--switch-color-text-placeholder);
 }
 
+/* Remove browser autofill background color for textarea */
+.textarea:-webkit-autofill,
+.textarea:-webkit-autofill:hover,
+.textarea:-webkit-autofill:focus,
+.textarea:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--switch-color-input-fill) inset !important;
+  -webkit-text-fill-color: var(--switch-color-text-primary) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .textarea:disabled {
   cursor: not-allowed;
   color: var(--switch-color-text-disabled);
@@ -173,6 +193,16 @@
 .pinCell:focus {
   border-color: var(--switch-color-input-stroke-focus);
   box-shadow: 0 0 0 3px rgba(2, 117, 216, 0.2);
+}
+
+/* Remove browser autofill background color for PIN cells */
+.pinCell:-webkit-autofill,
+.pinCell:-webkit-autofill:hover,
+.pinCell:-webkit-autofill:focus,
+.pinCell:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--switch-color-input-fill) inset !important;
+  -webkit-text-fill-color: var(--switch-color-text-primary) !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .pinCell.small {
