@@ -1,12 +1,12 @@
 'use client';
 
-import { Menu, Button } from '@switch/react';
+import { Menu, Button } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Menu } from '@switch/react';
+const WEB_CODE = `import { Menu } from 'switch-core-react';
 
 <Menu
   trigger={<button>Actions ▾</button>}
@@ -33,7 +33,7 @@ const WEB_CODE = `import { Menu } from '@switch/react';
   ]}
 />`;
 
-const RN_CODE = `import { Menu } from '@switch/react-native';
+const RN_CODE = `import { Menu } from 'switch-core-react-native';
 import { Text } from 'react-native';
 
 <Menu

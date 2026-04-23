@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { Table } from '@switch/react';
+import { Table } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Table } from '@switch/react';
+const WEB_CODE = `import { Table } from 'switch-core-react';
 
 const columns = [
   { key: 'name',   header: 'Name',   sortable: true },

@@ -1,12 +1,12 @@
 'use client';
 
-import { AppBar, AppBarAction } from '@switch/react';
+import { AppBar, AppBarAction } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview, PreviewItem } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { AppBar, AppBarAction } from '@switch/react';
+const WEB_CODE = `import { AppBar, AppBarAction } from 'switch-core-react';
 
 // Basic with back button
 <AppBar
@@ -36,7 +36,7 @@ const WEB_CODE = `import { AppBar, AppBarAction } from '@switch/react';
   subtitle="Last updated 5 min ago"
 />`;
 
-const RN_CODE = `import { AppBar, AppBarAction } from '@switch/react-native';
+const RN_CODE = `import { AppBar, AppBarAction } from 'switch-core-react-native';
 
 // Basic with back button
 <AppBar

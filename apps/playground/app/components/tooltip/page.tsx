@@ -1,12 +1,12 @@
 'use client';
 
-import { Tooltip, Button } from '@switch/react';
+import { Tooltip, Button } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview, PreviewItem } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Tooltip } from '@switch/react';
+const WEB_CODE = `import { Tooltip } from 'switch-core-react';
 
 // Basic usage — wraps any focusable element
 <Tooltip content="Copy to clipboard">
@@ -25,7 +25,7 @@ const WEB_CODE = `import { Tooltip } from '@switch/react';
   <InfoIcon />
 </Tooltip>`;
 
-const RN_CODE = `import { Tooltip } from '@switch/react-native';
+const RN_CODE = `import { Tooltip } from 'switch-core-react-native';
 import { Text } from 'react-native';
 
 // Shows on long-press or press-in (since mobile has no hover)

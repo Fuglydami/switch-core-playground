@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@switch/react": "workspace:*",
+    "switch-core-react": "workspace:*",
     "@switch/tokens": "workspace:*",
     "@switch/types": "workspace:*",
     "next": "^15.0.0",

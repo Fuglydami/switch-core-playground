@@ -59,9 +59,6 @@ importers:
       '@next/mdx':
         specifier: ^15.0.0
         version: 15.5.15(@mdx-js/loader@3.1.1)(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.5))
-      '@switch/react':
-        specifier: workspace:*
-        version: link:../../packages/react
       '@switch/tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
@@ -80,6 +77,9 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.2.5(react@19.2.5)
+      switch-core-react:
+        specifier: workspace:*
+        version: link:../../packages/react
     devDependencies:
       '@switch/tsconfig':
         specifier: workspace:*

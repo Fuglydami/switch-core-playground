@@ -1,17 +1,17 @@
 'use client';
 
 import { useState } from 'react';
-import { Accordion } from '@switch/react';
+import { Accordion } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Accordion } from '@switch/react';
+const WEB_CODE = `import { Accordion } from 'switch-core-react';
 
 const items = [
   { id: 'faq-1', label: 'What is Switch Core?', content: 'A cross-platform design system.' },
-  { id: 'faq-2', label: 'How do I install it?',  content: 'Run pnpm add @switch/react' },
+  { id: 'faq-2', label: 'How do I install it?',  content: 'Run pnpm add switch-core-react' },
 ];
 
 // Single open (default)
@@ -23,12 +23,12 @@ const items = [
 // Borderless variant
 <Accordion items={items} variant="borderless" />`;
 
-const RN_CODE = `import { Accordion } from '@switch/react-native';
+const RN_CODE = `import { Accordion } from 'switch-core-react-native';
 import { Text } from 'react-native';
 
 const items = [
   { id: 'faq-1', label: 'What is Switch Core?', content: <Text>A cross-platform design system.</Text> },
-  { id: 'faq-2', label: 'How do I install it?',  content: <Text>Run npx expo install @switch/react-native</Text> },
+  { id: 'faq-2', label: 'How do I install it?',  content: <Text>Run npx expo install switch-core-react-native</Text> },
 ];
 
 // With animated chevron (via Reanimated)
@@ -63,7 +63,7 @@ export default function AccordionPage() {
 
   const faqItems = [
     { id: 'faq-1', label: 'What is Switch Core?', content: 'Switch Core is a cross-platform design system that provides consistent UI components for web (React) and mobile (React Native) applications.' },
-    { id: 'faq-2', label: 'How do I install it?', content: 'For web, run `pnpm add @switch/react @switch/tokens`. For React Native, run `npx expo install @switch/react-native`.' },
+    { id: 'faq-2', label: 'How do I install it?', content: 'For web, run `pnpm add switch-core-react @switch/tokens`. For React Native, run `npx expo install switch-core-react-native`.' },
     { id: 'faq-3', label: 'Is it production ready?', content: 'Yes! Switch Core is actively used in production applications and is maintained by a dedicated team.' },
   ];
 

@@ -8,7 +8,7 @@ import {
   Button,
   Table,
   Card,
-} from '@switch/react';
+} from 'switch-core-react';
 import styles from './page.module.css';
 
 // Sample transaction data

@@ -1,6 +1,6 @@
 'use client';
 
-import { HelperText } from '@switch/react';
+import { HelperText } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
@@ -9,7 +9,7 @@ import { ComponentPreview } from '@/components/ComponentPreview';
 const WEB_CODE = `// HelperText is React Native-only.
 // On web, use the helperText prop on <Input> instead:
 
-import { Input } from '@switch/react';
+import { Input } from 'switch-core-react';
 
 <Input
   label="Transfer amount"
@@ -18,7 +18,7 @@ import { Input } from '@switch/react';
 
 // For standalone guidance blocks, use a plain <p> or a dedicated callout component.`;
 
-const RN_CODE = `import { HelperText } from '@switch/react-native';
+const RN_CODE = `import { HelperText } from 'switch-core-react-native';
 
 // Informational
 <HelperText variant="info">

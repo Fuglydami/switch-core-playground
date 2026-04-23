@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { Header, Button } from '@switch/react';
+import { Header, Button } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Header, Button } from '@switch/react';
+const WEB_CODE = `import { Header, Button } from 'switch-core-react';
 
 // Dashboard header with user profile
 <Header

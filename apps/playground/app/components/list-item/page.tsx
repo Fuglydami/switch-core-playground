@@ -1,12 +1,12 @@
 'use client';
 
-import { ListItem, Checkbox } from '@switch/react';
+import { ListItem, Checkbox } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { ListItem, Checkbox, Switch } from '@switch/react';
+const WEB_CODE = `import { ListItem, Checkbox, Switch } from 'switch-core-react';
 
 // Label only
 <ListItem variant="label" label="Account settings" />
@@ -37,7 +37,7 @@ const WEB_CODE = `import { ListItem, Checkbox, Switch } from '@switch/react';
   control={<Switch checked={enabled} onChange={setEnabled} />}
 />`;
 
-const RN_CODE = `import { ListItem } from '@switch/react-native';
+const RN_CODE = `import { ListItem } from 'switch-core-react-native';
 
 // Label only
 <ListItem variant="label" label="Account settings" />

@@ -1,12 +1,12 @@
 'use client';
 
-import { Avatar, AvatarGroup } from '@switch/react';
+import { Avatar, AvatarGroup } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview, PreviewItem } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Avatar, AvatarGroup } from '@switch/react';
+const WEB_CODE = `import { Avatar, AvatarGroup } from 'switch-core-react';
 
 // Image avatar
 <Avatar src="/path/to/photo.jpg" alt="Ada Okafor" size="medium" />
@@ -26,7 +26,7 @@ const WEB_CODE = `import { Avatar, AvatarGroup } from '@switch/react';
   max={4}
 />`;
 
-const RN_CODE = `import { Avatar } from '@switch/react-native';
+const RN_CODE = `import { Avatar } from 'switch-core-react-native';
 
 // Image avatar
 <Avatar src="https://example.com/photo.jpg" alt="Ada Okafor" size="medium" />

@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { SideNav } from '@switch/react';
+import { SideNav } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview, PreviewItem } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { SideNav } from '@switch/react';
+const WEB_CODE = `import { SideNav } from 'switch-core-react';
 
 <SideNav
   theme="light"       // or "dark"
@@ -35,7 +35,7 @@ const WEB_CODE = `import { SideNav } from '@switch/react';
   ]}
 />`;
 
-const RN_CODE = `import { SideNav } from '@switch/react-native';
+const RN_CODE = `import { SideNav } from 'switch-core-react-native';
 import { View, Text } from 'react-native';
 
 <SideNav

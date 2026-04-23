@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { BottomNav } from '@switch/react';
+import { BottomNav } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { BottomNav } from '@switch/react';
+const WEB_CODE = `import { BottomNav } from 'switch-core-react';
 
 <BottomNav
   activeId="home"
@@ -21,7 +21,7 @@ const WEB_CODE = `import { BottomNav } from '@switch/react';
   ]}
 />`;
 
-const RN_CODE = `import { BottomNav } from '@switch/react-native';
+const RN_CODE = `import { BottomNav } from 'switch-core-react-native';
 
 <BottomNav
   activeId="home"

@@ -1,13 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { RingLoader, ProgressBar, StepProgress } from '@switch/react';
+import { RingLoader, ProgressBar, StepProgress } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview, PreviewItem } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { RingLoader, ProgressBar, StepProgress } from '@switch/react';
+const WEB_CODE = `import { RingLoader, ProgressBar, StepProgress } from 'switch-core-react';
 
 // Indeterminate spinner
 <RingLoader size="medium" />
@@ -35,7 +35,7 @@ const WEB_CODE = `import { RingLoader, ProgressBar, StepProgress } from '@switch
   orientation="vertical"
 />`;
 
-const RN_CODE = `import { RingLoader, ProgressBar, StepProgress } from '@switch/react-native';
+const RN_CODE = `import { RingLoader, ProgressBar, StepProgress } from 'switch-core-react-native';
 
 // Indeterminate spinner
 <RingLoader size="medium" />

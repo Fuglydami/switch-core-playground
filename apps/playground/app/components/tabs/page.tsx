@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { Tabs } from '@switch/react';
+import { Tabs } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Tabs } from '@switch/react';
+const WEB_CODE = `import { Tabs } from 'switch-core-react';
 
 const items = [
   { id: 'overview', label: 'Overview' },
@@ -43,7 +43,7 @@ const iconItems = [
 // Pill variant
 <Tabs items={items} activeId={active} onChange={setActive} variant="pill" />`;
 
-const RN_CODE = `import { Tabs } from '@switch/react-native';
+const RN_CODE = `import { Tabs } from 'switch-core-react-native';
 
 const items = [
   { id: 'overview', label: 'Overview' },

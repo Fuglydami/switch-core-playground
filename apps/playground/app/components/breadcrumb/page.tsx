@@ -1,12 +1,12 @@
 'use client';
 
-import { Breadcrumb } from '@switch/react';
+import { Breadcrumb } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Breadcrumb } from '@switch/react;
+const WEB_CODE = `import { Breadcrumb } from 'switch-core-react;
 
 <Breadcrumb
   items={[

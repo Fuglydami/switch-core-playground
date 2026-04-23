@@ -1,12 +1,12 @@
 'use client';
 
-import { Toast } from '@switch/react';
+import { Toast } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { useToast, ToastContainer } from '@switch/react';
+const WEB_CODE = `import { useToast, ToastContainer } from 'switch-core-react';
 
 function Example() {
   const { toasts, toast } = useToast();
@@ -32,7 +32,7 @@ function Example() {
   );
 }`;
 
-const RN_CODE = `import { useToast, ToastContainer } from '@switch/react-native';
+const RN_CODE = `import { useToast, ToastContainer } from 'switch-core-react-native';
 
 function Example() {
   const { show } = useToast();

@@ -8,23 +8,23 @@ export default function PlatformsPage() {
     <div>
       <h1 style={{ fontSize: 28, fontWeight: 700, margin: '0 0 8px' }}>Platform Guide</h1>
       <p style={{ color: '#6b7280', fontSize: 16, margin: '0 0 40px' }}>
-        When to use <code>@switch/react</code> vs <code>@switch/react-native</code>, and how to set up each in a consumer project.
+        When to use <code>switch-core-react</code> vs <code>switch-core-react-native</code>, and how to set up each in a consumer project.
       </p>
 
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Package Overview</h2>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
           <PackageCard
-            name="@switch/react"
+            name="switch-core-react"
             badge={<PlatformBadge platforms={['web']} />}
             description="React 19 components using HTML primitives, CSS Modules, and CSS custom properties from @switch/tokens/css."
-            install="pnpm add @switch/react @switch/tokens"
+            install="pnpm add switch-core-react @switch/tokens"
           />
           <PackageCard
-            name="@switch/react-native"
+            name="switch-core-react-native"
             badge={<PlatformBadge platforms={['ios', 'android']} />}
             description="React Native 0.84 components using View/Text/Pressable, StyleSheet.create(), and unitless tokens from @switch/tokens/rn."
-            install="npx expo install @switch/react-native react-native-reanimated react-native-gesture-handler react-native-safe-area-context"
+            install="npx expo install switch-core-react-native react-native-reanimated react-native-gesture-handler react-native-safe-area-context"
           />
         </div>
       </section>
@@ -32,8 +32,8 @@ export default function PlatformsPage() {
       <section style={{ marginBottom: 40 }}>
         <h2 style={{ fontSize: 20, fontWeight: 700, margin: '0 0 16px' }}>Shared Token Architecture</h2>
         <pre style={{ background: '#1e293b', color: '#e2e8f0', padding: '16px', borderRadius: 12, fontSize: 13, overflow: 'auto' }}>
-{`@switch/tokens ──▶  dist/css/variables.css  →  @switch/react (web)
-             ╚────▶  dist/rn/tokens.js       →  @switch/react-native (mobile)
+{`@switch/tokens ──▶  dist/css/variables.css  →  switch-core-react (web)
+             ╚────▶  dist/rn/tokens.js       →  switch-core-react-native (mobile)
 
 @switch/types  ──▶  both packages (shared prop interfaces — onPress convention)`}
         </pre>
@@ -63,7 +63,7 @@ export default function App() {
         </pre>
         <div style={{ background: 'rgba(238,49,42,0.06)', border: '1px solid rgba(238,49,42,0.2)', borderRadius: 8, padding: '10px 14px', marginTop: 12 }}>
           <p style={{ fontSize: 14, color: '#374151', margin: 0 }}>
-            <strong>New Architecture required.</strong> <code>@switch/react-native</code> uses <code>react-native-reanimated</code> v4 and requires <code>newArchEnabled: true</code> in your Expo config. The legacy bridge is not supported.
+            <strong>New Architecture required.</strong> <code>switch-core-react-native</code> uses <code>react-native-reanimated</code> v4 and requires <code>newArchEnabled: true</code> in your Expo config. The legacy bridge is not supported.
           </p>
         </div>
       </section>
@@ -77,9 +77,9 @@ export default function App() {
 {`// Same code works on both platforms (different import path):
 
 // Web
-import { Button } from '@switch/react';
+import { Button } from 'switch-core-react';
 // RN
-import { Button } from '@switch/react-native';
+import { Button } from 'switch-core-react-native';
 
 <Button variant="primary" colorScheme="activeBlue" onPress={() => save()}>
   Save changes

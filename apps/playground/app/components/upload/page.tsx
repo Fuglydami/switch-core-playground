@@ -1,13 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Upload } from '@switch/react';
+import { Upload } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Upload } from '@switch/react';
+const WEB_CODE = `import { Upload } from 'switch-core-react';
 import { useState } from 'react';
 
 function Example() {

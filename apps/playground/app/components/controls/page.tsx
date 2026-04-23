@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { Checkbox, Radio, Toggle } from '@switch/react';
+import { Checkbox, Radio, Toggle } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview, PreviewItem } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Checkbox, Radio, Toggle } from '@switch/react';
+const WEB_CODE = `import { Checkbox, Radio, Toggle } from 'switch-core-react';
 
 // Checkbox
 <Checkbox label="Accept terms" size={20} />
@@ -22,7 +22,7 @@ const WEB_CODE = `import { Checkbox, Radio, Toggle } from '@switch/react';
 <Toggle label="Notifications" size="medium" defaultChecked />
 <Toggle label="Dark mode"     size="large" />`;
 
-const RN_CODE = `import { Checkbox, Radio, Toggle } from '@switch/react-native';
+const RN_CODE = `import { Checkbox, Radio, Toggle } from 'switch-core-react-native';
 
 // Checkbox (controlled)
 <Checkbox

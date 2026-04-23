@@ -1,12 +1,12 @@
 'use client';
 
-import { Card, StatCard } from '@switch/react';
+import { Card, StatCard } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview, PreviewItem } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Card, StatCard } from '@switch/react';
+const WEB_CODE = `import { Card, StatCard } from 'switch-core-react';
 
 // Generic card container
 <Card shadow="base" padding="medium">
@@ -28,7 +28,7 @@ const WEB_CODE = `import { Card, StatCard } from '@switch/react';
   onAction={() => router.push('/institutions')}
 />`;
 
-const RN_CODE = `import { Card, StatCard } from '@switch/react-native';
+const RN_CODE = `import { Card, StatCard } from 'switch-core-react-native';
 
 // Generic card container
 <Card shadow="base" padding="medium">

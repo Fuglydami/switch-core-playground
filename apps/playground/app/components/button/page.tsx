@@ -1,12 +1,12 @@
 'use client';
 
-import { Button } from '@switch/react';
+import { Button } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview, PreviewItem } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Button } from '@switch/react';
+const WEB_CODE = `import { Button } from 'switch-core-react';
 
 // Primary
 <Button variant="primary" colorScheme="activeBlue" onPress={() => {}}>
@@ -44,7 +44,7 @@ const WEB_CODE = `import { Button } from '@switch/react';
 <Button leftIcon={<IconPlus />}>Add item</Button>
 <Button rightIcon={<IconArrow />}>Next</Button>`;
 
-const RN_CODE = `import { Button } from '@switch/react-native';
+const RN_CODE = `import { Button } from 'switch-core-react-native';
 
 // Primary
 <Button variant="primary" colorScheme="activeBlue" onPress={() => {}}>
@@ -227,13 +227,13 @@ export default function ButtonPage() {
           <div>
             <p style={{ fontSize: 13, fontWeight: 600, color: 'var(--switch-color-text-secondary)', margin: '0 0 8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Web</p>
             <pre style={{ background: '#1e293b', color: '#e2e8f0', padding: '12px 16px', borderRadius: 8, fontSize: 13, margin: 0, overflow: 'auto' }}>
-              {`pnpm add @switch/react @switch/tokens`}
+              {`pnpm add switch-core-react @switch/tokens`}
             </pre>
           </div>
           <div>
             <p style={{ fontSize: 13, fontWeight: 600, color: 'var(--switch-color-text-secondary)', margin: '0 0 8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>React Native (Expo)</p>
             <pre style={{ background: '#1e293b', color: '#e2e8f0', padding: '12px 16px', borderRadius: 8, fontSize: 13, margin: 0, overflow: 'auto' }}>
-              {`npx expo install @switch/react-native \\
+              {`npx expo install switch-core-react-native \\
   react-native-reanimated \\
   react-native-gesture-handler \\
   react-native-safe-area-context`}

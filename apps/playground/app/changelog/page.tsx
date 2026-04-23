@@ -117,7 +117,7 @@ export default function ChangelogPage() {
       <section className={styles.parity}>
         <h2 className={styles.parityTitle}>React Native Parity</h2>
         <p className={styles.parityDescription}>
-          The following components are available in <code>@switch/react</code> but not yet in <code>@switch/react-native</code>:
+          The following components are available in <code>switch-core-react</code> but not yet in <code>switch-core-react-native</code>:
         </p>
         <ul className={styles.parityList}>
           <li><strong>Navigation:</strong> Breadcrumb, BottomNav, Header, AppBar</li>

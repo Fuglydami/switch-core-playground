@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
-/* Import the canonical component design tokens from @switch/react */
-@import '@switch/react/styles/tokens.css';
+/* Import the canonical component design tokens from switch-core-react */
+@import 'switch-core-react/styles';
 
 /* ============================================================
    Switch Core Documentation — Design Tokens & Theme System

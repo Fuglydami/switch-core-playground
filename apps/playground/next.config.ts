@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
   experimental: {
     mdxRs: true,
   },
-  transpilePackages: ['@switch/react', '@switch/tokens'],
+  transpilePackages: ['switch-core-react', '@switch/tokens'],
 };
 
 export default withMDX(nextConfig);

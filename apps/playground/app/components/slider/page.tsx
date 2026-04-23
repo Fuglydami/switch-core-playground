@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { Slider, RangeSlider } from '@switch/react';
+import { Slider, RangeSlider } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview, PreviewItem } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Slider, RangeSlider } from '@switch/react';
+const WEB_CODE = `import { Slider, RangeSlider } from 'switch-core-react';
 
 // Single handle
 <Slider
@@ -38,7 +38,7 @@ const WEB_CODE = `import { Slider, RangeSlider } from '@switch/react';
   formatLabel={(v) => \`₦\${(v / 1000000).toFixed(1)}M\`}
 />`;
 
-const RN_CODE = `import { Slider } from '@switch/react-native';
+const RN_CODE = `import { Slider } from 'switch-core-react-native';
 
 // Single handle with pan gesture (via Reanimated)
 <Slider

@@ -1,6 +1,6 @@
 'use client';
 
-import { Card, Alert } from '@switch/react';
+import { Card, Alert } from 'switch-core-react';
 import { CodeBlock } from '../../components/CodeBlock';
 import styles from './page.module.css';
 
@@ -20,11 +20,11 @@ export default function GuidelinesPage() {
         <Card className={styles.card}>
           <h3 className={styles.cardTitle}>Installation</h3>
           <CodeBlock
-            code={`npm install @switch/react
+            code={`npm install switch-core-react
 # or
-yarn add @switch/react
+yarn add switch-core-react
 # or
-pnpm add @switch/react`}
+pnpm add switch-core-react`}
             language="bash"
             fileName="terminal"
           />
@@ -37,10 +37,10 @@ pnpm add @switch/react`}
           </p>
           <CodeBlock
             code={`// app/layout.tsx or _app.tsx
-import '@switch/react/styles.css';
+import 'switch-core-react/styles.css';
 
 // Then import components as needed
-import { Button, Input, Modal } from '@switch/react';`}
+import { Button, Input, Modal } from 'switch-core-react';`}
             language="tsx"
             fileName="layout.tsx"
           />
@@ -57,7 +57,7 @@ import { Button, Input, Modal } from '@switch/react';`}
           </p>
           <CodeBlock
             code={`// Quick form with validation
-import { Form, validators } from '@switch/react';
+import { Form, validators } from 'switch-core-react';
 
 <Form
   onSubmit={handleSubmit}
@@ -111,14 +111,14 @@ import { Form, validators } from '@switch/react';
           </p>
           <CodeBlock
             code={`// In your root layout
-import { ToastProvider } from '@switch/react';
+import { ToastProvider } from 'switch-core-react';
 
 export default function Layout({ children }) {
   return <ToastProvider>{children}</ToastProvider>;
 }
 
 // In any component
-import { useToast } from '@switch/react';
+import { useToast } from 'switch-core-react';
 
 function SaveButton() {
   const toast = useToast();
@@ -140,7 +140,7 @@ function SaveButton() {
             Use <code>DataTable</code> for searchable, paginated tables with minimal setup.
           </p>
           <CodeBlock
-            code={`import { DataTable } from '@switch/react';
+            code={`import { DataTable } from 'switch-core-react';
 
 const columns = [
   { id: 'name', header: 'Name', accessor: 'name' },

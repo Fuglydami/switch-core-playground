@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { DatePicker } from '@switch/react';
+import { DatePicker } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { DatePicker } from '@switch/react';
+const WEB_CODE = `import { DatePicker } from 'switch-core-react';
 import { useState } from 'react';
 
 function Example() {
@@ -25,7 +25,7 @@ function Example() {
   );
 }`;
 
-const RN_CODE = `import { DatePicker } from '@switch/react-native';
+const RN_CODE = `import { DatePicker } from 'switch-core-react-native';
 import { useState } from 'react';
 
 function Example() {

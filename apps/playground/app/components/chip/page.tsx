@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { Chip } from '@switch/react';
+import { Chip } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview, PreviewItem } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Chip } from '@switch/react';
+const WEB_CODE = `import { Chip } from 'switch-core-react';
 
 // Removable filter chip
 <Chip
@@ -28,7 +28,7 @@ const WEB_CODE = `import { Chip } from '@switch/react';
 <Chip label="Small" size="small" />
 <Chip label="Medium" size="medium" />`;
 
-const RN_CODE = `import { Chip } from '@switch/react-native';
+const RN_CODE = `import { Chip } from 'switch-core-react-native';
 
 // Removable filter chip
 <Chip

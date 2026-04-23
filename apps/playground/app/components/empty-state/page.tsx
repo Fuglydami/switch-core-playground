@@ -1,12 +1,12 @@
 'use client';
 
-import { EmptyState, Button } from '@switch/react';
+import { EmptyState, Button } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { EmptyState } from '@switch/react';
+const WEB_CODE = `import { EmptyState } from 'switch-core-react';
 
 // With default placeholder illustration
 <EmptyState
@@ -24,8 +24,8 @@ const WEB_CODE = `import { EmptyState } from '@switch/react';
   secondaryAction={<a href="/settings">Notification settings</a>}
 />`;
 
-const RN_CODE = `import { EmptyState } from '@switch/react-native';
-import { Button } from '@switch/react-native';
+const RN_CODE = `import { EmptyState } from 'switch-core-react-native';
+import { Button } from 'switch-core-react-native';
 import { Image } from 'react-native';
 
 // With default placeholder illustration

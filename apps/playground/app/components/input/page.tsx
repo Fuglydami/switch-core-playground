@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { Input, Select } from '@switch/react';
+import { Input, Select } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview, PreviewItem } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Input, Select } from '@switch/react';
+const WEB_CODE = `import { Input, Select } from 'switch-core-react';
 
 // Basic input
 <Input
@@ -61,7 +61,7 @@ const WEB_CODE = `import { Input, Select } from '@switch/react';
   ]}
 />`;
 
-const RN_CODE = `import { Input } from '@switch/react-native';
+const RN_CODE = `import { Input } from 'switch-core-react-native';
 
 // Basic input
 <Input
@@ -82,7 +82,7 @@ const RN_CODE = `import { Input } from '@switch/react-native';
 // Disabled
 <Input label="Account ID" value="ACC-00123" disabled />
 
-// Note: Select is not in @switch/react-native v1.0.
+// Note: Select is not in switch-core-react-native v1.0.
 // Use the platform Picker or a custom bottom-sheet picker instead.`;
 
 const INPUT_PROPS = [

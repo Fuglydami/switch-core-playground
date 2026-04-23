@@ -65,8 +65,8 @@ const QUICK_LINKS = [
 ];
 
 const PACKAGES = [
-  { name: '@switch/react',        description: 'Web components (React DOM)',         status: 'stable' },
-  { name: '@switch/react-native', description: 'Mobile components (React Native)',   status: 'stable' },
+  { name: 'switch-core-react',        description: 'Web components (React DOM)',         status: 'stable' },
+  { name: 'switch-core-react-native', description: 'Mobile components (React Native)',   status: 'stable' },
   { name: '@switch/tokens',       description: 'Design tokens (CSS, JS, Tailwind, RN)', status: 'stable' },
   { name: '@switch/icons',        description: 'SVG icon library (React + RN)',      status: 'beta'   },
 ];
@@ -239,13 +239,13 @@ export default function HomePage() {
             margin: 0,
             lineHeight: 1.7,
           }}>{`# Install packages
-pnpm add @switch/react @switch/tokens
+pnpm add switch-core-react @switch/tokens
 
 # In your app entry
 import '@switch/tokens/css';
 
 # Use components
-import { Button, Input } from '@switch/react';
+import { Button, Input } from 'switch-core-react';
 
 <Button variant="primary" colorScheme="activeBlue" onPress={() => {}}>
   Get started

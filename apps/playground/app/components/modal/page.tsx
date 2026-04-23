@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { Modal, Button } from '@switch/react';
+import { Modal, Button } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Modal } from '@switch/react';
+const WEB_CODE = `import { Modal } from 'switch-core-react';
 import { useState } from 'react';
 
 function Example() {
@@ -35,7 +35,7 @@ function Example() {
   );
 }`;
 
-const RN_CODE = `import { Modal } from '@switch/react-native';
+const RN_CODE = `import { Modal } from 'switch-core-react-native';
 import { useState } from 'react';
 
 function Example() {

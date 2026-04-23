@@ -1,12 +1,12 @@
 'use client';
 
-import { Divider } from '@switch/react';
+import { Divider } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Divider } from '@switch/react';
+const WEB_CODE = `import { Divider } from 'switch-core-react';
 
 // Plain horizontal rule
 <Divider />
@@ -22,7 +22,7 @@ const WEB_CODE = `import { Divider } from '@switch/react';
   <span>Content</span>
 </div>`;
 
-const RN_CODE = `import { Divider } from '@switch/react-native';
+const RN_CODE = `import { Divider } from 'switch-core-react-native';
 import { View, Text } from 'react-native';
 
 // Plain horizontal rule

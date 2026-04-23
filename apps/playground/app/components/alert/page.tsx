@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { Alert } from '@switch/react';
+import { Alert } from 'switch-core-react';
 import { PlatformBadge } from '@/components/PlatformBadge';
 import { PropsTable } from '@/components/PropsTable';
 import { CodeTabs } from '@/components/CodeTabs';
 import { ComponentPreview } from '@/components/ComponentPreview';
 
-const WEB_CODE = `import { Alert } from '@switch/react';
+const WEB_CODE = `import { Alert } from 'switch-core-react';
 
 <Alert variant="info">This is an informational message.</Alert>
 
@@ -26,7 +26,7 @@ const WEB_CODE = `import { Alert } from '@switch/react';
   Your card was declined. Please check your payment details.
 </Alert>`;
 
-const RN_CODE = `import { Alert } from '@switch/react-native';
+const RN_CODE = `import { Alert } from 'switch-core-react-native';
 
 <Alert variant="success">Your payment was processed successfully.</Alert>
 
