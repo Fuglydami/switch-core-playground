@@ -12,12 +12,18 @@ export function TopNav() {
       {/* Logo + version */}
       <div className={styles.logoArea}>
         <Link href="/" className={styles.logoLink}>
-          <img src="/interswitch-logo.png" alt="Interswitch" height={24} />
+          <img src="/interswitch-logo.png" alt="Interswitch" width={150} height={28} />
         </Link>
         <div className={styles.versionBadge}>
           v1.0.0
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-            <path d="M2 4l3 3 3-3" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+            <path
+              d="M2 4l3 3 3-3"
+              stroke="currentColor"
+              strokeWidth="1.25"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </div>
       </div>
@@ -39,11 +45,19 @@ export function TopNav() {
 
       {/* Right nav */}
       <nav className={styles.rightNav}>
-        <Link href="/guidelines/platforms" className={styles.navLink}>Platforms</Link>
-        <Link href="/guidelines/accessibility" className={styles.navLink}>Accessibility</Link>
-        <Link href="/changelog" className={styles.navLink}>Changelog</Link>
+        <Link href="/guidelines/platforms" className={styles.navLink}>
+          Platforms
+        </Link>
+        <Link href="/guidelines/accessibility" className={styles.navLink}>
+          Accessibility
+        </Link>
+        <Link href="/changelog" className={styles.navLink}>
+          Changelog
+        </Link>
 
-        <div className={styles.avatar} aria-hidden="true">SC</div>
+        <div className={styles.avatar} aria-hidden="true">
+          SC
+        </div>
       </nav>
     </header>
   );
