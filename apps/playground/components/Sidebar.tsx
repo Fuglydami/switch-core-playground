@@ -68,7 +68,11 @@ const NAV: NavSection[] = [
 
 const RESOURCES = [
   { label: 'Figma Plugin', icon: '🎨', href: '#' },
-  { label: 'Storybook',    icon: '📖', href: '#' },
+  {
+    label: 'Storybook',
+    icon: '📖',
+    href: 'https://69e7740643766d793dd9a5ca-kmpxpepvae.chromatic.com',
+  },
 ];
 
 export function Sidebar() {
