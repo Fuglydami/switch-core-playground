@@ -1,5 +1,5 @@
 {
-  "name": "@switch/react",
+  "name": "switch-core-react",
   "version": "0.2.0",
   "description": "Switch Core Design System - React components for Interswitch",
   "author": "Interswitch",
